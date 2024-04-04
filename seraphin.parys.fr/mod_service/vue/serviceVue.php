@@ -21,7 +21,7 @@ class ServiceVue
 
         $this->tpl->assign('deconnexion', "Déconnexion");
 
-        $this->tpl->assign('login', $_SESSION['prenomNom']);
+        $this->tpl->assign('login', $_SESSION['prenomnom']);
 
     }
 
