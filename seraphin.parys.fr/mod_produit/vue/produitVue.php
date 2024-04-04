@@ -23,7 +23,7 @@ class ProduitVue
 
         $this->tpl->assign('deconnexion', "Déconnexion");
 
-        $this->tpl->assign('login', $_SESSION['prenomnom']);
+        $this->tpl->assign('login', $_SESSION['prenomNom']);
     }
 
     /**
