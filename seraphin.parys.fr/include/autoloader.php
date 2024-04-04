@@ -32,6 +32,14 @@ class Autoloader
             'mod_authentification/controleur/',
             'mod_authentification/modele/',
             'mod_authentification/vue/',
+            'mod_produit/',
+            'mod_produit/controleur/',
+            'mod_produit/modele/',
+            'mod_produit/vue/',
+            'mod_recette/',
+            'mod_recette/controleur/',
+            'mod_recette/modele/',
+            'mod_recette/vue/',
         ];
 
 

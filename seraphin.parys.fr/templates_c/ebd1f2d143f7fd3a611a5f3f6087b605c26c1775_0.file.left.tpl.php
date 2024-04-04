@@ -1,4 +1,27 @@
-<!-- Left Panel -->
+<?php
+/* Smarty version 4.3.2, created on 2024-04-04 11:49:05
+  from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\public\left.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.2',
+  'unifunc' => 'content_660e93b102c656_03349900',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ebd1f2d143f7fd3a611a5f3f6087b605c26c1775' => 
+    array (
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\public\\left.tpl',
+      1 => 1712231344,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_660e93b102c656_03349900 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -7,7 +30,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php">{$titrePrincipal}</a>
+                <a class="navbar-brand" href="index.php"><?php echo $_smarty_tpl->tpl_vars['titrePrincipal']->value;?>
+</a>
                 <a class="navbar-brand hidden" href="index.php">SP</a>
             </div>
 
@@ -31,12 +55,10 @@
                             <li><i class="fa fa-table"></i><a href="index.php?gestion=produit&action=form_ajouter">Nouveau</a></li>
                         </ul>
                     </li>
-{*                    <li class="dropdown">*}
-{*                        <a href="#A VOUS D'ECRIRE LE LIEN" > <i class="menu-icon fa fa-th"></i>Mon profil</a>*}
-{*                    </li>*}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
 
-    <!-- Left Panel -->
+    <!-- Left Panel --><?php }
+}
