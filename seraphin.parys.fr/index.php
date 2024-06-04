@@ -16,7 +16,7 @@ Autoloader::chargerClasse();
         $_REQUEST['gestion'] = 'accueil';
     }
 
-//var_dump($_REQUEST);
+//var_dump($_REQUEST ["gestion"]);
 
 //Création d'un objet instance du routeur appelé.
 $oRouteur = new $_REQUEST['gestion']($_REQUEST);

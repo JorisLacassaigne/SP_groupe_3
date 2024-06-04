@@ -1,6 +1,6 @@
 <?php
 
-class ServiceVue
+class SalonVue
 {
 
     private $parametre = []; // $_REQUEST
@@ -26,24 +26,24 @@ class ServiceVue
     }
 
     /**
-     * @param $services
+     * @param $salon
      * @return void
      */
-    public function genererAffichageListe($services){
+    public function genererAffichageListe($salon){
 
         $this->chargementPrincipal();
 
-        $this->tpl->assign('titrePage', 'Liste des Services');
+        $this->tpl->assign('titrePage', 'Liste des Salon');
 
-        $this->tpl->assign('listeServices', $services);
+        $this->tpl->assign('listeSalon', $salon);
 
-        $this->tpl->display('mod_service/vue/serviceListeVue.tpl');
+        $this->tpl->display('mod_salon/vue/salonListeVue.tpl');
 
 
     }
 
 
-    public function genererAffichageFiche($services){
+    public function genererAffichageFiche($salon){
 
         $this->chargementPrincipal();
 
@@ -53,9 +53,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'consulter');
 
-                $this->tpl->assign('titrePage', 'Fiche Services : Consultation');
+                $this->tpl->assign('titrePage', 'Fiche Salon : Consultation');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unSalon', $salon);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -67,9 +67,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'ajouter');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Création');
+                $this->tpl->assign('titrePage', 'Fiche salon : Création');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unSalon', $salon);
 
                 $this->tpl->assign('readonly', '');
 
@@ -81,9 +81,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'modifier');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Modification');
+                $this->tpl->assign('titrePage', 'Fiche Salon : Modification');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unSalon', $salon);
 
                 $this->tpl->assign('readonly', '');
                 break;
@@ -94,9 +94,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'supprimer');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Suppression');
+                $this->tpl->assign('titrePage', 'Fiche Salon : Suppression');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unSalon', $salon);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -104,7 +104,7 @@ class ServiceVue
         }
 
 
-        $this->tpl->display('mod_service/vue/serviceFicheVue.tpl');
+        $this->tpl->display('mod_salon/vue/salonFicheVue.tpl');
 
     }
 

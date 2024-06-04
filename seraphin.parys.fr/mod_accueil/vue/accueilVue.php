@@ -25,7 +25,7 @@ class AccueilVue{
 
         $this->tpl->assign('deconnexion', "Déconnexion");
 
-        $this->tpl->assign('login', $_SESSION['prenomnom']);
+        $this->tpl->assign('login', $_SESSION['prenomNom']);
 
         $this->tpl->assign('tabBord', $tabBord);
 

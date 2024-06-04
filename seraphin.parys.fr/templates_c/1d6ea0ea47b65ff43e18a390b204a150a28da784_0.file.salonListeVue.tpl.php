@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-05-22 09:07:03
-  from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\mod_service\vue\serviceListeVue.tpl' */
+/* Smarty version 4.3.2, created on 2024-05-22 09:09:20
+  from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\mod_salon\vue\salonListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_664db5b7190299_32606161',
+  'unifunc' => 'content_664db64056b155_10557639',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '51394020f2be71630a5e439a2ebc64f5dcfb87f6' => 
+    '1d6ea0ea47b65ff43e18a390b204a150a28da784' => 
     array (
-      0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\mod_service\\vue\\serviceListeVue.tpl',
-      1 => 1714633856,
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\mod_salon\\vue\\salonListeVue.tpl',
+      1 => 1707310592,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl) {
+function content_664db64056b155_10557639 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -97,7 +97,7 @@ function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl)
                     <ol class="breadcrumb text-right">
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=service">Services</a></li>
+                        <li><a href="index.php?gestion=salon">salon</a></li>
                         <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </li>
                     </ol>
@@ -106,8 +106,8 @@ function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <div <?php if (ServiceTable::getMessageSucces() != '') {?> class="alert alert-success" role="alert"<?php }?>>
-        <?php echo ServiceTable::getMessageSucces();?>
+    <div <?php if (SalonTable::getMessageSucces() != '') {?> class="alert alert-success" role="alert"<?php }?>>
+        <?php echo SalonTable::getMessageSucces();?>
 
     </div>
 
@@ -124,9 +124,9 @@ function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl)
 
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
                                 <form class="pos-ajout" action="index.php" method="POST">
-                                    <input type="hidden" name="gestion" value="service">
+                                    <input type="hidden" name="gestion" value="salon">
                                     <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Ajouter un service :
+                                    <label>Ajouter un Salon :
                                         <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
                                     </label>
                                 </form>
@@ -135,15 +135,16 @@ function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl)
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
-
+                                <!-- PLACER LA LISTE DES salons -->
                                 <thead>
                                 <tr>
 
-                                    <th>Code Service</th>
-                                    <th>Etat</th>
-                                    <th>Service</th>
-                                    <th>Description</th>
-
+                                    <th>Code du Salon</th>
+                                    <th>Nom </th>
+                                    <th>Ville</th>
+                                    <th>Téléphone</th>
+                                    <th>Date Debut</th>
+                                    <th>Date Fin</th>
                                     <th>Consulter</th>
                                     <th>Modifier</th>
                                     <th>Supprimer</th>
@@ -153,45 +154,48 @@ function content_664db5b7190299_32606161 (Smarty_Internal_Template $_smarty_tpl)
 
                                 <tbody>
                                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeServices']->value, 'service');
-$_smarty_tpl->tpl_vars['service']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['service']->value) {
-$_smarty_tpl->tpl_vars['service']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeSalon']->value, 'salon');
+$_smarty_tpl->tpl_vars['salon']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['salon']->value) {
+$_smarty_tpl->tpl_vars['salon']->do_else = false;
 ?>
 
                                     <tr>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['service']->value->getCodes();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getCodes();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['service']->value->getEtat();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getNom();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['service']->value->getNom();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getVille();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['service']->value->getDescription();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getTelephone();?>
 </td>
-
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getDatedebut();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['salon']->value->getDatefin();?>
+</td>
                                         <td class="pos-actions">
                                             <form method="POST" action="index.php">
-                                                <input type="hidden" name="gestion" value="service">
+                                                <input type="hidden" name="gestion" value="salon">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['service']->value->getCodes();?>
+                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['salon']->value->getCodes();?>
 ">
                                                 <input type="image" name="btn_consulter" src="public/images/icones/p16.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
                                             <form method="POST" action="index.php">
-                                                <input type="hidden" name="gestion" value="service">
+                                                <input type="hidden" name="gestion" value="salon">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['service']->value->getCodes();?>
+                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['salon']->value->getCodes();?>
 ">
                                                 <input type="image" name="btn_modifier" src="public/images/icones/m16.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
                                             <form method="POST" action="index.php">
-                                                <input type="hidden" name="gestion" value="service">
+                                                <input type="hidden" name="gestion" value="salon">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['service']->value->getCodes();?>
+                                                <input type="hidden" name="codes" value="<?php echo $_smarty_tpl->tpl_vars['salon']->value->getCodes();?>
 ">
                                                 <input type="image" name="btn_supprimer" src="public/images/icones/s16.png">
                                             </form>
@@ -215,7 +219,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
                     </div><!-- /#right-panel -->
-
 
                     <!-- Right Panel -->
                     <?php echo '<script'; ?>

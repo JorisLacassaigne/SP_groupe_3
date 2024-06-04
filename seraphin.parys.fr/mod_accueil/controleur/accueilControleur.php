@@ -10,7 +10,7 @@ class AccueilControleur{
         // Initialisation de la propriété $parametre ($_REQUEST)
         $this->parametre = $parametre;
         // Chargement du script accueilVue.php
-        // require_once 'mod_accueil/vue/accueilVue.php';
+         require_once 'mod_accueil/vue/accueilVue.php';
         // Instanciation de la classe accueilVue
         $this->oVue = new AccueilVue($this->parametre);
     }

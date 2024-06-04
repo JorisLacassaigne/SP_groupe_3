@@ -1,6 +1,6 @@
 <?php
 
-class ServiceVue
+class ClientVue
 {
 
     private $parametre = []; // $_REQUEST
@@ -26,24 +26,24 @@ class ServiceVue
     }
 
     /**
-     * @param $services
+     * @param $clients
      * @return void
      */
-    public function genererAffichageListe($services){
+    public function genererAffichageListe($clients){
 
         $this->chargementPrincipal();
 
-        $this->tpl->assign('titrePage', 'Liste des Services');
+        $this->tpl->assign('titrePage', 'Liste des Clients');
 
-        $this->tpl->assign('listeServices', $services);
+        $this->tpl->assign('listeClients', $clients);
 
-        $this->tpl->display('mod_service/vue/serviceListeVue.tpl');
+        $this->tpl->display('mod_client/vue/clientListeVue.tpl');
 
 
     }
 
 
-    public function genererAffichageFiche($services){
+    public function genererAffichageFiche($client){
 
         $this->chargementPrincipal();
 
@@ -53,9 +53,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'consulter');
 
-                $this->tpl->assign('titrePage', 'Fiche Services : Consultation');
+                $this->tpl->assign('titrePage', 'Fiche Client : Consultation');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unClient', $client);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -67,9 +67,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'ajouter');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Création');
+                $this->tpl->assign('titrePage', 'Fiche Client : Création');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unClient', $client);
 
                 $this->tpl->assign('readonly', '');
 
@@ -81,9 +81,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'modifier');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Modification');
+                $this->tpl->assign('titrePage', 'Fiche Client : Modification');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unClient', $client);
 
                 $this->tpl->assign('readonly', '');
                 break;
@@ -94,9 +94,9 @@ class ServiceVue
 
                 $this->tpl->assign('action', 'supprimer');
 
-                $this->tpl->assign('titrePage', 'Fiche Service : Suppression');
+                $this->tpl->assign('titrePage', 'Fiche Client : Suppression');
 
-                $this->tpl->assign('unService', $services);
+                $this->tpl->assign('unClient', $client);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -104,7 +104,7 @@ class ServiceVue
         }
 
 
-        $this->tpl->display('mod_service/vue/serviceFicheVue.tpl');
+        $this->tpl->display('mod_client/vue/clientFicheVue.tpl');
 
     }
 

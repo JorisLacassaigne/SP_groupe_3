@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-03 16:03:09
+/* Smarty version 4.3.2, created on 2024-05-22 09:09:11
   from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_665de93da775e2_54079394',
+  'unifunc' => 'content_664db6370cbf17_72326154',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4557d23ba8e077ab2a0652bb2bca34a8ae3e93b5' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\mod_produit\\vue\\produitListeVue.tpl',
-      1 => 1717429408,
+      1 => 1714633856,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_665de93da775e2_54079394 (Smarty_Internal_Template $_smarty_tpl) {
+function content_664db6370cbf17_72326154 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
