@@ -48,6 +48,10 @@ class Autoloader
             'mod_client/controleur/',
             'mod_client/modele/',
             'mod_client/vue/',
+            'mod_commande/',
+            'mod_commande/controller/',
+            'mod_commande/modele/',
+            'mod_commande/vue/',
         ];
 
 

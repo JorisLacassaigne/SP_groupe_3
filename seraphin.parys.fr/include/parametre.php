@@ -1,7 +1,7 @@
 <?php
 
 define('SERVEUR', 'localhost');
-define('BASE', 'spfilrouge');
+define('BASE', 'seraphinparysfilrouge_1');
 define('NOM', 'root');
 define('PASSE', '');
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-05-22 09:41:07
+/* Smarty version 4.3.2, created on 2024-06-04 09:32:40
   from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_664dbdb3aa84d2_30740926',
+  'unifunc' => 'content_665edf386a02b5_26730520',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebd1f2d143f7fd3a611a5f3f6087b605c26c1775' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\public\\left.tpl',
-      1 => 1716370864,
+      1 => 1717493551,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_664dbdb3aa84d2_30740926 (Smarty_Internal_Template $_smarty_tpl) {
+function content_665edf386a02b5_26730520 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -87,7 +87,7 @@ function content_664dbdb3aa84d2_30740926 (Smarty_Internal_Template $_smarty_tpl)
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="menu-icon fa fa-tasks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="#">Toutes les commandes</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
                             <li><i class="fa fa-table"></i><a href="#">Commandes non Validées</a></li>
                             <li><i class="fa fa-table"></i><a href="#">Commandes annulées</a></li>
                         </ul>
