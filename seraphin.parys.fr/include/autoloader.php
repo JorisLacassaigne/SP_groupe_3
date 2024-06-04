@@ -40,6 +40,14 @@ class Autoloader
             'mod_recette/controleur/',
             'mod_recette/modele/',
             'mod_recette/vue/',
+            'mod_salon/',
+            'mod_salon/controleur/',
+            'mod_salon/modele/',
+            'mod_salon/vue/',
+            'mod_client/',
+            'mod_client/controleur/',
+            'mod_client/modele/',
+            'mod_client/vue/',
         ];
 
 
