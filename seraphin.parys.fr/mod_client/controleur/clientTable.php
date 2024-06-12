@@ -4,6 +4,7 @@ class ClientTable{
 
     private $codec;
     private $nom;
+    private $prenom;
     private $adresse;
     private $cp;
     private $ville;
@@ -79,6 +80,23 @@ class ClientTable{
 
         $this->nom = $nom;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom): void
+    {
+        $this->prenom = $prenom;
+    }
+
 
     /**
      * @return mixed

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-05-22 09:07:23
+/* Smarty version 4.3.2, created on 2024-06-12 15:18:43
   from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_664db5cbde7a41_20007357',
+  'unifunc' => 'content_6669bc537a13c8_82307186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '46879bf198215a140ed9c3bbec51fd83eef220a1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1707299973,
+      1 => 1718205520,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_664db5cbde7a41_20007357 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6669bc537a13c8_82307186 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\include\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!doctype html>
@@ -149,10 +149,17 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                                 <?php }?>
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nom">Nom et Prénom :</label>
+                                    <label class="form-control-label" for="nom">Nom :</label>
                                     <input type="text" name="nom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getNom();?>
+">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="prenom">Prénom :</label>
+                                    <input type="text" name="prenom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getPrenom();?>
 ">
                                 </div>
                                 <div class="form-group">
@@ -174,13 +181,6 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                                     <input type="text" name="ville" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getVille();?>
-">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="telephone">Téléphone :</label>
-                                    <input type="text" name="telephone" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
-
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getTelephone();?>
 ">
                                 </div>
                                 <div class="form-group">

@@ -1,7 +1,9 @@
 <?php
 
 namespace mod_recette\vue;
-use Smarty;class RecetteVue
+use Smarty;
+
+class RecetteVue
 {
     private
         $parametre = []; // $_REQUEST

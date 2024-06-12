@@ -47,10 +47,11 @@ Class ClientModele extends Modele{
 
     public function addClient(ClientTable $unClient){
 
-        $sql='INSERT INTO client (nom, adresse, cp, ville, telephone) VALUES (?,?,?,?,?)';
+        $sql='INSERT INTO client (nom, prenom, adresse, cp, ville, telephone) VALUES (?,?,?,?,?,?)';
 
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
+            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),
@@ -65,10 +66,11 @@ Class ClientModele extends Modele{
 
     public function editClient(ClientTable $unClient){
 
-        $sql = 'UPDATE client SET nom = ?, adresse = ?, cp = ? , ville = ?, telephone = ? WHERE codec = ? ';
+        $sql = 'UPDATE client SET nom = ?, prenom = ?, adresse = ?, cp = ? , ville = ?, telephone = ? WHERE codec = ? ';
 
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
+            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),

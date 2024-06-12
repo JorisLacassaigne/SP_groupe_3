@@ -39,6 +39,7 @@ class Autoloader
             'mod_recette/',
             'mod_recette/controleur/',
             'mod_recette/modele/',
+            'mod_recette/recettes_a_telecharger/',
             'mod_recette/vue/',
             'mod_salon/',
             'mod_salon/controleur/',

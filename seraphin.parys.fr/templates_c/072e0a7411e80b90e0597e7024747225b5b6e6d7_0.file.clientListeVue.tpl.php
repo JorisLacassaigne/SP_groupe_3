@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-05-22 09:06:54
+/* Smarty version 4.3.2, created on 2024-06-12 15:18:11
   from 'C:\laragon\www\SP_groupe_3\seraphin.parys.fr\mod_client\vue\clientListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_664db5ae674733_30633069',
+  'unifunc' => 'content_6669bc335b4c25_11677005',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '072e0a7411e80b90e0597e7024747225b5b6e6d7' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\seraphin.parys.fr\\mod_client\\vue\\clientListeVue.tpl',
-      1 => 1706611076,
+      1 => 1718205378,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_664db5ae674733_30633069 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6669bc335b4c25_11677005 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -140,7 +140,8 @@ function content_664db5ae674733_30633069 (Smarty_Internal_Template $_smarty_tpl)
                                 <tr>
 
                                     <th>Code Client</th>
-                                    <th>Nom et Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
                                     <th>Ville</th>
                                     <th>Téléphone</th>
                                     <th>Consulter</th>
@@ -162,6 +163,8 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                         <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 </td>
                                         <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getNom();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getPrenom();?>
 </td>
                                         <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getVille();?>
 </td>

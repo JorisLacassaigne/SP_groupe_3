@@ -111,9 +111,14 @@
                                 {/if}
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nom">Nom et Prénom :</label>
+                                    <label class="form-control-label" for="nom">Nom :</label>
                                     <input type="text" name="nom" class="form-control" {$readonly}
                                            value="{$unClient->getNom()}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="prenom">Prénom :</label>
+                                    <input type="text" name="prenom" class="form-control" {$readonly}
+                                           value="{$unClient->getPrenom()}">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="adresse">Adresse :</label>
@@ -129,11 +134,6 @@
                                     <label class="form-control-label" for="ville">Ville :</label>
                                     <input type="text" name="ville" class="form-control" {$readonly}
                                            value="{$unClient->getVille()}">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="telephone">Téléphone :</label>
-                                    <input type="text" name="telephone" class="form-control" {$readonly}
-                                           value="{$unClient->getTelephone()}">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="telephone">Téléphone :</label>

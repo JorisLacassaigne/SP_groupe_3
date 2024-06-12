@@ -106,7 +106,8 @@
                                 <tr>
 
                                     <th>Code Client</th>
-                                    <th>Nom et Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
                                     <th>Ville</th>
                                     <th>Téléphone</th>
                                     <th>Consulter</th>
@@ -122,6 +123,7 @@
                                     <tr>
                                         <td>{$client->getCodec()}</td>
                                         <td>{$client->getNom()}</td>
+                                        <td>{$client->getPrenom()}</td>
                                         <td>{$client->getVille()}</td>
                                         <td>{$client->getTelephone()}</td>
                                         <td class="pos-actions">
