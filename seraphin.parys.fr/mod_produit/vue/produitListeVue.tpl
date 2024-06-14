@@ -92,13 +92,13 @@
                             <strong class="card-title"><!-- PLACER LE TITRE DE LA PAGE-->
 
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
-                                <form class="pos-ajout" action="index.php" method="POST">
+                                <!---<form class="pos-ajout" action="index.php" method="POST">
                                     <input type="hidden" name="gestion" value="produit">
                                     <input type="hidden" name="action" value="form_ajouter">
                                     <label>Ajouter un produit :
                                         <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
                                     </label>
-                                </form>
+                                </form>--->
                             </strong>
                         </div>
                         <div class="card-body">
