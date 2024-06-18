@@ -37,7 +37,7 @@ class ClientVue
 
         $this->tpl->assign('listeClients', $clients);
 
-        $this->tpl->display('mod_client/vue/vendeurListeVue.tpl');
+        $this->tpl->display('mod_client/vue/clientListeVue.tpl');
 
 
     }
@@ -104,7 +104,7 @@ class ClientVue
         }
 
 
-        $this->tpl->display('mod_client/vue/vendeurFicheVue.tpl');
+        $this->tpl->display('mod_client/vue/clientFicheVue.tpl');
 
     }
 

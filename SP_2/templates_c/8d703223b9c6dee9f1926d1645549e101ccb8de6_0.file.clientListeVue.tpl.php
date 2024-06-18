@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 13:45:17
-  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\vendeurListeVue.tpl' */
+/* Smarty version 4.3.2, created on 2024-06-18 15:36:48
+  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\clientListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66718f6d3eb021_33864302',
+  'unifunc' => 'content_6671a9909c2628_36254940',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8d703223b9c6dee9f1926d1645549e101ccb8de6' => 
     array (
-      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\vendeurListeVue.tpl',
-      1 => 1718713913,
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\clientListeVue.tpl',
+      1 => 1718721814,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66718f6d3eb021_33864302 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
