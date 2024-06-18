@@ -1,6 +1,6 @@
 <?php
 
-class Client{
+class Vendeur{
 
     private $parametre = []; // Tableau = $_REQUEST
 
@@ -10,7 +10,7 @@ class Client{
 
         $this->parametre = $parametre;
 
-        $this->oControleur = new ClientControleur($this->parametre);
+        $this->oControleur = new VendeurControleur($this->parametre);
     }
 
     public function choixAction(){

@@ -2,9 +2,9 @@
 
 class VendeurTable{
 
-    private $codec;
-    private $nom;
+    private $codev;
     private $prenom;
+    private $nom;
     private $adresse;
     private $cp;
     private $ville;
@@ -46,18 +46,17 @@ class VendeurTable{
     /**
      * @return mixed
      */
-    public function getCodec()
+    public function getCodev()
     {
-        return $this->codec;
+        return $this->codev;
     }
 
-
     /**
-     * @param mixed $codec
+     * @param mixed $codev
      */
-    public function setCodec($codec): void
+    public function setCodev($codev): void
     {
-        $this->codec = $codec;
+        $this->codev = $codev;
     }
 
     /**
@@ -74,7 +73,7 @@ class VendeurTable{
     public function setNom($nom): void
     {
         if(empty($nom) || ctype_space($nom)){
-            self::setMessageErreur("Le nom du client est obligatoire.");
+            self::setMessageErreur("Le nom du vendeur est obligatoire.");
             $this->setAutorisationBD(false);
         }
 

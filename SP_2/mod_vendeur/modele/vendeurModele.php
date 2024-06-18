@@ -9,20 +9,20 @@ Class VendeurModele extends Modele{
     }
 
 
-    public function getListeClients(){
+    public function getListeVendeurs(){
 
-        $sql = 'SELECT * FROM client';
+        $sql = 'SELECT * FROM vendeur';
 
         $idRequete = $this->executeRequete($sql);
 
         if($idRequete->rowCount() > 0){
             // Création du tableau d'objets
-            while($unClient = $idRequete->fetch(PDO::FETCH_ASSOC)){
+            while($unVendeur = $idRequete->fetch(PDO::FETCH_ASSOC)){
 
-                $listeClients[] = new ClientTable($unClient);
+                $listeVendeurs[] = new VendeurTable($unVendeur);
             }
 
-            return $listeClients;
+            return $listeVendeurs;
 
         }else{
 
@@ -31,99 +31,79 @@ Class VendeurModele extends Modele{
 
     }
 
-    public function getUnClient(){
+    public function getUnVendeur(){
 
-        $sql = 'SELECT * FROM client WHERE codec = ?';
+        $sql = 'SELECT * FROM vendeur WHERE codev = ?';
 
         $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codec'],
+            $this->parametre['codev'],
         ]);
 
-        $leClient = new ClientTable($idRequete->fetch(PDO::FETCH_ASSOC));
+        $leVendeur = new VendeurTable($idRequete->fetch(PDO::FETCH_ASSOC));
 
-        return $leClient;
+        return $leVendeur;
 
     }
 
-    public function addClient(ClientTable $unClient){
+    public function addVendeur(VendeurTable $unVendeur){
 
-        $sql='INSERT INTO client (nom, prenom, adresse, cp, ville, telephone) VALUES (?,?,?,?,?,?)';
-
-        $idRequete = $this->executeRequete($sql, [
-            $unClient->getNom(),
-            $unClient->getPrenom(),
-            $unClient->getAdresse(),
-            $unClient->getCp(),
-            $unClient->getVille(),
-            $unClient->getTelephone(),
-        ]);
-
-        if($idRequete){
-            ClientTable::setMessageSucces("Ajout effectué avec succès.");
-        }
-    }
-
-
-    public function editClient(ClientTable $unClient){
-
-        $sql = 'UPDATE client SET nom = ?, prenom = ?, adresse = ?, cp = ? , ville = ?, telephone = ? WHERE codec = ? ';
+        $sql='INSERT INTO vendeur (nom, prenom, adresse, cp, ville, telephone) VALUES (?,?,?,?,?,?)';
 
         $idRequete = $this->executeRequete($sql, [
-            $unClient->getNom(),
-            $unClient->getPrenom(),
-            $unClient->getAdresse(),
-            $unClient->getCp(),
-            $unClient->getVille(),
-            $unClient->getTelephone(),
-            $unClient->getCodec(),
+            $unVendeur->getNom(),
+            $unVendeur->getPrenom(),
+            $unVendeur->getAdresse(),
+            $unVendeur->getCp(),
+            $unVendeur->getVille(),
+            $unVendeur->getTelephone(),
         ]);
 
         if($idRequete){
-            ClientTable::setMessageSucces("Modification effectuée avec succès.");
-        }
-
-    }
-
-    public function suppressionPossible(){
-
-        $sql = 'SELECT COUNT(codec) AS nombre FROM commande WHERE codec = ?';
-
-        $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codec'],
-            ]);
-
-        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
-
-        if($row['nombre'] > 0){
-
-            return false;
-
-        }else{
-
-            return true;
+            VendeurTable::setMessageSucces("Ajout effectué avec succès.");
         }
     }
 
 
-    public function deleteClient(){
+    public function editVendeur(VendeurTable $unVendeur){
 
-        $sql = 'DELETE FROM client WHERE codec = ?';
+        $sql = 'UPDATE vendeur SET nom = ?, prenom = ?, adresse = ?, cp = ? , ville = ?, telephone = ? WHERE codev = ? ';
 
         $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codec'],
+            $unVendeur->getNom(),
+            $unVendeur->getPrenom(),
+            $unVendeur->getAdresse(),
+            $unVendeur->getCp(),
+            $unVendeur->getVille(),
+            $unVendeur->getTelephone(),
+            $unVendeur->getCodev(),
+        ]);
+
+        if($idRequete){
+            VendeurTable::setMessageSucces("Modification effectuée avec succès.");
+        }
+
+    }
+
+
+    public function deleteVendeur(){
+
+        $sql = 'DELETE FROM vendeur WHERE codev = ?';
+
+        $idRequete = $this->executeRequete($sql, [
+            $this->parametre['codev'],
         ]);
 
         if($idRequete){
 
-            ClientTable::setMessageSucces("Suppression effectuée avec succès.");
+            VendeurTable::setMessageSucces("Suppression effectuée avec succès.");
 
         }
     }
 
-    public function stat01(ClientTable $enCours){
-        $sql ='SELECT SUM(total_ht) AS st01 FROM commande WHERE codec = ?';
+    public function stat01(VendeurTable $enCours){
+        $sql ='SELECT SUM(total_ht) AS st01 FROM commande WHERE codev = ?';
         $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codec'],
+            $this->parametre['codev'],
             ]);
         $row= $idRequete-> fetch(PDO::FETCH_ASSOC);
         if ($row['st01'] != null){

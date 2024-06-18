@@ -23,36 +23,36 @@ class VendeurControleur{
 
     public function form_consulter(){
 
-        $client = $this->oModele->getUnClient();
-        $this->oModele->stat01($client);
+        $vendeur = $this->oModele->getUnVendeur();
+        $this->oModele->stat01($vendeur);
 
-        $this->oVue->genererAffichageFiche($client);
+        $this->oVue->genererAffichageFiche($vendeur);
     }
 
     public function form_ajouter(){
 
-        $prepareClient = new ClientTable();
+        $prepareVendeur = new VendeurTable();
 
 
-        $this->oVue->genererAffichageFiche($prepareClient);
+        $this->oVue->genererAffichageFiche($prepareVendeur);
 
     }
 
     public function form_modifier(){
 
-        $client = $this->oModele->getUnClient();
-        $this->oModele->stat01($client);
+        $client = $this->oModele->getUnVendeur();
+        $this->oModele->stat01($vendeur);
 
-        $this->oVue->genererAffichageFiche($client);
+        $this->oVue->genererAffichageFiche($vendeur);
 
     }
 
     public function form_supprimer(){
 
-        $client = $this->oModele->getUnClient();
-        $this->oModele->stat01($client);
+        $vendeur = $this->oModele->getUnVendeur();
+        $this->oModele->stat01($vendeur);
 
-        $this->oVue->genererAffichageFiche($client);
+        $this->oVue->genererAffichageFiche($vendeur);
     }
 
     public function ajouter(){
@@ -70,16 +70,16 @@ class VendeurControleur{
             // Ajout également d'un message de type succès
         // FINSI
 
-        $controleClient = new ClientTable($this->parametre);
+        $controleVendeur = new VendeurTable($this->parametre);
 
 //        var_dump($controleClient);
-        if($controleClient->getAutorisationBD() == false){
+        if($controleVendeur->getAutorisationBD() == false){
 
-            $this->oVue->genererAffichageFiche($controleClient);
+            $this->oVue->genererAffichageFiche($controleVendeur);
 
         }else{
 
-            $this->oModele->addClient($controleClient);
+            $this->oModele->addVendeur($controleVendeur);
 
             $this->lister();
 
