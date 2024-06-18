@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$titrePrincipal}</title>
+    <title>{$titrePage}</title>
     <meta name="description" content="{$titrePage}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -59,7 +59,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Séraphin PARYS</h1>
+                    <h1>{$titrePrincipal}</h1>
                 </div>
             </div>
         </div>
@@ -77,7 +77,6 @@
     </div>
 
 
-
     <div class="content mt-3">
         <div class="animated fadeIn">
 
@@ -85,62 +84,61 @@
 
                 <div class="col-md-6">
 
-                    <div {if ClientTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert"{/if}>
-
+                    <div {if ClientTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
                         {ClientTable::getMessageErreur()}
-
                     </div>
 
                     <div class="card">
                         <div class="card-header"><strong>{$titrePage}</strong></div>
                         <form action="index.php" method="POST">
 
-                            <!-- PLACER LE FORMULAIRE  -->
+                            <!-- PLACER LE FORMULAIRE EN CONSULTATION -->
                             <input type="hidden" name="gestion" value="client">
-                            <input type="hidden" name="action" value="{$action}">
-
+                            <input type="hidden" name="action" value={$action}>
 
                             <div class="card-body card-block">
-
                                 {if $action neq 'ajouter'}
                                     <div class="form-group">
-                                        <label class="form-control-label" for="codec">Code Client :</label>
+                                        <label class="form-control-label" for="codec">Code client : </label>
                                         <input type="text" name="codec" class="form-control" readonly
                                                value="{$unClient->getCodec()}">
                                     </div>
                                 {/if}
-
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nom">Nom :</label>
+                                    <label class="form-control-label" for="nom">Nom : </label>
                                     <input type="text" name="nom" class="form-control" {$readonly}
                                            value="{$unClient->getNom()}">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="prenom">Prénom :</label>
+                                    <label class="form-control-label" for="prenom">Prénom : </label>
                                     <input type="text" name="prenom" class="form-control" {$readonly}
                                            value="{$unClient->getPrenom()}">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="adresse">Adresse :</label>
+                                    <label class="form-control-label" for="adresse">Adresse : </label>
                                     <input type="text" name="adresse" class="form-control" {$readonly}
                                            value="{$unClient->getAdresse()}">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="cp">Code Postal :</label>
+                                    <label class="form-control-label" for="cp">Code postal : </label>
                                     <input type="text" name="cp" class="form-control" {$readonly}
                                            value="{$unClient->getCp()}">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="ville">Ville :</label>
+                                    <label class="form-control-label" for="ville">Ville : </label>
                                     <input type="text" name="ville" class="form-control" {$readonly}
                                            value="{$unClient->getVille()}">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="telephone">Téléphone :</label>
+                                    <label class="form-control-label" for="telephone">Téléphone : </label>
                                     <input type="text" name="telephone" class="form-control" {$readonly}
                                            value="{$unClient->getTelephone()}">
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="form-control-label" for="email">Email : </label>
+                                    <input type="text" name="email" class="form-control" {$readonly}
+                                           value="{$unClient->getEmail()}">
+                                </div>
 
                             </div>
 
@@ -149,32 +147,30 @@
                                 <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour"
                                                              onclick="location.href='index.php?gestion=client'">
                                 </div>
-
-                                <div class="col-md-6 ">
-                                    {if $action != 'consulter'}
+                                <div class="col-md-6">
+                                    {if $action != "consulter"}
                                         <input class="btn btn-submit float-right" type="submit" name="btn_valider"
                                                value="{$action|capitalize}">
                                     {/if}
                                 </div>
-
                         </form>
                     </div>
                 </div>
 
-            </div><!-- .animated -->
-            <div class="col-md-6 ">
+            </div>
+            <!-- .animated -->
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header"><strong>Statistique</strong></div>
+                    <div class="card-header"><strong>Statistiques</strong></div>
                     <div class="card-body">
-                        <div class="form-group"><strong>CA réalisé : </strong> {$unClient->getStat01()} € </div>
-                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong> VALEUR</div>
-                        <div class="form-group"><strong>Ses 5 meilleurs achats : </strong> VALEUR</div>
+                        <div class="form-group"><strong>CA réalisé : </strong>{$unClient->getStat01()} €</div>
+                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong>VALEUR</div>
+                        <div class="form-group"><strong>Ses 5 meilleurs achats : </strong>VALEUR</div>
                     </div>
                 </div>
             </div>
         </div>
-
-        </div><!-- .content -->
+        <!-- .content -->
 
 
     </div><!-- /#right-panel -->

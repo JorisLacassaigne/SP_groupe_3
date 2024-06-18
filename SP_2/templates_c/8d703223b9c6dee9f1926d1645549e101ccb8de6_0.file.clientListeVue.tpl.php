@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 15:36:48
+/* Smarty version 4.3.2, created on 2024-06-18 16:32:04
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\clientListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6671a9909c2628_36254940',
+  'unifunc' => 'content_6671b6847436d4_84961128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8d703223b9c6dee9f1926d1645549e101ccb8de6' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\clientListeVue.tpl',
-      1 => 1718721814,
+      1 => 1718728324,
       2 => 'file',
     ),
   ),
@@ -22,19 +22,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6671b6847436d4_84961128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content=<?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+>
     <title><?php echo $_smarty_tpl->tpl_vars['titrePrincipal']->value;?>
 </title>
-    <meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-">
+    <meta name="description" content="<!-- PLACER LE TITRE-->">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -70,7 +74,6 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
 <!-- FIN : Left Panel -->
 
 
-
 <!-- Right Panel -->
 
 <div id="right-panel" class="right-panel">
@@ -82,11 +85,12 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
 
     <!-- FIN : header -->
 
+
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Séraphin PARYS</h1>
+                    <h1><!-- PLACER LE SLOGAN--></h1>
                 </div>
             </div>
         </div>
@@ -96,7 +100,7 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
                     <ol class="breadcrumb text-right">
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=client">Clients</a></li>
+                        <li><a href="index.php?gestion=client">Client</a></li>
                         <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </li>
                     </ol>
@@ -105,7 +109,7 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <div <?php if (ClientTable::getMessageSucces() != '') {?> class="alert alert-success" role="alert"<?php }?>>
+    <div <?php if (ClientTable::getMessageSucces() != '') {?> class="alert-success" role="alert" <?php }?>>
         <?php echo ClientTable::getMessageSucces();?>
 
     </div>
@@ -119,7 +123,7 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
 
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+                            <strong class="card-title"><!-- PLACER LE TITRE DE LA PAGE-->
 
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
                                 <form class="pos-ajout" action="index.php" method="POST">
@@ -129,7 +133,6 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
                                         <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
                                     </label>
                                 </form>
-
                             </strong>
                         </div>
                         <div class="card-body">
@@ -137,11 +140,10 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
                                 <!-- PLACER LA LISTE DES CLIENTS -->
                                 <thead>
                                 <tr>
-
-                                    <th>Code Client</th>
+                                    <th>Code CLient</th>
                                     <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Ville</th>
+                                    <th>Prenom</th>
+                                    <th>Villes</th>
                                     <th>Téléphone</th>
                                     <th>Consulter</th>
                                     <th>Modifier</th>
@@ -150,7 +152,6 @@ function content_6671a9909c2628_36254940 (Smarty_Internal_Template $_smarty_tpl)
 
                                 </tr>
                                 </thead>
-
                                 <tbody>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeClients']->value, 'client');
@@ -158,7 +159,6 @@ $_smarty_tpl->tpl_vars['client']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['client']->value) {
 $_smarty_tpl->tpl_vars['client']->do_else = false;
 ?>
-
                                     <tr>
                                         <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 </td>
@@ -170,13 +170,14 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
 </td>
                                         <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getTelephone();?>
 </td>
-                                        <td class="pos-actions">
+                                        <td class=pos-actions>
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_consulter">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 ">
-                                                <input type="image" name="btn_consulter" src="public/images/icones/p16.png">
+                                                <input type="image" name="btn_consulter"
+                                                       src="public/images/icones/p32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -185,7 +186,8 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 ">
-                                                <input type="image" name="btn_modifier" src="public/images/icones/m16.png">
+                                                <input type="image" name="btn_modifier"
+                                                       src="public/images/icones/m32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -194,7 +196,8 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 ">
-                                                <input type="image" name="btn_supprimer" src="public/images/icones/s16.png">
+                                                <input type="image" name="btn_supprimer"
+                                                       src="public/images/icones/s32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -203,85 +206,86 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                                 <input type="hidden" name="action" value="form_commander">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 ">
-                                                <input type="image" name="form_commander" src="public/images/icones/s16.png">
+                                                <input type="image" name="btn_commander"
+                                                       src="public/images/icones/s32.png">
                                             </form>
                                         </td>
                                     </tr>
-
                                 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
-
                                 </tbody>
-                           </table>
-                       </div>
-                   </div>
-               </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
-           </div><!-- .animated -->
-                        </div><!-- .content -->
+            </div>
+            <!- .animated -->
+        </div>
+        <!-- .content -->
 
 
-                    </div><!-- /#right-panel -->
+    </div><!-- /#right-panel -->
 
-                    <!-- Right Panel -->
-                    <?php echo '<script'; ?>
+    <!-- Right Panel -->
+    <?php echo '<script'; ?>
  src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/plugins.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/main.js"><?php echo '</script'; ?>
 >
 
 
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/datatables.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/dataTables.buttons.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/jszip.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/pdfmake.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/vfs_fonts.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.html5.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.print.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.colVis.min.js"><?php echo '</script'; ?>
 >
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
 >
 
 
-                    <?php echo '<script'; ?>
+    <?php echo '<script'; ?>
  type="text/javascript">
-                        $(document).ready(function () {
-                            $('#bootstrap-data-table-export').DataTable();
-                        });
-                    <?php echo '</script'; ?>
+        $(document).ready(function () {
+            $('#bootstrap-data-table-export').DataTable();
+        });
+    <?php echo '</script'; ?>
 >
 
 </body>

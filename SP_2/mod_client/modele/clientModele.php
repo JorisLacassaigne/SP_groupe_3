@@ -1,135 +1,135 @@
 <?php
-Class ClientModele extends Modele{
 
-    private $parametre = []; //$_REQUEST
+class ClientModele extends Modele
+{
 
-    public function __construct($parametre){
+    private $parametre = []; // $_REQUEST
+
+    public function __construct($parametre)
+    {
 
         $this->parametre = $parametre;
     }
 
 
-    public function getListeClients(){
+    public function getListeClient()
+    {
 
         $sql = 'SELECT * FROM client';
 
         $idRequete = $this->executeRequete($sql);
 
-        if($idRequete->rowCount() > 0){
+        if ($idRequete->rowCount() > 0) {
             // Création du tableau d'objets
-            while($unClient = $idRequete->fetch(PDO::FETCH_ASSOC)){
+            while ($unCLient = $idRequete->fetch(PDO::FETCH_ASSOC)) {
 
-                $listeClients[] = new ClientTable($unClient);
+                $listeClients[] = new ClientTable($unCLient);
             }
 
             return $listeClients;
 
-        }else{
+        } else {
 
             return null;
         }
-
     }
 
-    public function getUnClient(){
+    public function getUnClient()
+    {
 
         $sql = 'SELECT * FROM client WHERE codec = ?';
-
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['codec'],
         ]);
 
-        $leClient = new ClientTable($idRequete->fetch(PDO::FETCH_ASSOC));
+        $leCLient = new ClientTable($idRequete->fetch(PDO::FETCH_ASSOC));
 
-        return $leClient;
-
+        return $leCLient;
     }
 
-    public function addClient(ClientTable $unClient){
+    public function addClient(ClientTable $unClient)
+    {
 
-        $sql='INSERT INTO client (nom, prenom, adresse, cp, ville, telephone) VALUES (?,?,?,?,?,?)';
-
+        $sql = 'INSERT INTO client(nom, prenom, adresse, cp, ville, telephone, motdepasse, email) VALUES (?,?,?,?,?,?,?,?)';
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
-            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),
             $unClient->getTelephone(),
+            $unClient->getPrenom(),
+            $unClient->getMotdepasse(),
+            $unClient->getEmail(),
         ]);
-
-        if($idRequete){
+        if ($idRequete) {
             ClientTable::setMessageSucces("Ajout effectué avec succès.");
         }
     }
 
 
-    public function editClient(ClientTable $unClient){
+    public function editClient(ClientTable $unClient)
+    {
 
-        $sql = 'UPDATE client SET nom = ?, prenom = ?, adresse = ?, cp = ? , ville = ?, telephone = ? WHERE codec = ? ';
-
+        $sql = 'UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, premom = ?, motdepasse = ?, email = ? WHERE codec = ?';
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
-            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),
             $unClient->getTelephone(),
             $unClient->getCodec(),
+            $unClient->getPrenom(),
+            $unClient->getMotdepasse(),
+            $unClient->getEmail(),
         ]);
-
-        if($idRequete){
+        if ($idRequete) {
             ClientTable::setMessageSucces("Modification effectuée avec succès.");
         }
-
     }
 
-    public function suppressionPossible(){
+    public function suppressionPossible()
+    {
 
-        $sql = 'SELECT COUNT(codec) AS nombre FROM commande WHERE codec = ?';
+        $sql = 'SELECT COUNT(codec) AS nombre FROM commande Where codec = ?';
 
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['codec'],
-            ]);
-
+        ]);
         $row = $idRequete->fetch(PDO::FETCH_ASSOC);
-
-        if($row['nombre'] > 0){
-
+        if ($row['nombre'] > 0) {
             return false;
-
-        }else{
-
+        } else {
             return true;
         }
     }
 
-
-    public function deleteClient(){
+    public function deleteClient()
+    {
 
         $sql = 'DELETE FROM client WHERE codec = ?';
 
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['codec'],
         ]);
-
-        if($idRequete){
-
+        if ($idRequete) {
             ClientTable::setMessageSucces("Suppression effectuée avec succès.");
-
         }
     }
 
-    public function stat01(ClientTable $enCours){
-        $sql ='SELECT SUM(total_ht) AS st01 FROM commande WHERE codec = ?';
-        $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codec'],
-            ]);
-        $row= $idRequete-> fetch(PDO::FETCH_ASSOC);
-        if ($row['st01'] != null){
-            $enCours->setStat01($row['st01']);
+    public function stat01(ClientTable $enCours)
+    {
 
-        }else{
+        $sql = 'SELECT SUM(total_ht) AS st01 FROM commande WHERE codec = ?';
+
+        $idRequete = $this->executeRequete($sql, [
+            $enCours->getCodec(),
+        ]);
+
+        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($row['st01'] != null) {
+            $enCours->setStat01($row['st01']);
+        } else {
             $enCours->setStat01(0);
         }
     }

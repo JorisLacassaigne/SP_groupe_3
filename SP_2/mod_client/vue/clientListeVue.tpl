@@ -1,13 +1,17 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content={$titrePage}>
     <title>{$titrePrincipal}</title>
-    <meta name="description" content="{$titrePage}">
+    <meta name="description" content="<!-- PLACER LE TITRE-->">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -40,7 +44,6 @@
 <!-- FIN : Left Panel -->
 
 
-
 <!-- Right Panel -->
 
 <div id="right-panel" class="right-panel">
@@ -51,11 +54,12 @@
 
     <!-- FIN : header -->
 
+
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Séraphin PARYS</h1>
+                    <h1><!-- PLACER LE SLOGAN--></h1>
                 </div>
             </div>
         </div>
@@ -65,7 +69,7 @@
                     <ol class="breadcrumb text-right">
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=client">Clients</a></li>
+                        <li><a href="index.php?gestion=client">Client</a></li>
                         <li class="active">{$titrePage}</li>
                     </ol>
                 </div>
@@ -73,7 +77,7 @@
         </div>
     </div>
 
-    <div {if ClientTable::getMessageSucces() neq ''} class="alert alert-success" role="alert"{/if}>
+    <div {if ClientTable::getMessageSucces() neq ''} class="alert-success" role="alert" {/if}>
         {ClientTable::getMessageSucces()}
     </div>
 
@@ -86,7 +90,8 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">{$titrePage}
+                            <strong class="card-title"><!-- PLACER LE TITRE DE LA PAGE-->
+
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
                                 <form class="pos-ajout" action="index.php" method="POST">
                                     <input type="hidden" name="gestion" value="client">
@@ -95,7 +100,6 @@
                                         <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
                                     </label>
                                 </form>
-
                             </strong>
                         </div>
                         <div class="card-body">
@@ -103,11 +107,10 @@
                                 <!-- PLACER LA LISTE DES CLIENTS -->
                                 <thead>
                                 <tr>
-
-                                    <th>Code Client</th>
+                                    <th>Code CLient</th>
                                     <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Ville</th>
+                                    <th>Prenom</th>
+                                    <th>Villes</th>
                                     <th>Téléphone</th>
                                     <th>Consulter</th>
                                     <th>Modifier</th>
@@ -116,22 +119,21 @@
 
                                 </tr>
                                 </thead>
-
                                 <tbody>
                                 {foreach from=$listeClients item=client}
-
                                     <tr>
                                         <td>{$client->getCodec()}</td>
                                         <td>{$client->getNom()}</td>
                                         <td>{$client->getPrenom()}</td>
                                         <td>{$client->getVille()}</td>
                                         <td>{$client->getTelephone()}</td>
-                                        <td class="pos-actions">
+                                        <td class=pos-actions>
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_consulter">
                                                 <input type="hidden" name="codec" value="{$client->getCodec()}">
-                                                <input type="image" name="btn_consulter" src="public/images/icones/p16.png">
+                                                <input type="image" name="btn_consulter"
+                                                       src="public/images/icones/p32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -139,7 +141,8 @@
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="codec" value="{$client->getCodec()}">
-                                                <input type="image" name="btn_modifier" src="public/images/icones/m16.png">
+                                                <input type="image" name="btn_modifier"
+                                                       src="public/images/icones/m32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -147,7 +150,8 @@
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="hidden" name="codec" value="{$client->getCodec()}">
-                                                <input type="image" name="btn_supprimer" src="public/images/icones/s16.png">
+                                                <input type="image" name="btn_supprimer"
+                                                       src="public/images/icones/s32.png">
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -155,52 +159,53 @@
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_commander">
                                                 <input type="hidden" name="codec" value="{$client->getCodec()}">
-                                                <input type="image" name="form_commander" src="public/images/icones/s16.png">
+                                                <input type="image" name="btn_commander"
+                                                       src="public/images/icones/s32.png">
                                             </form>
                                         </td>
                                     </tr>
-
                                 {/foreach}
 
-
                                 </tbody>
-                           </table>
-                       </div>
-                   </div>
-               </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
-           </div><!-- .animated -->
-                        </div><!-- .content -->
+            </div>
+            <!- .animated -->
+        </div>
+        <!-- .content -->
 
 
-                    </div><!-- /#right-panel -->
+    </div><!-- /#right-panel -->
 
-                    <!-- Right Panel -->
-                    <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-                    <script src="public/assets/js/plugins.js"></script>
-                    <script src="public/assets/js/main.js"></script>
-
-
-                    <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-                    <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-                    <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+    <!-- Right Panel -->
+    <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="public/assets/js/plugins.js"></script>
+    <script src="public/assets/js/main.js"></script>
 
 
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#bootstrap-data-table-export').DataTable();
-                        });
-                    </script>
+    <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#bootstrap-data-table-export').DataTable();
+        });
+    </script>
 
 </body>
 </html>

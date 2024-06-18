@@ -149,11 +149,6 @@
                                         <input class="btn btn-submit float-right" type="submit" name="btn_valider"
                                                value="{$action|capitalize}">
                                     {/if}
-                                    {if $action == "consulter"}
-
-                                        <input class="btn btn-submit float-right" type="button" name="btn_recette"
-                                               value="Recette"onclick="location.href='index.php?gestion=recette&action=form_recette&produit={$unProduit->getReference()}'">
-                                    {/if}
                                 </div>
                         </form>
                     </div>
