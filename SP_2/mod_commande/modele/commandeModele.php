@@ -33,11 +33,11 @@ JOIN vendeur ON commande.codev = vendeur.codev';
                 ]);
                 $client = new ClientTable($idRequeteClient->fetch(PDO::FETCH_ASSOC));
 
-                $sqlClient = 'SELECT * FROM vendeur WHERE codev = ?';
-                $idRequeteClient = $this->executeRequete($sqlClient, [
+                $sqlVendeur = 'SELECT * FROM vendeur WHERE codev = ?';
+                $idRequeteVendeur = $this->executeRequete($sqlVendeur, [
                     $commande->getCodev()
                 ]);
-                $vendeur = new VendeurTable($idRequeteClient->fetch(PDO::FETCH_ASSOC));
+                $vendeur = new VendeurTable($idRequeteVendeur->fetch(PDO::FETCH_ASSOC));
 
                 $listeCommandes[] = ["commande"=>$commande, "client"=>$client, "vendeur"=>$vendeur];
 

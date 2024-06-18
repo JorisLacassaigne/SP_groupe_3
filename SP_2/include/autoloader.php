@@ -53,6 +53,10 @@ class Autoloader
             'mod_commande/controller/',
             'mod_commande/modele/',
             'mod_commande/vue/',
+            'mod_vendeur/',
+            'mod_vendeur/controller/',
+            'mod_vendeur/modele/',
+            'mod_vendeur/vue/',
         ];
 
 

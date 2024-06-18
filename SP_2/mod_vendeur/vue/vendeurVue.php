@@ -26,24 +26,24 @@ class VendeurVue
     }
 
     /**
-     * @param $clients
+     * @param $vendeur
      * @return void
      */
-    public function genererAffichageListe($clients){
+    public function genererAffichageListe($vendeur){
 
         $this->chargementPrincipal();
 
-        $this->tpl->assign('titrePage', 'Liste des Clients');
+        $this->tpl->assign('titrePage', 'Liste des Vendeurs');
 
-        $this->tpl->assign('listeClients', $clients);
+        $this->tpl->assign('listeVendeurs', $vendeur);
 
-        $this->tpl->display('mod_client/vue/vendeurListeVue.tpl');
+        $this->tpl->display('mod_vendeur/vue/vendeurListeVue.tpl');
 
 
     }
 
 
-    public function genererAffichageFiche($client){
+    public function genererAffichageFiche($vendeur){
 
         $this->chargementPrincipal();
 
@@ -53,9 +53,9 @@ class VendeurVue
 
                 $this->tpl->assign('action', 'consulter');
 
-                $this->tpl->assign('titrePage', 'Fiche Client : Consultation');
+                $this->tpl->assign('titrePage', 'Fiche Vendeur : Consultation');
 
-                $this->tpl->assign('unClient', $client);
+                $this->tpl->assign('unVendeur', $vendeur);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -69,7 +69,7 @@ class VendeurVue
 
                 $this->tpl->assign('titrePage', 'Fiche Client : Création');
 
-                $this->tpl->assign('unClient', $client);
+                $this->tpl->assign('unVendeur', $vendeur);
 
                 $this->tpl->assign('readonly', '');
 
@@ -83,7 +83,7 @@ class VendeurVue
 
                 $this->tpl->assign('titrePage', 'Fiche Client : Modification');
 
-                $this->tpl->assign('unClient', $client);
+                $this->tpl->assign('unVendeur', $vendeur);
 
                 $this->tpl->assign('readonly', '');
                 break;
@@ -96,7 +96,7 @@ class VendeurVue
 
                 $this->tpl->assign('titrePage', 'Fiche Client : Suppression');
 
-                $this->tpl->assign('unClient', $client);
+                $this->tpl->assign('unVendeur', $vendeur);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -104,7 +104,7 @@ class VendeurVue
         }
 
 
-        $this->tpl->display('mod_client/vue/vendeurFicheVue.tpl');
+        $this->tpl->display('mod_vendeur/vue/vendeurFicheVue.tpl');
 
     }
 
