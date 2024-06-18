@@ -16,7 +16,7 @@ class ProfilModele extends Modele
         $sql = 'SELECT * FROM vendeur WHERE codev = ?';
 
         $idRequete = $this->executeRequete($sql, [
-            $_SESSION['codev'],
+            $_SESSION['prenomNom'],
         ]);
 
         // Création du tableau d'objets
