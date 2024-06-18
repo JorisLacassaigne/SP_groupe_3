@@ -56,6 +56,16 @@ class Client
 
                     $this->oControleur->supprimer();
                     break;
+
+                case 'form_commander' :
+
+                    $this->oControleur->form_commander();
+                    break;
+
+                case 'commander' :
+
+                    $this->oControleur->commander();
+                    break;
             }
         } else {
             $this->oControleur->lister();

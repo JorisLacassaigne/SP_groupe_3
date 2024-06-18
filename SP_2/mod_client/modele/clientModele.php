@@ -134,4 +134,8 @@ class ClientModele extends Modele
         }
     }
 
+    public function commandeClient(){
+
+    }
+
 }

@@ -29,7 +29,7 @@ class ClientControleur
     {
         $client = $this->oModele->getUnClient();
 
-        $this->oModele->stat01($client);
+//        $this->oModele->stat01($client);
 
         $this->oVue->genererAffichageFiche($client);
     }
@@ -45,7 +45,7 @@ class ClientControleur
     {
         $client = $this->oModele->getUnClient();
 
-        $this->oModele->stat01($client);
+//        $this->oModele->stat01($client);
 
         $this->oVue->genererAffichageFiche($client);
     }
@@ -102,7 +102,7 @@ class ClientControleur
     {
         $client = $this->oModele->getUnClient();
 
-        $this->oModele->stat01($client);
+//        $this->oModele->stat01($client);
 
         $this->oVue->genererAffichageFiche($client);
     }
@@ -132,4 +132,31 @@ class ClientControleur
         }
 
     }
+
+    public function form_commander()
+    {
+        $client = $this->oModele->getUnClient();
+
+//        $this->oModele->stat01($client);
+
+        $this->oVue->genererAffichageFiche($client);
+    }
+
+    public function commander()
+    {
+
+        $controleClient = new CommandeTable($this->parametre);
+
+        if ($controleClient->getAutorisationBD() == false) {
+
+            $this->oVue->genererAffichageFiche($controleClient);
+
+        } else {
+
+            $this->oModele->commandeClient($controleClient);
+
+            $this->lister();
+        }
+    }
+
 }
