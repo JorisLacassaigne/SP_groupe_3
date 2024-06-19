@@ -16,7 +16,6 @@ class ProfilControleur{
 
     public function lister()
     {
-
         $profil = $this->oModele->getListeProfil();
 
         $this->oVue->genererAffichageFiche($profil);

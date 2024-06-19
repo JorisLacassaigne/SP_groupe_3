@@ -16,7 +16,7 @@ class ProfilModele extends Modele
         $sql = 'SELECT * FROM vendeur WHERE codev = ?';
 
         $idRequete = $this->executeRequete($sql, [
-            $_SESSION['prenomNom'],
+            $_SESSION['codev'],
         ]);
 
         // Création du tableau d'objets
@@ -30,19 +30,22 @@ class ProfilModele extends Modele
 
     public function editProfil(ProfilTable $leProfil)
     {
-        $sql = 'UPDATE vendeur SET adresse = ?, cp = ?, ville = ?, telephone = ? WHERE codev = ?';
+        $sql = 'UPDATE vendeur SET nom = ?, prenom= ?, adresse = ?, cp = ?, ville = ?, telephone = ?, login = ?, motdepasse = ? WHERE codev = ?';
         $idRequete = $this->executeRequete($sql, [
+            $leProfil->getNom(),
+            $leProfil->getPrenom(),
             $leProfil->getAdresse(),
             $leProfil->getCp(),
             $leProfil->getVille(),
             $leProfil->getTelephone(),
+            $leProfil->getLogin(),
+            $leProfil->getMotdepasse(),
             $leProfil->getCodev(),
         ]);
         if ($idRequete) {
             ProfilTable::setMessageSucces("Modification effectuée avec succès.");
         }
     }
-
 
     public function editMotdepasse()
     {

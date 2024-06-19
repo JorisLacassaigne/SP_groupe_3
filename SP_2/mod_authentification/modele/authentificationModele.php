@@ -25,7 +25,7 @@ class AuthentificationModele extends modele{
 
             $_SESSION['login'] = $authEnCours->getLogin();
             $_SESSION['prenomNom'] = $authExistant['prenom'] . " " . $authExistant['nom'];
-
+            $_SESSION['codev']= $authExistant['codev'];
             return true;
 
         }

@@ -1,4 +1,29 @@
-<!doctype html>
+<?php
+/* Smarty version 4.3.2, created on 2024-06-19 17:10:58
+  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_profil\vue\profilListeVue.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.2',
+  'unifunc' => 'content_667311224b69c8_38720980',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '2c16aa4a58873b46a15a111af12d4854f4c14512' => 
+    array (
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_profil\\vue\\profilListeVue.tpl',
+      1 => 1718817057,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:public/left.tpl' => 1,
+    'file:public/header.tpl' => 1,
+  ),
+),false)) {
+function content_667311224b69c8_38720980 (Smarty_Internal_Template $_smarty_tpl) {
+?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>
@@ -9,8 +34,10 @@
 <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content={$titrePage}>
-    <title>{$titrePrincipal}</title>
+    <meta http-equiv="X-UA-Compatible" content=<?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+>
+    <title><?php echo $_smarty_tpl->tpl_vars['titrePrincipal']->value;?>
+</title>
     <meta name="description" content="<!-- PLACER LE TITRE-->">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,14 +57,17 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <!-- <?php echo '<script'; ?>
+ type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"><?php echo '</script'; ?>
+> -->
 
 </head>
 <body>
 <!-- Left Panel -->
 
 
-{include file='public/left.tpl'}
+<?php $_smarty_tpl->_subTemplateRender('file:public/left.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <!-- FIN : Left Panel -->
 
@@ -48,7 +78,8 @@
 
     <!--Header -->
 
-    {include file='public/header.tpl'}
+    <?php $_smarty_tpl->_subTemplateRender('file:public/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
     <!-- FIN : header -->
 
@@ -67,7 +98,8 @@
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
                         <li><a href="index.php?gestion=profil">Profil</a></li>
-                        <li class="active">{$titrePage}</li>
+                        <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+</li>
                     </ol>
                 </div>
             </div>
@@ -82,16 +114,19 @@
 
                 <div class="col-md-6">
 
-                    <div {if ProfilTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
-                        {ProfilTable::getMessageErreur()}
+                    <div <?php if (ProfilTable::getMessageErreur() != '') {?> class="alert alert-danger" role="alert" <?php }?>>
+                        <?php echo ProfilTable::getMessageErreur();?>
+
                     </div>
-                    <div {if ProfilTable::getMessageSucces() neq ''} class="alert-success" role="alert" {/if}>
-                        {ProfilTable::getMessageSucces()}
+                    <div <?php if (ProfilTable::getMessageSucces() != '') {?> class="alert-success" role="alert" <?php }?>>
+                        <?php echo ProfilTable::getMessageSucces();?>
+
                     </div>
 
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">{$titrePage}
+                            <strong class="card-title"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
 
                             </strong>
@@ -101,44 +136,52 @@
                                 <form method="POST" action="index.php">
                                     <input type="hidden" name="gestion" value="profil">
                                     <input type="hidden" name="action" value="modifier">
-                                    <input type="hidden" name="codev" value="{$profil->getCodev()}">
+                                    <input type="hidden" name="codev" value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getCodev();?>
+">
 
                                     <div class="card-body card-block">
                                         <div class="form-group">
                                             <label class="form-control-label" for="codev"><strong>Code
-                                                    vendeur : </strong>{$profil->getCodev()}</label>
+                                                    vendeur : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getCodev();?>
+</label>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="prenom"><strong>Prénom : </strong>{$profil->getPrenom()}</label>
+                                                   for="prenom"><strong>Prénom : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getPrenom();?>
+</label>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="nom"><strong>Nom : </strong>{$profil->getNom()}</label>
+                                                   for="nom"><strong>Nom : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getNom();?>
+</label>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
                                                    for="adresse"><strong>Adresse :</strong></label>
                                             <input type="text" name="adresse" class="form-control"
-                                                   value="{$profil->getAdresse()}">
+                                                   value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getAdresse();?>
+">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label" for="cp"><strong>Code
                                                     postal :</strong></label>
                                             <input type="text" name="cp" class="form-control"
-                                                   value="{$profil->getCp()}">
+                                                   value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getCp();?>
+">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
                                                    for="ville"><strong>Ville :</strong></label>
                                             <input type="text" name="ville" class="form-control"
-                                                   value="{$profil->getVille()}">
+                                                   value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getVille();?>
+">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
                                                    for="telephone"><strong>Téléphone :</strong></label>
                                             <input type="tel" name="telephone" class="form-control"
-                                                   value="{$profil->getTelephone()}">
+                                                   value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getTelephone();?>
+">
                                         </div>
 
                                         <div class="pos-actions">
@@ -166,13 +209,15 @@
                 <form method="POST" action="index.php">
                     <input type="hidden" name="gestion" value="profil">
                     <input type="hidden" name="action" value="valider">
-                    <input type="hidden" name="codev" value="{$profil->getCodev()}">
+                    <input type="hidden" name="codev" value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getCodev();?>
+">
                     <div class="card">
                         <div class="card-header"><strong>Changer de mot de passe</strong></div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="form-control-label" for="login"><strong>Code
-                                        vendeur : </strong></label> {$profil->getLogin()}
+                                        vendeur : </strong></label> <?php echo $_smarty_tpl->tpl_vars['profil']->value->getLogin();?>
+
 
                             </div>
                             <div class="form-group">
@@ -212,30 +257,63 @@
 </div><!-- /#right-panel -->
 
 
-<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="public/assets/js/plugins.js"></script>
-<script src="public/assets/js/main.js"></script>
+<?php echo '<script'; ?>
+ src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/plugins.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/main.js"><?php echo '</script'; ?>
+>
 
 
-<script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-<script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-<script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-<script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-<script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-<script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-<script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/datatables.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/dataTables.buttons.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/jszip.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/pdfmake.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/vfs_fonts.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.html5.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.print.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.colVis.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
+>
 
 
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript">
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable();
     });
-</script>
+<?php echo '</script'; ?>
+>
 
 </body>
-</html>
+</html><?php }
+}

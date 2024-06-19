@@ -3,6 +3,7 @@ class AuthentificationTable{
 
     private $login = "";
     private $motdepasse = "";
+    private $codev = "";
 
     private $autorisationSession = true;
 
@@ -86,6 +87,16 @@ class AuthentificationTable{
     public static function setMessageErreur(string $messageErreur): void
     {
         self::$messageErreur = self::$messageErreur . $messageErreur . '<br>';
+    }
+
+    public function getCodev(): string
+    {
+        return $this->codev;
+    }
+
+    public function setCodev(string $codev): void
+    {
+        $this->codev = $codev;
     }
 
 
