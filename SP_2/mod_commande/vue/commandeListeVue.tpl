@@ -76,7 +76,9 @@
             <div class="row">
 
                 <div class="col-md-12">
-
+                    <div {if CommandeTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
+                        {CommandeTable::getMessageErreur()}
+                    </div>
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Liste des commandes
@@ -84,7 +86,9 @@
                                 <form class="pos-ajout" method="POST" action="index.php">
                                     <input type="hidden" name="gestion" value="commande">
                                     <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Passer une commande : <input id="aImage" type="image" name="btn_ajouter" src='template/images/icones/a16.png'></label>
+                                    <label>Passer une commande :
+                                        <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
+                                    </label>
                                 </form>
                             </strong>
                         </div>
@@ -96,8 +100,8 @@
                                     <th>Vendeur</th>
                                     <th>Client</th>
                                     <th>Montant HT</th>
-                                    <th class="pos-actions">Consulter</th>
-                                    <th class="pos-actions">Modifier</th>
+                                    <th>Consulter</th>
+                                    <th>Modifier</th>
 
                                 </tr>
                                 </thead>
@@ -108,7 +112,7 @@
 
                                 <tr>
                                     <td>{$commande["commande"]->getNumero()}</td>
-                                    <td>{$commande["vendeur"]->getNom()}</td>
+                                    <td>{$commande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}</td>
                                     <td>{$commande["client"]->getNom()} {$commande["client"]->getPrenom()}</td>
                                     <td>{$commande["commande"]->getTotalHT()}</td>
                                     <td class="pos-actions">
@@ -116,7 +120,8 @@
                                             <input type="hidden" name="gestion" value="commande">
                                             <input type="hidden" name="action" value="form_consulter">
                                             <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
-                                            <input type="image" name="btn_consulter" src="public/images/icones/p16.png">
+                                            <input type="image" name="btn_consulter"
+                                                   src="public/images/icones/p16.png">
                                         </form>
                                     </td>
                                     <td class="pos-actions">
@@ -124,7 +129,8 @@
                                             <input type="hidden" name="gestion" value="commande">
                                             <input type="hidden" name="action" value="form_modifier">
                                             <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
-                                            <input type="image" name="btn_modifier" src="public/images/icones/m16.png">
+                                            <input type="image" name="btn_modifier"
+                                                   src="public/images/icones/s32.png">
                                         </form>
                                     </td>
                                 </tr>

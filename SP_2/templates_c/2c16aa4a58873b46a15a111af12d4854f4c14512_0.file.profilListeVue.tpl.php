@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-19 17:10:58
+/* Smarty version 4.3.2, created on 2024-06-19 17:16:01
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_profil\vue\profilListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_667311224b69c8_38720980',
+  'unifunc' => 'content_6673125191b3e1_44068574',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c16aa4a58873b46a15a111af12d4854f4c14512' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_profil\\vue\\profilListeVue.tpl',
-      1 => 1718817057,
+      1 => 1718810934,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_667311224b69c8_38720980 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6673125191b3e1_44068574 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -141,44 +141,47 @@ function content_667311224b69c8_38720980 (Smarty_Internal_Template $_smarty_tpl)
 
                                     <div class="card-body card-block">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="codev"><strong>Code
+                                            <label class="form-control-label" for="nom"><strong>Code
                                                     vendeur : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getCodev();?>
 </label>
+
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="prenom"><strong>Prénom : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getPrenom();?>
-</label>
+                                                   for="prenom"><strong>Prénom </strong></label>
+                                            <?php echo $_smarty_tpl->tpl_vars['profil']->value->getPrenom();?>
+
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="nom"><strong>Nom : </strong><?php echo $_smarty_tpl->tpl_vars['profil']->value->getNom();?>
-</label>
+                                                   for="nom"><strong>Nom </strong></label>
+                                            <?php echo $_smarty_tpl->tpl_vars['profil']->value->getNom();?>
+
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="adresse"><strong>Adresse :</strong></label>
+                                                   for="adresse"><strong>Adresse </strong></label>
                                             <input type="text" name="adresse" class="form-control"
                                                    value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getAdresse();?>
 ">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label" for="cp"><strong>Code
-                                                    postal :</strong></label>
+                                                    postal </strong></label>
                                             <input type="text" name="cp" class="form-control"
                                                    value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getCp();?>
 ">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="ville"><strong>Ville :</strong></label>
+                                                   for="ville"><strong>Ville </strong></label>
                                             <input type="text" name="ville" class="form-control"
                                                    value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getVille();?>
 ">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="telephone"><strong>Téléphone :</strong></label>
+                                                   for="telephone"><strong>Téléphone </strong></label>
                                             <input type="tel" name="telephone" class="form-control"
                                                    value="<?php echo $_smarty_tpl->tpl_vars['profil']->value->getTelephone();?>
 ">
@@ -190,8 +193,9 @@ function content_667311224b69c8_38720980 (Smarty_Internal_Template $_smarty_tpl)
                                                    name="btn_modifier"
                                                    value="Modifier">
                                         </div>
-                                    </div>
                                 </form>
+
+
                             </table>
                         </div>
 
@@ -222,13 +226,13 @@ function content_667311224b69c8_38720980 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="motdepasse"><strong>Nouveau mot de
-                                        passe :</strong></label>
+                                        passe </strong></label>
                                 <input type="password" name="motdepasse" class="form-control"
                                        value="">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="confirmation"><strong>Confirmer mot de
-                                        passe :</strong></label>
+                                        passe </strong></label>
                                 <input type="password" name="confirmation" class="form-control"
                                        value="">
                             </div>

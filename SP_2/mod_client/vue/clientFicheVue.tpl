@@ -1,12 +1,8 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +33,6 @@
 
 
 <!-- Left Panel -->
-
 
 {include file='public/left.tpl'}
 
@@ -93,6 +88,7 @@
                         <form action="index.php" method="POST">
 
                             <!-- PLACER LE FORMULAIRE EN CONSULTATION -->
+
                             <input type="hidden" name="gestion" value="client">
                             <input type="hidden" name="action" value={$action}>
 

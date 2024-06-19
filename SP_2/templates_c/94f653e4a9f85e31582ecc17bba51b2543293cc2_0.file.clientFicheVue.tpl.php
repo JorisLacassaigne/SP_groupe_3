@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-19 16:39:09
+/* Smarty version 4.3.2, created on 2024-06-19 16:51:00
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_667309ad160b98_62594431',
+  'unifunc' => 'content_66730c742471a7_51694913',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '94f653e4a9f85e31582ecc17bba51b2543293cc2' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1718815147,
+      1 => 1718815845,
       2 => 'file',
     ),
   ),
@@ -22,18 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_667309ad160b98_62594431 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66730c742471a7_51694913 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_3\\SP_2\\include\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +64,6 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
 
 
 <!-- Left Panel -->
-
 
 <?php $_smarty_tpl->_subTemplateRender('file:public/left.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -130,6 +125,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                         <form action="index.php" method="POST">
 
                             <!-- PLACER LE FORMULAIRE EN CONSULTATION -->
+
                             <input type="hidden" name="gestion" value="client">
                             <input type="hidden" name="action" value=<?php echo $_smarty_tpl->tpl_vars['action']->value;?>
 >

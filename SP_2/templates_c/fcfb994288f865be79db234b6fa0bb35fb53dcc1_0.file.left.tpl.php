@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 16:42:11
+/* Smarty version 4.3.2, created on 2024-06-19 16:07:48
   from 'C:\laragon\www\SP_groupe_3\SP_2\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6671b8e3826730_46672082',
+  'unifunc' => 'content_66730254eb9ec8_03449432',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fcfb994288f865be79db234b6fa0bb35fb53dcc1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\public\\left.tpl',
-      1 => 1718728931,
+      1 => 1718810934,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6671b8e3826730_46672082 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66730254eb9ec8_03449432 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
 <aside id="left-panel" class="left-panel">

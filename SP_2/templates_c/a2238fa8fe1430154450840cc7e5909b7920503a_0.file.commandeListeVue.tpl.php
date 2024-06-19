@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 13:54:26
+/* Smarty version 4.3.2, created on 2024-06-19 17:56:15
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_commande\vue\commandeListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66719192889688_64572191',
+  'unifunc' => 'content_66731bbf417327_27510115',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2238fa8fe1430154450840cc7e5909b7920503a' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_commande\\vue\\commandeListeVue.tpl',
-      1 => 1718718866,
+      1 => 1718819755,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66719192889688_64572191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66731bbf417327_27510115 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -105,7 +105,10 @@ function content_66719192889688_64572191 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
 
                 <div class="col-md-12">
+                    <div <?php if (CommandeTable::getMessageErreur() != '') {?> class="alert alert-danger" role="alert" <?php }?>>
+                        <?php echo CommandeTable::getMessageErreur();?>
 
+                    </div>
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Liste des commandes
@@ -113,7 +116,9 @@ function content_66719192889688_64572191 (Smarty_Internal_Template $_smarty_tpl)
                                 <form class="pos-ajout" method="POST" action="index.php">
                                     <input type="hidden" name="gestion" value="commande">
                                     <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Passer une commande : <input id="aImage" type="image" name="btn_ajouter" src='template/images/icones/a16.png'></label>
+                                    <label>Passer une commande :
+                                        <input type="image" name="btn_ajouter" src="public/images/icones/a16.png">
+                                    </label>
                                 </form>
                             </strong>
                         </div>
@@ -125,8 +130,8 @@ function content_66719192889688_64572191 (Smarty_Internal_Template $_smarty_tpl)
                                     <th>Vendeur</th>
                                     <th>Client</th>
                                     <th>Montant HT</th>
-                                    <th class="pos-actions">Consulter</th>
-                                    <th class="pos-actions">Modifier</th>
+                                    <th>Consulter</th>
+                                    <th>Modifier</th>
 
                                 </tr>
                                 </thead>
@@ -143,7 +148,8 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                 <tr>
                                     <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["vendeur"]->getNom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["vendeur"]->getPrenom();?>
+ <?php echo $_smarty_tpl->tpl_vars['commande']->value["vendeur"]->getNom();?>
 </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["client"]->getNom();?>
  <?php echo $_smarty_tpl->tpl_vars['commande']->value["client"]->getPrenom();?>
@@ -156,7 +162,8 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                             <input type="hidden" name="action" value="form_consulter">
                                             <input type="hidden" name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
 ">
-                                            <input type="image" name="btn_consulter" src="public/images/icones/p16.png">
+                                            <input type="image" name="btn_consulter"
+                                                   src="public/images/icones/p16.png">
                                         </form>
                                     </td>
                                     <td class="pos-actions">
@@ -165,7 +172,8 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                             <input type="hidden" name="action" value="form_modifier">
                                             <input type="hidden" name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
 ">
-                                            <input type="image" name="btn_modifier" src="public/images/icones/m16.png">
+                                            <input type="image" name="btn_modifier"
+                                                   src="public/images/icones/s32.png">
                                         </form>
                                     </td>
                                 </tr>
