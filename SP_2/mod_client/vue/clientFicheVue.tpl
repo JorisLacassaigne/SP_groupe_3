@@ -164,8 +164,7 @@
                     <div class="card-header"><strong>Statistiques</strong></div>
                     <div class="card-body">
                         <div class="form-group"><strong>CA réalisé : </strong>{$unClient->getStat01()} €</div>
-                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong>VALEUR</div>
-                        <div class="form-group"><strong>Ses 5 meilleurs achats : </strong>VALEUR</div>
+                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong>{$unClient->getStat02()} %</div>
                     </div>
                 </div>
             </div>

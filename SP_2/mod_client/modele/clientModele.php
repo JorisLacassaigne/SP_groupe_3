@@ -119,7 +119,7 @@ class ClientModele extends Modele
     public function stat01(ClientTable $enCours)
     {
 
-        $sql = 'SELECT SUM(total_ht) AS st01 FROM commande WHERE codec = ?';
+        $sql = 'SELECT SUM(totalHT) AS st01 FROM commande WHERE codec = ?';
 
         $idRequete = $this->executeRequete($sql, [
             $enCours->getCodec(),
@@ -131,6 +131,24 @@ class ClientModele extends Modele
             $enCours->setStat01($row['st01']);
         } else {
             $enCours->setStat01(0);
+        }
+    }
+
+    public function stat02(ClientTable $enCours)
+    {
+
+        $sql = 'SELECT ROUND(SUM(totalHT)/ (SELECT SUM(totalHT) FROM commande) *100, 2) AS st02 FROM `commande` WHERE codec = ?';
+
+        $idRequete = $this->executeRequete($sql, [
+            $enCours->getCodec(),
+        ]);
+
+        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($row['st02'] != null) {
+            $enCours->setStat02($row['st02']);
+        } else {
+            $enCours->setStat02(0);
         }
     }
 

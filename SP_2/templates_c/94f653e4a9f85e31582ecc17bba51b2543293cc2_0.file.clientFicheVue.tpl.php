@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 16:33:36
+/* Smarty version 4.3.2, created on 2024-06-19 16:39:09
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6671b6e0367cd1_19172946',
+  'unifunc' => 'content_667309ad160b98_62594431',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '94f653e4a9f85e31582ecc17bba51b2543293cc2' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1718728269,
+      1 => 1718815147,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6671b6e0367cd1_19172946 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667309ad160b98_62594431 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_3\\SP_2\\include\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!doctype html>
@@ -219,8 +219,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                     <div class="card-body">
                         <div class="form-group"><strong>CA réalisé : </strong><?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat01();?>
  €</div>
-                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong>VALEUR</div>
-                        <div class="form-group"><strong>Ses 5 meilleurs achats : </strong>VALEUR</div>
+                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong><?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat02();?>
+ %</div>
                     </div>
                 </div>
             </div>
