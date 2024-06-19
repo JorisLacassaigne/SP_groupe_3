@@ -40,7 +40,7 @@ class VendeurControleur{
 
     public function form_modifier(){
 
-        $client = $this->oModele->getUnVendeur();
+        $vendeur = $this->oModele->getUnVendeur();
         $this->oModele->stat01($vendeur);
 
         $this->oVue->genererAffichageFiche($vendeur);

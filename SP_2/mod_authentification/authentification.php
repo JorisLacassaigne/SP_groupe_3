@@ -4,7 +4,7 @@ class Authentification
 
     private $parametre = []; // Un tableau associatif contenant le tableau $_REQUEST
 
-    private $oControleur; // Objet instance du controleur
+    private $oControleur; // Objet instance du controller
 
 
     public function __construct($parametre)
