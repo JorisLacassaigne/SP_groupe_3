@@ -34,13 +34,18 @@ class CommandeController
         $this->oVue->genererAffichageFiche($uneCommande);
     }
 
+// Pour afficher la liste des produits a ajouter dans le panier
+    public function lister_produit(){
+
+        $produits = $this->oModele->getListeProduits();
+        $this->oVue->genererAffichageListeProduits($produits);
+
+    }
+
 //    public function form_ajouter()
 //    {
-//
-//        $prepareCommande = new CommandeTable();
-//
-//
-//        $this->oVue->genererAffichageFiche($prepareCommande);
+//        $uneCommande = $this->oModele->getProduitCommande();
+//        $this->oVue->genererAffichageFiche($uneCommande);
 //
 //    }
 

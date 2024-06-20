@@ -100,21 +100,21 @@
                                         <input type="text" name="numero" class="form-control" {$readonly}
                                                value="{$uneCommande["commande"]->getNumero()}">
                                     </div>
-{*                                    <div class="form-group">*}
-{*                                        <label class="form-control-label" for="nom">Vendeur : </label>*}
-{*                                        <input type="text" name="nom" class="form-control" {$readonly}*}
-{*                                               value="{$uneCommande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}">*}
-{*                                    </div>*}
-{*                                    <div class="form-group">*}
-{*                                        <label class="form-control-label" for="numero">Code client : </label>*}
-{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
-{*                                               value="{$uneCommande["client"]->getCodec()}">*}
-{*                                    </div>*}
-{*                                    <div class="form-group">*}
-{*                                        <label class="form-control-label" for="numero">Client : </label>*}
-{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
-{*                                               value="{$uneCommande["client"]->getNom()} {$commande["client"]->getPrenom()}">*}
-{*                                    </div>*}
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="nom">Vendeur : </label>
+                                        <input type="text" name="nom" class="form-control" {$readonly}
+                                               value="{$uneCommande["vendeur"]->getPrenom()} {$uneCommande["vendeur"]->getNom()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="codec">Code client : </label>
+                                        <input type="text" name="codec" class="form-control" {$readonly}
+                                               value="{$uneCommande["client"]->getCodec()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="prenom">Client : </label>
+                                        <input type="text" name="prenom" class="form-control" {$readonly}
+                                               value="{$uneCommande["client"]->getNom()} {$uneCommande["client"]->getPrenom()}">
+                                    </div>
                                 </div>
                             </div>
                         </div>

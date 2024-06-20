@@ -54,8 +54,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-bag"></i>Passer une commande</a>
+                    <a href="index.php?gestion=commande&action=lister_produit"></i>Passer une commande</a>
                 </li>
                 <li class=" dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"

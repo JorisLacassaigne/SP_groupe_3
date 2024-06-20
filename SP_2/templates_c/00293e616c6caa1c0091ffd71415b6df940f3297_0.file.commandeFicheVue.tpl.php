@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-20 12:21:01
+/* Smarty version 4.3.2, created on 2024-06-20 14:43:33
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_commande\vue\commandeFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66741ead24cfd1_08825020',
+  'unifunc' => 'content_66744015851b94_40925026',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '00293e616c6caa1c0091ffd71415b6df940f3297' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_commande\\vue\\commandeFicheVue.tpl',
-      1 => 1718886060,
+      1 => 1718894589,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66741ead24cfd1_08825020 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66744015851b94_40925026 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -135,6 +135,29 @@ function content_66741ead24cfd1_08825020 (Smarty_Internal_Template $_smarty_tpl)
                                                value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["commande"]->getNumero();?>
 ">
                                     </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="nom">Vendeur : </label>
+                                        <input type="text" name="nom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["vendeur"]->getPrenom();?>
+ <?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["vendeur"]->getNom();?>
+">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="codec">Code client : </label>
+                                        <input type="text" name="codec" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["client"]->getCodec();?>
+">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="prenom">Client : </label>
+                                        <input type="text" name="prenom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["client"]->getNom();?>
+ <?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["client"]->getPrenom();?>
+">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -143,14 +166,24 @@ function content_66741ead24cfd1_08825020 (Smarty_Internal_Template $_smarty_tpl)
                             <div class="card">
                                 <div class="card-header"><strong>Etat de la commande</strong></div>
                                 <div class="card-body card-block">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="numero">Date de commande : </label>
+                                        <input type="text" name="numero" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["commande"]->getDateCommande();?>
+">
+                                    </div><div class="form-group">
+                                        <label class="form-control-label" for="numero">Date de livraison : </label>
+                                        <input type="text" name="numero" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                    <div class="form-group">Date de commande : 05/09/2017</div>
-                                    <div class="form-group">Date de livraison : 05/09/2017</div>
-                                    <div class="form-group">Total HT : 226.62 € </div>
-                                    <div class="form-group">Commande Validée : OUI </div>
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["commande"]->getDateLivraison();?>
+">
+                                    </div><div class="form-group">
+                                        <label class="form-control-label" for="numero">Total HT : </label>
+                                        <input type="text" name="numero" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-
+                                               value="<?php echo $_smarty_tpl->tpl_vars['uneCommande']->value["commande"]->getTotalHT();?>
+">
                                 </div>
                             </div>
                         </div>

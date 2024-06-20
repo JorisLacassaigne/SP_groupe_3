@@ -1,6 +1,6 @@
 <?php
 
-class ClientTable
+class   ClientTable
 {
     private $codec;
     private $nom;
