@@ -78,7 +78,7 @@
     <div class="content mt-3">
         <div class="animated fadeIn">
 
-            <div class="row">
+            <div>
 
                 <div class="col-md-6">
 
@@ -162,8 +162,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-6"></div>
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header"><strong>Statistiques</strong></div>
                     <div class="card-body">
