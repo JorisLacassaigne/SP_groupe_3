@@ -96,49 +96,6 @@ WHERE numero = ?';
 
     }
 
-    public function getListeProduits() {
-
-        $sql = 'SELECT * FROM produit';
-
-        $idRequete = $this->executeRequete($sql);
-
-        if ($idRequete->rowCount() > 0) {
-            // Création du tableau d'objets
-            while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-
-                $listeProduits[] = new ProduitTable($unProduit);
-            }
-
-            return $listeProduits;
-
-        } else {
-
-            return null;
-        }
-    }
-
-    public function addPanier()
-    {
-        $sql = 'SELECT * FROM produit where reference = ?';
-
-        $idRequete = $this->executeRequete($sql, [
-            $this->parametre['reference'],
-        ]);
-
-        if ($idRequete->rowCount() > 0) {
-            // Création du tableau d'objets
-            while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-                array_push($_SESSION['panier'], $unProduit);
-                $ligneCommande[] = new ProduitTable($unProduit);
-            }
-            return $ligneCommande;
-
-        } else {
-
-            return null;
-        }
-
-    }
 
 //    public function addCommande(CommandeTable $uneCommande){
 //

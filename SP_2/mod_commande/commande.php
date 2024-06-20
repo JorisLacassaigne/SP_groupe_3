@@ -29,11 +29,6 @@ class Commande
 
             switch ($this->parametre['action']){
 
-                case 'lister_produit':
-
-                    $this->oController->lister_produit();
-                    break;
-
                 case 'form_consulter':
 
                     $this->oController->form_consulter();

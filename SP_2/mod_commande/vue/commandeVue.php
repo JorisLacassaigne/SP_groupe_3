@@ -47,17 +47,6 @@ class CommandeVue
 
     }
 
-    public function genererAffichageListeProduits($produits)
-    {
-        $this->chargementPrincipal();
-
-        $this->tpl->assign('titrePage', 'Liste des Produits');
-
-        $this->tpl->assign('listeProduits', $produits);
-
-        $this->tpl->display('mod_commande/vue/commandeFicheNouvelleVue.tpl');
-    }
-
 
     public function genererAffichageFiche($uneCommande)
     {

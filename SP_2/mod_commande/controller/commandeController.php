@@ -27,14 +27,6 @@ class CommandeController
         $this->oVue->genererAffichageListe($commandes);
     }
 
-// Pour afficher la liste des produits a ajouter dans le panier
-    public function lister_produit(){
-
-        $produits = $this->oModele->getListeProduits();
-        $this->oVue->genererAffichageListeProduits($produits);
-
-    }
-
     public function form_consulter()
     {
 
