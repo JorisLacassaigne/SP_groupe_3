@@ -1,7 +1,7 @@
 <?php
 
 
-class CommandeControleur
+class CommandeController
 {
 
 

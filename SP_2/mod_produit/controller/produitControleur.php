@@ -1,6 +1,6 @@
 <?php
 
-class ProduitControleur
+class ProduitController
 {
 
     private $parametre = []; // $_REQUEST

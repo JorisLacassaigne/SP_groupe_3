@@ -1,6 +1,6 @@
 <?php
 
-class ClientControleur
+class ClientController
 {
 
     private $parametre = []; // $_REQUEST
