@@ -75,7 +75,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Création');
 
-                $this->tpl->assign('laCommande', $uneCommande);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', '');
 
@@ -89,7 +89,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Modification');
 
-                $this->tpl->assign('laCommande', $uneCommande);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', '');
                 break;
@@ -102,7 +102,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Suppression');
 
-                $this->tpl->assign('laCommande', $uneCommande);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', 'disabled');
 

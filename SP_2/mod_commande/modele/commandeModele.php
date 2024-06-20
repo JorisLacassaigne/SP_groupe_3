@@ -55,7 +55,7 @@ JOIN vendeur ON commande.codev = vendeur.codev';
 
     public function getUneCommande() {
 
-        $sql = 'SELECT commande.*, client.nom AS nom_client, client.prenom AS prenom_client, vendeur.nom AS nom_vendeur, vendeur.prenom AS prenom_vendeur
+        $sql = 'SELECT commande.*,client.nom AS nom_client, client.prenom AS prenom_client, vendeur.nom AS nom_vendeur, vendeur.prenom AS prenom_vendeur
 FROM commande
 JOIN client ON commande.codec = client.codec
 JOIN vendeur ON commande.codev = vendeur.codev
@@ -83,7 +83,7 @@ WHERE numero = ?';
                 ]);
                 $vendeur = new VendeurTable($idRequeteVendeur->fetch(PDO::FETCH_ASSOC));
 
-                $uneCommande[] = ["commande"=>$commande, "client"=>$client, "vendeur"=>$vendeur];
+                $uneCommande = ["commande"=>$commande, "client"=>$client, "vendeur"=>$vendeur];
 
             }
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-19 17:56:15
+/* Smarty version 4.3.2, created on 2024-06-20 11:42:32
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_commande\vue\commandeListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66731bbf417327_27510115',
+  'unifunc' => 'content_667415a88a0b14_34476340',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2238fa8fe1430154450840cc7e5909b7920503a' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_commande\\vue\\commandeListeVue.tpl',
-      1 => 1718819755,
+      1 => 1718883750,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66731bbf417327_27510115 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667415a88a0b14_34476340 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -170,8 +170,7 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
                                             <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
-">
+                                            <input type="hidden" name="numero" value="10178">
                                             <input type="image" name="btn_modifier"
                                                    src="public/images/icones/s32.png">
                                         </form>

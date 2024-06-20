@@ -87,18 +87,14 @@
                     <div class="col-md-12">
 
                         <div class="col-md-6">
+                            <div {if CommandeTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
+                                {CommandeTable::getMessageErreur()}
+                            </div>
                             <div class="card">
                                 <div class="card-header"><strong>{$titrePage}</strong></div>
 
                                 <div class="card-body card-block" >
 
-{*                                    {if $action neq 'ajouter'}*}
-{*                                        <div class="form-group">*}
-{*                                            <label class="form-control-label" for="numero">Code commande : </label>*}
-{*                                            <input type="text" name="numero" class="form-control" readonly*}
-{*                                                   value="{$uneCommande->getNumero()}">*}
-{*                                        </div>*}
-{*                                    {/if}*}
                                     <div class="form-group">
                                         <label class="form-control-label" for="numero">Numéro commande : </label>
                                         <input type="text" name="numero" class="form-control" {$readonly}

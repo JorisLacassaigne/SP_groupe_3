@@ -128,7 +128,7 @@
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
                                             <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
+                                            <input type="hidden" name="numero" value="10178">
                                             <input type="image" name="btn_modifier"
                                                    src="public/images/icones/s32.png">
                                         </form>

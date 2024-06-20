@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-20 09:44:33
+/* Smarty version 4.3.2, created on 2024-06-20 10:28:53
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_commande\vue\commandeFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6673fa01ea3365_88873300',
+  'unifunc' => 'content_66740465d35ac0_83225397',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '00293e616c6caa1c0091ffd71415b6df940f3297' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_commande\\vue\\commandeFicheVue.tpl',
-      1 => 1718876672,
+      1 => 1718879333,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6673fa01ea3365_88873300 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66740465d35ac0_83225397 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -118,6 +118,10 @@ function content_6673fa01ea3365_88873300 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="col-md-12">
 
                         <div class="col-md-6">
+                            <div <?php if (CommandeTable::getMessageErreur() != '') {?> class="alert alert-danger" role="alert" <?php }?>>
+                                <?php echo CommandeTable::getMessageErreur();?>
+
+                            </div>
                             <div class="card">
                                 <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </strong></div>
