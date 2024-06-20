@@ -61,6 +61,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
                 </li>
+                <li class=" dropdown">
+                    <a href="index.php?gestion=panier" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon ti-trash"></i>Panier (temporaire)</a>
+                </li>
 
                 {*                    <li class="dropdown">*}
                 {*                        <a href="#A VOUS D'ECRIRE LE LIEN" > <i class="menu-icon fa fa-th"></i>Mon profil</a>*}

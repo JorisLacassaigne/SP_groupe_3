@@ -1,6 +1,6 @@
 <?php
 
-class AccueilControleur{
+class AccueilController{
 
     private $parametre = []; // Un tableau associatif contenant le tableau $_REQUEST
 

@@ -1,5 +1,5 @@
 <?php
-class ProfilControleur{
+class ProfilController{
     private $parametre = []; // $_REQUEST
     private $oVue; // objet
     private $oModele; // objet
