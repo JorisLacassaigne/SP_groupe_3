@@ -17,7 +17,7 @@ class ProfilControleur{
     public function lister()
     {
         $profil = $this->oModele->getListeProfil();
-
+        $this->oModele->stv01($profil);
         $this->oVue->genererAffichageFiche($profil);
     }
 
@@ -25,10 +25,9 @@ class ProfilControleur{
 
     public function modifier()
     {
-
         $controleProfil = new ProfilTable($this->parametre);
-
         if ($controleProfil->getAutorisationBD() == false) {
+
 
             $this->oVue->genererAffichageFiche($controleProfil);
 

@@ -47,6 +47,21 @@ class ProfilModele extends Modele
         }
     }
 
+    public function stv01(profilTable $enCours){
+        $sql = 'SELECT SUM(totalHT) as stv01 FROM `commande` WHERE codev=?';
+        $idRequete = $this->executeRequete($sql, [
+            $_SESSION['codev'],
+        ]);
+
+        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($row['stv01'] != null) {
+            $enCours->setstv01($row['stv01']);
+        } else {
+            $enCours->setstv01(0);
+        }
+    }
+
     public function editMotdepasse()
     {
 

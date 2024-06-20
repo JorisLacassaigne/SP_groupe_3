@@ -16,6 +16,7 @@ class ProfilTable
     private $autorisationBD = true;
     private static $messageErreur = "";
     private static $messageSucces = "";
+    private $stv01;
 
 
     public function hydrater(array $data)
@@ -303,6 +304,22 @@ class ProfilTable
     public static function setMessageSucces(string $messageSucces): void
     {
         self::$messageSucces = $messageSucces;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getstv01()
+    {
+        return $this->stv01;
+    }
+
+    /**
+     * @param mixed $stv01
+     */
+    public function setstv01($stv01): void
+    {
+        $this->stv01 = $stv01;
     }
 
 }
