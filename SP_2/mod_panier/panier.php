@@ -11,4 +11,8 @@ class Panier {
 
         $this->oController = new PanierController($this->parametre);
     }
+
+    public function choixAction(){
+        $this->oController->lister();
+    }
 }

@@ -62,8 +62,7 @@
                        aria-expanded="false"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
                 </li>
                 <li class=" dropdown">
-                    <a href="index.php?gestion=panier" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-trash"></i>Panier (temporaire)</a>
+                    <a href="index.php?gestion=panier">Panier (temporaire)</a>
                 </li>
 
                 {*                    <li class="dropdown">*}
