@@ -27,13 +27,6 @@ class CommandeController
         $this->oVue->genererAffichageListe($commandes);
     }
 
-    public function form_consulter()
-    {
-
-        $uneCommande = $this->oModele->getUneCommande();
-        $this->oVue->genererAffichageFiche($uneCommande);
-    }
-
 // Pour afficher la liste des produits a ajouter dans le panier
     public function lister_produit(){
 
@@ -41,6 +34,15 @@ class CommandeController
         $this->oVue->genererAffichageListeProduits($produits);
 
     }
+
+    public function form_consulter()
+    {
+
+        $uneCommande = $this->oModele->getUneCommande();
+        $this->oVue->genererAffichageFiche($uneCommande);
+    }
+
+
 
 //    public function form_ajouter()
 //    {

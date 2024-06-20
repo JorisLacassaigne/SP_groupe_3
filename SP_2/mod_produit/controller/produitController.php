@@ -26,6 +26,14 @@ class ProduitController
         $this->oVue->genererAffichageListe($produits);
     }
 
+    public function lister_produit(){
+
+        $produits = $this->oModele->getListeProduit();
+
+        $this->oVue->genererAffichageListeCommande($produits);
+
+    }
+
     public function form_consulter()
     {
         $produit = $this->oModele->getUnProduit();

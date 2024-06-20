@@ -129,9 +129,9 @@ WHERE numero = ?';
             // Création du tableau d'objets
             while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
                 array_push($_SESSION['panier'], $unProduit);
-                $unProduit[] = new ProduitTable($unProduit);
+                $ligneCommande[] = new ProduitTable($unProduit);
             }
-            return $unProduit;
+            return $ligneCommande;
 
         } else {
 

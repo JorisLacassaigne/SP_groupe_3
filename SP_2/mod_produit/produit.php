@@ -25,6 +25,11 @@ class Produit
                     $this->oController->form_consulter();
                     break;
 
+                case 'lister_produit':
+
+                    $this->oController->lister_produit();
+                    break;
+
                 case 'form_ajouter':
 
                     $this->oController->form_ajouter();
