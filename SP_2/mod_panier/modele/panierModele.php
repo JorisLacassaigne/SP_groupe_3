@@ -1,11 +1,17 @@
 <?php
-class PanierModele extends Modele {
+
+class PanierModele extends Modele
+{
     private $parametre = []; //$_REQUEST
 
-    public function __construct($parametre){
+    public function __construct($parametre)
+    {
 
         $this->parametre = $parametre;
     }
 
+    public function getListepanier()
+    {
 
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-class AuthentificationControleur {
+class AuthentificationController {
 
     private $parametre = []; // $_REQUEST
     private $oVue; // Object

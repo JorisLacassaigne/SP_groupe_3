@@ -13,7 +13,7 @@ class Autoloader
     private static function autoload($maClasse)
     {
         // $maClasse contient le nom de la classe appelée :
-        // Accueil, AccueilControleur, AccueilVue, ClientControleur; ClientModele, ...
+        // Accueil, AccueilController, AccueilVue, ClientController; ClientModele, ...
         // Transformation avec le nom de la classe en minuscule (première lettre)
         $maClasse = lcfirst($maClasse);
 
@@ -61,12 +61,16 @@ class Autoloader
             'mod_profil/controller/',
             'mod_profil/modele/',
             'mod_profil/vue/',
+            'mod_panier/',
+            'mod_panier/controller/',
+            'mod_panier/modele/',
+            'mod_panier/vue/',
         ];
 
 
         foreach ($repertoires as $repertoire) {
             // vérification si fichier attendu existe
-            // accueil.php, accueilControleur.php, serviceControleur.php
+            // accueil.php, accueilController.php, serviceController.php
             // serviceModele.php
             if (file_exists($repertoire . $maClasse . '.php')) {
                 require_once($repertoire . $maClasse . '.php');

@@ -1,5 +1,5 @@
 <?php
-class VendeurControleur{
+class VendeurController{
 
     private $parametre = []; // $_REQUEST
     private $oVue; // Object
