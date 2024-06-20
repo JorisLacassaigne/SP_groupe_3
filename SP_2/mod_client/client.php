@@ -5,14 +5,14 @@ class Client
 
     private $parametre = []; // Tableau = $_REQUEST
 
-    private $oControleur; // objet
+    private $oController; // objet
 
     public function __construct($parametre)
     {
 
         $this->parametre = $parametre;
 
-        $this->oControleur = new ClientControleur($this->parametre);
+        $this->oController = new ClientController($this->parametre);
     }
 
     public function choixAction()
@@ -24,51 +24,51 @@ class Client
 
                 case 'form_consulter':
 
-                    $this->oControleur->form_consulter();
+                    $this->oController->form_consulter();
                     break;
 
                 case 'form_ajouter':
 
-                    $this->oControleur->form_ajouter();
+                    $this->oController->form_ajouter();
                     break;
 
                 case 'ajouter' :
 
-                    $this->oControleur->ajouter();
+                    $this->oController->ajouter();
                     break;
 
                 case 'form_modifier' :
 
-                    $this->oControleur->form_modifier();
+                    $this->oController->form_modifier();
                     break;
 
                 case 'modifier' :
 
-                    $this->oControleur->modifier();
+                    $this->oController->modifier();
                     break;
 
                 case 'form_supprimer' :
 
-                    $this->oControleur->form_supprimer();
+                    $this->oController->form_supprimer();
                     break;
 
                 case 'supprimer' :
 
-                    $this->oControleur->supprimer();
+                    $this->oController->supprimer();
                     break;
 
                 case 'form_commander' :
 
-                    $this->oControleur->form_commander();
+                    $this->oController->form_commander();
                     break;
 
                 case 'commander' :
 
-                    $this->oControleur->commander();
+                    $this->oController->commander();
                     break;
             }
         } else {
-            $this->oControleur->lister();
+            $this->oController->lister();
         }
     }
 }

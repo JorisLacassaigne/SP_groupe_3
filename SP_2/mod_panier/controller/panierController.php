@@ -13,5 +13,11 @@ class PanierController{
         $this->oVue = new PanierVue($this->parametre);
     }
 
+    public function lister()
+    {
 
+        $panier = $this->oModele->getListePanier();
+
+        $this->oVue->genererAffichageListe($panier);
+    }
 }

@@ -4,14 +4,14 @@ class Profil
 {
     private $parametre = []; // Tableau = $_REQUEST
 
-    private $oControleur; // objet
+    private $oController; // objet
 
     public function __construct($parametre)
     {
 
         $this->parametre = $parametre;
 
-        $this->oControleur = new ProfilControleur($this->parametre);
+        $this->oController = new ProfilController($this->parametre);
     }
 
     public function choixAction()
@@ -21,18 +21,18 @@ class Profil
 
                 case 'modifier' :
 
-                    $this->oControleur->modifier();
+                    $this->oController->modifier();
                     break;
 
                 case 'valider' :
 
-                    $this->oControleur->valider();
+                    $this->oController->valider();
                     break;
             }
         } else {
 
 
-            $this->oControleur->lister();
+            $this->oController->lister();
         }
     }
 }
