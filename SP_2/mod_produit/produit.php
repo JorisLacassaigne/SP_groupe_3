@@ -54,6 +54,7 @@ class Produit
 
                     $this->oController->supprimer();
                     break;
+
             }
         } else {
             $this->oController->lister();

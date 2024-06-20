@@ -10,8 +10,9 @@ class PanierModele extends Modele
         $this->parametre = $parametre;
     }
 
-    public function getListepanier()
+    public function getfichePanier()
     {
 
     }
+
 }

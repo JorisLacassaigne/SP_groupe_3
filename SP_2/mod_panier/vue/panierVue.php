@@ -21,6 +21,7 @@ class PanierVue{
 
         $this->tpl->assign('login', $_SESSION['prenomNom']);
 
+
     }
 
     public function genererAffichageListe($panier)
@@ -30,7 +31,7 @@ class PanierVue{
 
         $this->tpl->assign('titrePage', 'Panier');
 
-        $this->tpl->assign('panierFiche', $panier);
+        $this->tpl->assign('panier', $_SESSION['panier']);
 
         $this->tpl->display('mod_panier/vue/panierFiche.tpl');
 

@@ -18,7 +18,7 @@ class PanierController
     public function lister()
     {
 
-        $panier = $this->oModele->getListepanier();
+        $panier = $this->oModele->getfichePanier();
 
         $this->oVue->genererAffichageListe($panier);
     }
