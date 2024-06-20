@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-20 11:32:14
+/* Smarty version 4.3.2, created on 2024-06-20 12:22:27
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_profil\vue\profilListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6674133e407427_25538207',
+  'unifunc' => 'content_66741f03114686_54097437',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c16aa4a58873b46a15a111af12d4854f4c14512' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_profil\\vue\\profilListeVue.tpl',
-      1 => 1718883133,
+      1 => 1718884077,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6674133e407427_25538207 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66741f03114686_54097437 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -110,7 +110,7 @@ function content_6674133e407427_25538207 (Smarty_Internal_Template $_smarty_tpl)
     <div class="content mt-3">
         <div class="animated fadeIn">
 
-            <div class="row">
+            <div>
 
                 <div class="col-md-6">
 
@@ -209,8 +209,7 @@ function content_6674133e407427_25538207 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
 
             </div>
-            <div class="col-lg-6"></div>
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header"><strong>Statistiques</strong></div>
                     <div class="card-body">

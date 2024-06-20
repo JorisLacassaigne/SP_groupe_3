@@ -101,8 +101,8 @@
                                                value="{$uneCommande["commande"]->getNumero()}">
                                     </div>
 {*                                    <div class="form-group">*}
-{*                                        <label class="form-control-label" for="numero">Vendeur : </label>*}
-{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
+{*                                        <label class="form-control-label" for="nom">Vendeur : </label>*}
+{*                                        <input type="text" name="nom" class="form-control" {$readonly}*}
 {*                                               value="{$uneCommande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}">*}
 {*                                    </div>*}
 {*                                    <div class="form-group">*}
@@ -123,14 +123,23 @@
                             <div class="card">
                                 <div class="card-header"><strong>Etat de la commande</strong></div>
                                 <div class="card-body card-block">
-
-
-                                    <div class="form-group">Date de commande : 05/09/2017</div>
-                                    <div class="form-group">Date de livraison : 05/09/2017</div>
-                                    <div class="form-group">Total HT : 226.62 € </div>
-                                    <div class="form-group">Commande Validée : OUI </div>
-
-
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="numero">Date de commande : </label>
+                                        <input type="text" name="numero" class="form-control" {$readonly}
+                                               value="{$uneCommande["commande"]->getDateCommande()}">
+                                    </div><div class="form-group">
+                                        <label class="form-control-label" for="numero">Date de livraison : </label>
+                                        <input type="text" name="numero" class="form-control" {$readonly}
+                                               value="{$uneCommande["commande"]->getDateLivraison()}">
+                                    </div><div class="form-group">
+                                        <label class="form-control-label" for="numero">Total HT : </label>
+                                        <input type="text" name="numero" class="form-control" {$readonly}
+                                               value="{$uneCommande["commande"]->getTotalHT()}">
+{*                                    </div><div class="form-group">*}
+{*                                        <label class="form-control-label" for="numero">Commande Validée : </label>*}
+{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
+{*                                               value="{$uneCommande["commande"]->getEtat()}">*}
+{*                                    </div>*}
                                 </div>
                             </div>
                         </div>
