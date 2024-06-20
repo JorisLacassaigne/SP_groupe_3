@@ -85,7 +85,7 @@
                                 <form action='index.php' method='POST' >
                                     <input type="hidden" name="gestion" value="commande">
                                     <input type="hidden" name="action" value="affiche_panier">
-                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/voir16.png'></label>
+                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/a16.png'></label>
 
                                 </form>
 
@@ -119,6 +119,7 @@
                         <!--<table  class="table table-striped table-bordered">-->
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
+                            <form method="POST" action="index.php">
                             <tr>
 
                                 <th>Référence</th>
@@ -132,31 +133,33 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {foreach from=$listeProduits item=commande}
+                            {foreach from=$listeProduits item=produit}
 
                                 <tr>
-                                    <td>{$commande["commande"]->getNumero()}</td>
-                                    <td>{$commande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}</td>
-                                    <td>{$commande["client"]->getNom()} {$commande["client"]->getPrenom()}</td>
-                                    <td>{$commande["commande"]->getTotalHT()}</td>
-                                    <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_consulter">
-                                            <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
-                                            <input type="image" name="btn_consulter"
-                                                   src="public/images/icones/p16.png">
-                                        </form>
+                                    <td>{$produit->getReference()}</td>
+                                    <td>{$produit->getDesignation()}</td>
+                                    <td>{$produit->getStock()}</td>
+                                    <td>
+                                        <input type="text" value="{$produit->getPrixUnitaireHT()}">
+                                    </td>
+                                    <td>
+                                        <input type="text" value="{$produit->getPrixUnitaireHT()}">
+                                    </td>
+                                    <td>
+                                        <input type="text" value="{$produit->getQuantite()}"
                                     </td>
                                     <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="10178">
-                                            <input type="image" name="btn_modifier"
-                                                   src="public/images/icones/s32.png">
-                                        </form>
+
+                                        <input type="hidden" name="gestion" value="commande">
+                                        <input type="hidden" name="action" value="ajout_panier">
+                                        <input type="hidden" name="f_reference" value="4061">
+                                        <input type="hidden" name="f_designation" value="BOULE DE GLACE NOIRE">
+
+
+                                        <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
+
                                     </td>
+                                    </form>
                                 </tr>
                             {/foreach}
                             </tbody>

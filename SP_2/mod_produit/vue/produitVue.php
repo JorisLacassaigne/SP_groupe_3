@@ -41,6 +41,17 @@ class ProduitVue
         $this->tpl->display('mod_produit/vue/produitListeVue.tpl');
     }
 
+
+    public function genererAffichageListeTousLesProduits($tousLesProduits)
+    {
+        $this->chargementPrincipal();
+
+        $this->tpl->assign('titrePage', 'Liste des Produits');
+
+        $this->tpl->assign('listeProduits', $tousLesProduits);
+
+        $this->tpl->display('mod_produit/vue/produitListeCommanderVue.tpl');    }
+
     public function genererAffichageFiche($produit)
     {
         $this->chargementPrincipal();

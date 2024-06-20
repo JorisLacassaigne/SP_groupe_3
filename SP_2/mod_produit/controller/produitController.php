@@ -26,7 +26,7 @@ class ProduitController
         $this->oVue->genererAffichageListe($produits);
     }
 
-    public function listerProduitCommande()
+    public function lister_produits()
     {
         $tousLesProduits = $this->oModele->getListeProduit();
 

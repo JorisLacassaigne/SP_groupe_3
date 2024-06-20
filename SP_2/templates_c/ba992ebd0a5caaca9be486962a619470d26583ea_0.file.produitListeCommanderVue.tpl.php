@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-20 17:07:36
+/* Smarty version 4.3.2, created on 2024-06-20 17:51:14
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_667461d85ff487_60924055',
+  'unifunc' => 'content_66746c12a173c4_98702942',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba992ebd0a5caaca9be486962a619470d26583ea' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
-      1 => 1718901736,
+      1 => 1718905873,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_667461d85ff487_60924055 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -117,7 +117,7 @@ function content_667461d85ff487_60924055 (Smarty_Internal_Template $_smarty_tpl)
                                 <form action='index.php' method='POST' >
                                     <input type="hidden" name="gestion" value="commande">
                                     <input type="hidden" name="action" value="affiche_panier">
-                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/voir16.png'></label>
+                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/a16.png'></label>
 
                                 </form>
 
@@ -151,6 +151,7 @@ function content_667461d85ff487_60924055 (Smarty_Internal_Template $_smarty_tpl)
                         <!--<table  class="table table-striped table-bordered">-->
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
+                            <form method="POST" action="index.php">
                             <tr>
 
                                 <th>Référence</th>
@@ -165,42 +166,43 @@ function content_667461d85ff487_60924055 (Smarty_Internal_Template $_smarty_tpl)
                             </thead>
                             <tbody>
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeProduits']->value, 'commande');
-$_smarty_tpl->tpl_vars['commande']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['commande']->value) {
-$_smarty_tpl->tpl_vars['commande']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeProduits']->value, 'produit');
+$_smarty_tpl->tpl_vars['produit']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
+$_smarty_tpl->tpl_vars['produit']->do_else = false;
 ?>
 
                                 <tr>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["vendeur"]->getPrenom();?>
- <?php echo $_smarty_tpl->tpl_vars['commande']->value["vendeur"]->getNom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["client"]->getNom();?>
- <?php echo $_smarty_tpl->tpl_vars['commande']->value["client"]->getPrenom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getStock();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getTotalHT();?>
-</td>
-                                    <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_consulter">
-                                            <input type="hidden" name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
+                                    <td>
+                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
 ">
-                                            <input type="image" name="btn_consulter"
-                                                   src="public/images/icones/p16.png">
-                                        </form>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
+">
+                                    </td>
+                                    <td>
+                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getQuantite();?>
+"
                                     </td>
                                     <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="10178">
-                                            <input type="image" name="btn_modifier"
-                                                   src="public/images/icones/s32.png">
-                                        </form>
+
+                                        <input type="hidden" name="gestion" value="commande">
+                                        <input type="hidden" name="action" value="ajout_panier">
+                                        <input type="hidden" name="f_reference" value="4061">
+                                        <input type="hidden" name="f_designation" value="BOULE DE GLACE NOIRE">
+
+
+                                        <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
+
                                     </td>
+                                    </form>
                                 </tr>
                             <?php
 }

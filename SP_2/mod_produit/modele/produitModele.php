@@ -32,8 +32,6 @@ class ProduitModele extends Modele
 
     public function getUnProduit()
     {
-
-
         $sql = 'SELECT * FROM produit WHERE reference = ?';
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['reference'],
