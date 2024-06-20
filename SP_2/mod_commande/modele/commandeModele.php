@@ -55,9 +55,15 @@ JOIN vendeur ON commande.codev = vendeur.codev';
 
     public function getUneCommande() {
 
-        $sql = 'SELECT * FROM commande WHERE numero = ?';
+        $sql = 'SELECT commande.*, client.nom AS nom_client, client.prenom AS prenom_client, vendeur.nom AS nom_vendeur, vendeur.prenom AS prenom_vendeur
+FROM commande
+JOIN client ON commande.codec = client.codec
+JOIN vendeur ON commande.codev = vendeur.codev
+WHERE numero = ?';
 
-        $idRequete = $this->executeRequete($sql);
+        $idRequete = $this->executeRequete($sql, [
+            $this->parametre['numero'],
+        ]);
 
         if($idRequete->rowCount() > 0){
             // Création du tableau d'objets
@@ -79,7 +85,6 @@ JOIN vendeur ON commande.codev = vendeur.codev';
 
                 $uneCommande[] = ["commande"=>$commande, "client"=>$client, "vendeur"=>$vendeur];
 
-
             }
 
             return $uneCommande;
@@ -88,15 +93,6 @@ JOIN vendeur ON commande.codev = vendeur.codev';
 
             return null;
         }
-
-//        $sql = 'SELECT * FROM commande WHERE numero = ?';
-//
-//        $idRequete = $this->executeRequete($sql, [
-//            $this->parametre['numero'],
-//        ]);
-//
-//        $uneCommande = new CommandeTable($idRequete->fetch(PDO::FETCH_ASSOC));
-//        return $uneCommande;
 
     }
 

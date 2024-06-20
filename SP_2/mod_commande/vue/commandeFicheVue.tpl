@@ -92,33 +92,33 @@
 
                                 <div class="card-body card-block" >
 
-                                    {if $action neq 'ajouter'}
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="numero">Code commande : </label>
-                                            <input type="text" name="numero" class="form-control" readonly
-                                                   value="{$uneCommande->getNumero()}">
-                                        </div>
-                                    {/if}
+{*                                    {if $action neq 'ajouter'}*}
+{*                                        <div class="form-group">*}
+{*                                            <label class="form-control-label" for="numero">Code commande : </label>*}
+{*                                            <input type="text" name="numero" class="form-control" readonly*}
+{*                                                   value="{$uneCommande->getNumero()}">*}
+{*                                        </div>*}
+{*                                    {/if}*}
                                     <div class="form-group">
                                         <label class="form-control-label" for="numero">Numéro commande : </label>
                                         <input type="text" name="numero" class="form-control" {$readonly}
-                                               value="{$uneCommande->getNumero()}">
+                                               value="{$uneCommande["commande"]->getNumero()}">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="numero">Vendeur : </label>
-                                        <input type="text" name="numero" class="form-control" {$readonly}
-                                               value="{$uneCommande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="numero">Code client : </label>
-                                        <input type="text" name="numero" class="form-control" {$readonly}
-                                               value="{$uneCommande["client"]->getCodec()}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="numero">Client : </label>
-                                        <input type="text" name="numero" class="form-control" {$readonly}
-                                               value="{$uneCommande["client"]->getNom()} {$commande["client"]->getPrenom()}">
-                                    </div>
+{*                                    <div class="form-group">*}
+{*                                        <label class="form-control-label" for="numero">Vendeur : </label>*}
+{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
+{*                                               value="{$uneCommande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}">*}
+{*                                    </div>*}
+{*                                    <div class="form-group">*}
+{*                                        <label class="form-control-label" for="numero">Code client : </label>*}
+{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
+{*                                               value="{$uneCommande["client"]->getCodec()}">*}
+{*                                    </div>*}
+{*                                    <div class="form-group">*}
+{*                                        <label class="form-control-label" for="numero">Client : </label>*}
+{*                                        <input type="text" name="numero" class="form-control" {$readonly}*}
+{*                                               value="{$uneCommande["client"]->getNom()} {$commande["client"]->getPrenom()}">*}
+{*                                    </div>*}
                                 </div>
                             </div>
                         </div>
@@ -142,11 +142,6 @@
 
 
                     </div>
-
-
-
-
-
 
 
 

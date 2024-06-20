@@ -30,8 +30,8 @@ class CommandeControleur
     public function form_consulter()
     {
 
-        $commandes = $this->oModele->getUneCommande();
-        $this->oVue->genererAffichageFiche($commandes);
+        $uneCommande = $this->oModele->getUneCommande();
+        $this->oVue->genererAffichageFiche($uneCommande);
     }
 
 //    public function form_ajouter()
