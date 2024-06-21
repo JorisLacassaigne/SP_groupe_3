@@ -141,16 +141,23 @@
                                     <td>{$produit->getStock()}</td>
                                     <td>{$produit->getPrixUnitaireHT()} €</td>
                                     <td>
-                                        <input type="text" value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}">€
+                                        <input type="text" value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" size="5">€
                                     </td>
-                                    <td class="pos-actions">
+                                    <td>
+                                        <input type="text" name="quantite" value="" size="5">
+                                    </td>
 
-                                        <input type="number" name="f_quantite" value="0" min="0">
+                                    <td class="pos-actions"
+                                        <input type="hidden" name="gestion" value="produit">
+                                        <input type="hidden" name="action" value="ajouter_panier">
+                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
+                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
                                         <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
-
                                     </td>
-                                    </form>
+
                                 </tr>
+                                </form>
+
                             {/foreach}
                             </tbody>
                         </table>
@@ -158,7 +165,7 @@
 
                     </div>
                     <div class="card-body card-block">
-                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=commande"'></div>
+                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=panier"'></div>
                         <div class="col-md-6 "> </div>
                         <br>
                     </div>

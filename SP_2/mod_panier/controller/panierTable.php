@@ -13,8 +13,8 @@ class PanierTable{
     private $stat03;
 
     private $autorisationBD = true;
-    private static $messageErreur = "";
-    private static $messageSucces = "";
+    private static $messageErreur = "erreur";
+    private static $messageSucces = "succes";
 
     /**
      * @return mixed
