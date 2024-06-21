@@ -8,6 +8,10 @@ class PanierTable{
     private $prixVente;
     private $total;
 
+    private $stat01;
+    private $stat02;
+    private $stat03;
+
     private $autorisationBD = true;
     private static $messageErreur = "";
     private static $messageSucces = "";
@@ -123,6 +127,56 @@ class PanierTable{
     {
         $this->total = $total;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStat01()
+    {
+        return $this->stat01;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStat02()
+    {
+        return $this->stat02;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStat03()
+    {
+        return $this->stat03;
+    }
+
+    /**
+     * @param mixed $stat01
+     */
+    public function setStat01($stat01): void
+    {
+        $this->stat01 = $stat01;
+    }
+
+    /**
+     * @param mixed $stat02
+     */
+    public function setStat02($stat02): void
+    {
+        $this->stat02 = $stat02;
+    }
+
+    /**
+     * @param mixed $stat03
+     */
+    public function setStat03($stat03): void
+    {
+        $this->stat03 = $stat03;
+    }
+
+
 
 
 

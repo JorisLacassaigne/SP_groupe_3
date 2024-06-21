@@ -33,6 +33,8 @@ class PanierVue{
 
         $this->tpl->assign('panier', $_SESSION['panier']);
 
+        $this->tpl->assign('produit', $panier);
+
         $this->tpl->display('mod_panier/vue/panierFiche.tpl');
 
 

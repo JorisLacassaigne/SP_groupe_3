@@ -102,56 +102,53 @@
                             </thead>
                             <tbody>
                             {foreach from=$panier item=$produit}
-                            <tr>
-                                <td>1</td>
-                                <td>{$produit['reference']}</td>
-                                <td>{$produit['designation']}</td>
-                                <td>
-                                    <div class="formulaire">
-                                        <label class="formulaire" for="quantite"></label>
-                                        <input type="text" name="quantite" class="formulaire"
-                                               value="{$produit['quantite']}">
-                                    </div>
-                                </td>
-                                <td>{$produit['prixUnitaireHT']}</td>
-                                <td>
-                                    <div class="formulaire">
-                                        <label class="formulaire" for="prixVente"></label>
-                                        <input type="text" name="prixVente" class="formulaire"
-                                               value="Prix de vente">
-                                    </div>
-                                </td>
-                                <td>Total</td>
-                                {**}
-                                <td class="pos-actions">
-                                    <form method="POST" action="index.php">
-                                        <input type="hidden" name="gestion" value="panier">
-                                        <input type="hidden" name="action" value="form_modifier">
-                                        {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
-                                        <input type="image" name="btn_modifier"
-                                               src="public/images/icones/m32.png">
-                                    </form>
-                                </td>
-                                <td class="pos-actions">
-                                    <form method="POST" action="index.php">
-                                        <input type="hidden" name="gestion" value="panier">
-                                        <input type="hidden" name="action" value="form_supprimer">
-                                        {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
-                                        <input type="image" name="btn_supprimer"
-                                               src="public/images/icones/s32.png">
-                                    </form>
-                                </td>
-                            </tr>
-                                                            {/foreach}
+                                <tr>
+                                    <td>1</td>
+                                    <td>{$produit['reference']}</td>
+                                    <td>{$produit['designation']}</td>
+                                    <td>
+                                        <div class="formulaire">
+                                            <label class="formulaire" for="quantite"></label>
+                                            <input type="text" name="quantite" class="formulaire"
+                                                   value="{$produit['quantite']}">
+                                        </div>
+                                    </td>
+                                    <td>{$produit['prixUnitaireHT']}</td>
+                                    <td>
+                                        <div class="formulaire">
+                                            <label class="formulaire" for="prixVente"></label>
+                                            <input type="text" name="prixVente" class="formulaire"
+                                                   value="Prix de vente">
+                                        </div>
+                                    </td>
+                                    <td>Total</td>
+                                    {**}
+                                    <td class="pos-actions">
+                                        <form method="POST" action="index.php">
+                                            <input type="hidden" name="gestion" value="panier">
+                                            <input type="hidden" name="action" value="form_modifier">
+                                            {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
+                                            <input type="image" name="btn_modifier"
+                                                   src="public/images/icones/m32.png">
+                                        </form>
+                                    </td>
+                                    <td class="pos-actions">
+                                        <form method="POST" action="index.php">
+                                            <input type="hidden" name="gestion" value="panier">
+                                            <input type="hidden" name="action" value="form_supprimer">
+                                            {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
+                                            <input type="image" name="btn_supprimer"
+                                                   src="public/images/icones/s32.png">
+                                        </form>
+                                    </td>
+                                </tr>
+                            {/foreach}
                             </tbody>
                             <tfoot>
                             <tr>
-                                <td></td>
-                                <td>Montant de la commande : <strong>10000000 €</strong></td>
-                                <td>Total TVA : <strong>10000000 €</strong></td>
-                                <td></td>
-                                <td></td>
-                                <td>Marche brute : <strong>10000000 €</strong></td>
+                                <td colspan="3">Montant de la commande : <strong>{$produit->getStat01()} €</strong></td>
+                                <td colspan="3">Total TVA : <strong>{$produit->getStat02()} €</strong></td>
+                                <td colspan="3">Marche brute : <strong>{$produit->getStat03()} €</strong></td>
                             </tr>
                             </tfoot>
                         </table>
