@@ -57,7 +57,7 @@ class PanierModele extends Modele
         $enCours->setStat03($row['stat03']);
     }
 
-    public function nomPrenomClient()
+    public function nomPrenomClient(PanierTable $enCours)
     {
         $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';
 
@@ -67,9 +67,28 @@ class PanierModele extends Modele
         while ($npc = $idRequete->fetch(PDO::FETCH_ASSOC)) {
             $npctab[] = $npc['npc'];
         }
-        var_dump($npctab);
+        $enCours->setNpc($npctab);
+//        var_dump($npctab);
 
-        return $npctab;
+    }
+
+    public function nomPClient()
+    {
+        $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';
+
+        $idRequete = $this->executeRequete($sql);
+
+        $npctab = array();
+        while ($npc = $idRequete->fetch(PDO::FETCH_ASSOC)) {
+            $npctab[] = $npc['npc'];
+        }
+//        var_dump($npctab);
+
+        $enCours=new ClientTable();
+        $enCours->setNom('nom');
+        $enCours->setPrenom('prenom');
+
+        return $enCours;
     }
 
 }

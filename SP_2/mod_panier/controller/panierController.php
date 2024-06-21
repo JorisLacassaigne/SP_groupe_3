@@ -33,9 +33,9 @@ class PanierController
     {
         $panier = $this->oModele->getfichePanier();
 
-        $this->oModele->nomPrenomClient($panier);
+       $this->oModele->nomPrenomClient($panier);
 
-//        var_dump($panier);
+//        var_dump($panier->getNpc());
 
         $this->oVue->genererAffichageSauvegarde($panier);
 

@@ -111,9 +111,9 @@
                                         <select name="comboClient" class="form-control">
                                             <option value=" - " class="form-control option" selected> --- Choisir ---
                                             </option>
-                                            {foreach from=$panier item=$npctab}
+                                            {foreach from=$npc item=$nom}
                                                 <option value="1"
-                                                        class="form-control option">{$panier->getNpc()}</option>
+                                                        class="form-control option">{$nom}</option>
                                             {/foreach}
                                         </select>
 

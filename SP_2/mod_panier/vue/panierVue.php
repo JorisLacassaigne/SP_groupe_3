@@ -57,6 +57,8 @@ class PanierVue
 
                 $this->tpl->assign('panier', $panier);
 
+                $this->tpl->assign('npc', $panier->getNpc());
+
                 $this->tpl->assign('readonly', '');
 
                 $this->tpl->display('mod_panier/vue/panierSauvegarderVue.tpl');
