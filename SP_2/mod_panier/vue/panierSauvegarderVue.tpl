@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="public/assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="public/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="template/assets/css/bootstrap-select.less"> -->
+    <!-- <link rel="stylesheet" href="public/assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="public/assets/scss/style.css">
     <link href="public/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
@@ -56,7 +56,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>La gourmandise, ça se partage !</h1>
+                    <h1>Séraphin PARYS</h1>
                 </div>
             </div>
         </div>
@@ -65,8 +65,8 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=commande">Commandes</a></li>
-                        <li class="active">Fiche Commande : Enregistrement</li>
+                        <li><a href="index.php?gestion=panier">Panier</a></li>
+                        <li class="active">Sauvegarder le panier</li>
                     </ol>
                 </div>
             </div>
@@ -81,12 +81,11 @@
 
                 <form class="pos-ajout" method="POST" action="index.php">
 
-                    <input type="hidden" name="gestion"  value="commande" >
-                    <input type="hidden" name="action"  value="ajouter" >
-                    <input type="hidden" name="code_v" value="15">
-                    <input type="hidden" name="pPrenomVendeur" value="Sylvain">
-                    <input type="hidden" name="pNomVendeur" value="FILLARD">
-
+                    <input type="hidden" name="gestion" value="panier">
+                    <input type="hidden" name="action" value="sauvegarder">
+                    <input type="hidden" name="codev" value="{$panier->getCodev()}">
+                    <input type="hidden" name="prenom" value="{$panier->getPrenom()}">
+                    <input type="hidden" name="nom" value="{$panier->getnom()}">
 
 
                     <div class="col-md-12">
@@ -96,14 +95,13 @@
                                 <div class="card-header"><strong>Fiche Commande : Enregistrement</strong></div>
 
 
+                                <div class="card-body card-block">
 
-                                <div class="card-body card-block" >
-
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de commande :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande' value='2024-06-21'>
-                                        <br> </div>
-
-
+                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
+                                            commande :</label></div>
+                                    <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
+                                                                 value='2024-06-21' readonly>
+                                        <br></div>
 
 
                                     <div class="col-md-5">
@@ -111,9 +109,12 @@
                                     </div>
                                     <div class="col-md-7">
                                         <select name="comboClient" class="form-control">
-                                            <option value=" - " class="form-control option" selected> --- Choisir --- </option>
-                                            <option value="1" class="form-control option">Test</option>
-
+                                            <option value=" - " class="form-control option" selected> --- Choisir ---
+                                            </option>
+                                            {foreach from=$panier item=$npctab}
+                                                <option value="1"
+                                                        class="form-control option">{$panier->getNpc()}</option>
+                                            {/foreach}
                                         </select>
 
 
@@ -136,20 +137,28 @@
                         <div class="col-md-6">
 
                             <div class="card">
-                                <div class="card-header"><strong>Etat de la commande</strong></div>
+                                <div class="card-header"><strong>État de la commande</strong></div>
                                 <div class="card-body card-block">
 
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de livraison :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='date' name='f_date_livraison' value='2024-06-28'>
+                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
+                                            livraison :</label></div>
+                                    <div class="col-md-7"><input class='form-control' type='date'
+                                                                 name='f_date_livraison' value='2024-06-28'>
                                         <br>
                                     </div>
 
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT (en €) :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text' name='f_montantCommande' value='31.28' size='3' readonly>
+                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
+                                            (en €) :</label></div>
+                                    <div class="col-md-7"><input class='form-control' type='text'
+                                                                 name='f_montantCommande' value='{$panier->getStat01()}'
+                                                                 size='3'
+                                                                 readonly>
                                         <br></div>
 
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €) :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text' name='f_tva' value='6.26' size='3' readonly>
+                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
+                                            :</label></div>
+                                    <div class="col-md-7"><input class='form-control' type='text' name='f_tva'
+                                                                 value='{$panier->getStat02()}' size='3' readonly>
                                     </div>
 
                                 </div>
@@ -157,9 +166,7 @@
                         </div>
 
 
-
                     </div>
-
 
 
                     <div class="col-md-12">
@@ -167,9 +174,7 @@
                         <div class="card-body">
 
 
-
-
-                            <table  class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th>N° Ligne</th>
@@ -184,10 +189,12 @@
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>1004</td>
-                                    <td><a href="index.php?gestion=produit&action=form_consulter&pop=1&f_reference=1004" target="_blank">FEU DE JOIE LIQUEUR ASSORT.</a></td>
-                                    <td>1</td>
-                                    <td>31.28</td>
+                                    <td>{$panier->getReference()}</td>
+                                    <td>
+                                        <a href="index.php?gestion=produit&action=form_consulter&pop=1&f_reference=1004">{$panier->getDesignation()}</a>
+                                    </td>
+                                    <td>Quantité</td>
+                                    <td>Total</td>
 
                                 </tr>
 
@@ -197,8 +204,10 @@
 
                         </div>
                         <div class="card-body card-block">
-                            <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=commande&action=affiche_panier"'></div>
-                            <div class="col-md-6 "><input type="submit" id="f_btn-action" class="btn btn-submit pos-btn-action" value="Valider" ></div>
+                            <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
+                                                         onclick='location.href = "index.php?gestion=panier"'></div>
+                            <div class="col-md-6 "><input type="submit" id="f_btn-action"
+                                                          class="btn btn-submit pos-btn-action" value="Valider"></div>
                             <br>
                         </div>
 
@@ -213,23 +222,23 @@
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-<script src="template/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="template/assets/js/plugins.js"></script>
-<script src="template/assets/js/main.js"></script>
+<script src="public/assets/js/plugins.js"></script>
+<script src="public/assets/js/main.js"></script>
 
 
-<script src="template/assets/js/lib/data-table/datatables.min.js"></script>
-<script src="template/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-<script src="template/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-<script src="template/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-<script src="template/assets/js/lib/data-table/jszip.min.js"></script>
-<script src="template/assets/js/lib/data-table/pdfmake.min.js"></script>
-<script src="template/assets/js/lib/data-table/vfs_fonts.js"></script>
-<script src="template/assets/js/lib/data-table/buttons.html5.min.js"></script>
-<script src="template/assets/js/lib/data-table/buttons.print.min.js"></script>
-<script src="template/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-<script src="template/assets/js/lib/data-table/datatables-init.js"></script>
+<script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="public/assets/js/lib/data-table/datatables-init.js"></script>
 
 
 <script type="text/javascript">

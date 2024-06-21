@@ -12,6 +12,14 @@ class PanierTable{
     private $stat02;
     private $stat03;
 
+    private $codev;
+    private $nom;
+    private $prenom;
+
+    private $npc;
+    private $npctab;
+
+
     private $autorisationBD = true;
     private static $messageErreur = "erreur";
     private static $messageSucces = "succes";
@@ -175,6 +183,90 @@ class PanierTable{
     {
         $this->stat03 = $stat03;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCodev()
+    {
+        return $this->codev;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param mixed $codev
+     */
+    public function setCodev($codev): void
+    {
+        $this->codev = $codev;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom): void
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom): void
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNpc()
+    {
+        return $this->npc;
+    }
+
+    /**
+     * @param mixed $npc
+     */
+    public function setNpc($npc): void
+    {
+        $this->npc = $npc;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNpctab()
+    {
+        return $this->npctab;
+    }
+
+    /**
+     * @param mixed $npctab
+     */
+    public function setNpctab($npctab): void
+    {
+        $this->npctab = $npctab;
+    }
+
+
+
+
 
 
 

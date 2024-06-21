@@ -16,7 +16,8 @@ class PanierModele extends Modele
         return $panier;
     }
 
-    public function statMontantCommande(PanierTable $enCours){
+    public function statMontantCommande(PanierTable $enCours)
+    {
 
         $sql = 'SELECT ROUND(SUM(prixUnitaireHT *10), 2) as stat01 FROM `produit` WHERE reference = ?;';
 
@@ -29,7 +30,8 @@ class PanierModele extends Modele
         $enCours->setStat01($row['stat01']);
     }
 
-    public function statTVA(PanierTable $enCours){
+    public function statTVA(PanierTable $enCours)
+    {
 
         $sql = 'SELECT ROUND(SUM(prixUnitaireHT *10 /5), 2) as stat02 from produit where reference = ?';
 
@@ -41,7 +43,8 @@ class PanierModele extends Modele
         $enCours->setStat02($row['stat02']);
     }
 
-    public function statMarge(PanierTable $enCours){
+    public function statMarge(PanierTable $enCours)
+    {
 
         $sql = 'SELECT ROUND(SUM(prixUnitaireHT *10 /5 * 1.357),2) as stat03 from produit where reference = ?';
 
@@ -49,10 +52,24 @@ class PanierModele extends Modele
             $enCours->getReference(),
         ]);
 
-
         $row = $idRequete->fetch(PDO::FETCH_ASSOC);
 
         $enCours->setStat03($row['stat03']);
+    }
+
+    public function nomPrenomClient()
+    {
+        $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';
+
+        $idRequete = $this->executeRequete($sql);
+
+        $npctab = array();
+        while ($npc = $idRequete->fetch(PDO::FETCH_ASSOC)) {
+            $npctab[] = $npc['npc'];
+        }
+        var_dump($npctab);
+
+        return $npctab;
     }
 
 }
