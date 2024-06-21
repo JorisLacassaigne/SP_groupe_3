@@ -165,7 +165,7 @@
 
                     </div>
                     <div class="card-body card-block">
-                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=panier"'></div>
+                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?"'></div>
                         <div class="col-md-6 "> </div>
                         <br>
                     </div>
