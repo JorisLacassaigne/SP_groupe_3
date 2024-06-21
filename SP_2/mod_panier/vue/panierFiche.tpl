@@ -148,7 +148,7 @@
                             <tr>
                                 <td colspan="3">Montant de la commande : <strong>{$produit->getStat01()} €</strong></td>
                                 <td colspan="3">Total TVA : <strong>{$produit->getStat02()} €</strong></td>
-                                <td colspan="3">Marche brute : <strong>{$produit->getStat03()} €</strong></td>
+                                <td colspan="3">Marge brute : <strong>{$produit->getStat03()} €</strong></td>
                             </tr>
                             </tfoot>
                         </table>
