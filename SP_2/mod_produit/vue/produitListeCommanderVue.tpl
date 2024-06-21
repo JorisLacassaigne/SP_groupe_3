@@ -137,16 +137,14 @@
 
                                 <tr>
                                     <td>{$produit->getReference()}</td>
-                                    <td>{$produit->getDesignation()}</td>
+                                    <td><a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}</td>
                                     <td>{$produit->getStock()}</td>
+                                    <td>{$produit->getPrixUnitaireHT()} €</td>
                                     <td>
-                                        <input type="text" value="{$produit->getPrixUnitaireHT()}">
+                                        <input type="text" value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}">€
                                     </td>
                                     <td>
-                                        <input type="text" value="{$produit->getPrixUnitaireHT()}">
-                                    </td>
-                                    <td>
-                                        <input type="text" value="{$produit->getQuantite()}"
+                                        <input type="text" value="">
                                     </td>
                                     <td class="pos-actions">
 
