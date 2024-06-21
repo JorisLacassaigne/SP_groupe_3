@@ -143,9 +143,6 @@
                                     <td>
                                         <input type="text" value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}">€
                                     </td>
-                                    <td>
-                                        <input type="text" value="">
-                                    </td>
                                     <td class="pos-actions">
 
                                         <input type="number" name="f_quantite" value="0" min="0">
