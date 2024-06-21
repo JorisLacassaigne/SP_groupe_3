@@ -1,5 +1,7 @@
 <?php
-class PanierVue{
+
+class PanierVue
+{
     private $parametre = []; // $_REQUEST
 
     private $tpl; // Object
@@ -35,9 +37,31 @@ class PanierVue{
 
         $this->tpl->assign('produit', $panier);
 
-        $this->tpl->display('mod_panier/vue/panierFiche.tpl');
-
+        $this->tpl->display('mod_panier/vue/panierFicheVue.tpl');
 
     }
 
+    public function genererAffichageSauvegarde($panier)
+    {
+
+        $this->chargementPrincipal();
+
+        switch ($this->parametre['action']) {
+
+            case 'panierSauvegarder':
+            case 'sauvegarder':
+
+                $this->tpl->assign('action', 'panierSauvegarder');
+
+                $this->tpl->assign('titrePage', 'Fiche panier : Création');
+
+                $this->tpl->assign('panier', $panier);
+
+                $this->tpl->assign('readonly', '');
+
+                $this->tpl->display('mod_panier/vue/panierSauvegarderVue.tpl');
+
+                break;
+        }
+    }
 }

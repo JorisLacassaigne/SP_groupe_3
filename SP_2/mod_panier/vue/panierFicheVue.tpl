@@ -161,7 +161,7 @@
                                                  onclick="location.href='index.php?accueil'">
                     </div>
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
-                                                 onclick="location.href='index.php?accueil'">
+                                                 onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">
                     </div>
                 </div>
 

@@ -29,4 +29,12 @@ class PanierController
         $this->oVue->genererAffichageListe($panier);
     }
 
+    public function form_sauvegarder()
+    {
+        $panier = $this->oModele->getfichePanier();
+
+        $this->oVue->genererAffichageSauvegarde($panier);
+    }
+
+
 }
