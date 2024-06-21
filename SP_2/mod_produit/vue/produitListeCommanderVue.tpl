@@ -83,8 +83,8 @@
                         <div class="card-header"><strong class="card-title">
 
                                 <form action='index.php' method='POST' >
-                                    <input type="hidden" name="gestion" value="commande">
-                                    <input type="hidden" name="action" value="affiche_panier">
+                                    <input type="hidden" name="gestion" value="panier">
+                                    <input type="hidden" name="action" value="panier">
                                     <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/a16.png'></label>
 
                                 </form>
@@ -148,12 +148,7 @@
                                     </td>
                                     <td class="pos-actions">
 
-                                        <input type="hidden" name="gestion" value="commande">
-                                        <input type="hidden" name="action" value="ajout_panier">
-                                        <input type="hidden" name="f_reference" value="4061">
-                                        <input type="hidden" name="f_designation" value="BOULE DE GLACE NOIRE">
-
-
+                                        <input type="number" name="f_quantite" value="0" min="0">
                                         <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
 
                                     </td>

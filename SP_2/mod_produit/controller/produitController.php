@@ -40,70 +40,22 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function form_ajouter()
+    public function ajouter_panier()
     {
-        $prepareProduit = new ProduitTable();
+        $reference = $this->parametre['reference'];
+        $quantite = $this->parametre['quantite'];
 
-        $this->oVue->genererAffichageFiche($prepareProduit);
-    }
+        $produits = $this->oModele->addPanier($reference, $quantite);
 
-    public function form_modifier()
-    {
-        $produit = $this->oModele->getUnProduit();
-
-        $this->oVue->genererAffichageFiche($produit);
-    }
-
-
-    public function ajouter()
-    {
-
-        $controleProduit = new ProduitTable($this->parametre);
-
-        if ($controleProduit->getAutorisationBD() == false) {
-
-            $this->oVue->genererAffichageFiche($controleProduit);
-
+        if ($produits !== null) {
+            // Rediriger l'utilisateur vers la page de confirmation ou de panier
+            header('Location: index.php?gestion=panier&action=confirmation');
         } else {
-
-            $this->oModele->addProduit($controleProduit);
-
-            $this->lister();
+            // Gérer l'erreur si le produit n'a pas pu être ajouté au panier
+            echo "Erreur : le produit n'a pas pu être ajouté au panier.";
         }
     }
 
-    public function modifier()
-    {
-
-        $controleProduit = new ProduitTable($this->parametre);
-
-        if ($controleProduit->getAutorisationBD() == false) {
-
-            $this->oVue->genererAffichageFiche($controleProduit);
-
-        } else {
-
-            $this->oModele->editProduit($controleProduit);
-
-            $this->lister();
-        }
-    }
-
-    public function form_supprimer()
-    {
-        $produit = $this->oModele->getUnProduit();
-
-        $this->oVue->genererAffichageFiche($produit);
-    }
-
-    public function supprimer()
-    {
-
-        $this->oModele->deleteProduit();
-
-        $this->lister();
-
-    }
 
 
 }

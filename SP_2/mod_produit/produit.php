@@ -60,6 +60,13 @@ class Produit
                     $this->oController->supprimer();
                     break;
 
+                case 'ajouter_panier' :
+
+                    $produitReference = $this->parametre['reference'];
+                    $produitQuantite = $this->parametre['quantite'];
+                    $this->oController->ajouter_panier($produitReference, $produitQuantite);
+                    break;
+
             }
         } else {
             $this->oController->lister();
