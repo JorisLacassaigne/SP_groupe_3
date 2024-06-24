@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-21 13:04:08
-  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierFiche.tpl' */
+/* Smarty version 4.3.2, created on 2024-06-21 16:46:51
+  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66757a48e036b2_17372443',
+  'unifunc' => 'content_6675ae7b60a485_05125584',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f5b5e7273996a5d085f04c116fec4facdf7506f4' => 
+    '98769b13595183f34c0580d66e382ee011189135' => 
     array (
-      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierFiche.tpl',
-      1 => 1718975025,
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierFicheVue.tpl',
+      1 => 1718988354,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66757a48e036b2_17372443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6675ae7b60a485_05125584 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -202,7 +202,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                                  onclick="location.href='index.php?accueil'">
                     </div>
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
-                                                 onclick="location.href='index.php?accueil'">
+                                                 onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">
                     </div>
                 </div>
 

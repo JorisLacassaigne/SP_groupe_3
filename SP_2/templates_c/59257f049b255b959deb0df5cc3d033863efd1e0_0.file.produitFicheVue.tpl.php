@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 16:33:30
+/* Smarty version 4.3.2, created on 2024-06-21 09:30:43
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6671b6da95d184_55679997',
+  'unifunc' => 'content_66754843578810_59482189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59257f049b255b959deb0df5cc3d033863efd1e0' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitFicheVue.tpl',
-      1 => 1718728407,
+      1 => 1718962239,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6671b6da95d184_55679997 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66754843578810_59482189 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_3\\SP_2\\include\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!doctype html>
@@ -208,7 +208,18 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                 </div>
 
             </div>
-                                                                                                                                                
+                        <!-- .animated -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header"><strong>Statistiques</strong></div>
+                                <div class="card-body">
+                                    <div class="form-group"><strong>Prix au Kilogramme : </strong>VALEUR</div>
+                                    <div class="form-group"><strong>Classement : </strong>VALEUR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .content -->
+
 
         </div><!-- /#right-panel -->
 

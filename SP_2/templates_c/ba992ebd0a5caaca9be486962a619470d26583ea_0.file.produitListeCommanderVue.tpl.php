@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-20 17:51:14
+/* Smarty version 4.3.2, created on 2024-06-24 15:04:16
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66746c12a173c4_98702942',
+  'unifunc' => 'content_66798af0a6c433_58676113',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba992ebd0a5caaca9be486962a619470d26583ea' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
-      1 => 1718905873,
+      1 => 1718989566,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66798af0a6c433_58676113 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,7 +73,6 @@ function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl)
 <!-- FIN : Left Panel -->
 
 
-
 <!-- Right Panel -->
 
 <div id="right-panel" class="right-panel">
@@ -109,28 +112,32 @@ function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
 
 
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header"><strong class="card-title">
 
-                                <form action='index.php' method='POST' >
-                                    <input type="hidden" name="gestion" value="commande">
-                                    <input type="hidden" name="action" value="affiche_panier">
-                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/a16.png'></label>
+                                <form action='index.php' method='POST'>
+                                    <input type="hidden" name="gestion" value="produit">
+                                    <input type="hidden" name="action" value="panier">
+                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"
+                                                                    src='public/images/icones/a16.png'></label>
 
                                 </form>
 
                             </strong></div>
 
-                        <div class="card-body card-block" >
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Total HT (en €):</label></div>
-                            <div class="col col-md-7"><input class='form-control' type='text' name='f_totalPanier' value='1564' size='3' readonly>
+                        <div class="card-body card-block">
+                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Total HT (en
+                                    €):</label></div>
+                            <div class="col col-md-7"><input class='form-control' type='text' name='f_totalPanier'
+                                                             value='1564' size='3' readonly>
                             </div>
 
                             <div class="form-group"><br></div>
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Quantité d'article(s) dans le panier : </label></div>
-                            <div class="col col-md-7"> <input class='form-control' type='text' name='f_quantitePanier' value='50' size='8' readonly>
+                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Quantité
+                                    d'article(s) dans le panier : </label></div>
+                            <div class="col col-md-7"><input class='form-control' type='text' name='f_quantitePanier'
+                                                             value='50' size='8' readonly>
                                 <!--<input class='form-control' type='text' name='f_date_commande' value='' readonly> -->
                             </div>
 
@@ -141,9 +148,6 @@ function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
 
 
-
-
-
                 <div class="col-md-12">
                     <!-- Liste lignes de commande -->
 
@@ -152,17 +156,17 @@ function content_66746c12a173c4_98702942 (Smarty_Internal_Template $_smarty_tpl)
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                             <form method="POST" action="index.php">
-                            <tr>
+                                <tr>
 
-                                <th>Référence</th>
-                                <th>Désignation</th>
-                                <th>Stock</th>
-                                <th>Prix HT</th>
-                                <th>Prix Vente</th>
-                                <th>Quantité</th>
-                                <th class="pos-actions"></th>
+                                    <th>Référence</th>
+                                    <th>Désignation</th>
+                                    <th>Stock</th>
+                                    <th>Prix HT</th>
+                                    <th>Prix Vente</th>
+                                    <th>Quantité</th>
+                                    <th class="pos-actions"></th>
 
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody>
                             <?php
@@ -171,39 +175,38 @@ $_smarty_tpl->tpl_vars['produit']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
 $_smarty_tpl->tpl_vars['produit']->do_else = false;
 ?>
-
                                 <tr>
                                     <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
-</td>
+                                    <td>
+                                        <a href="index.php?gestion=produit&action=form_consulter&reference=<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+"><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
+
+                                    </td>
                                     <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getStock();?>
 </td>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
+ €</td>
                                     <td>
-                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
-">
-                                    </td>
-                                    <td>
-                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
-">
-                                    </td>
-                                    <td>
-                                        <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getQuantite();?>
+                                        <input type="text" name="prix_vente"
+                                               value="<?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT()*1.357);?>
 "
+                                               size="5">€
                                     </td>
-                                    <td class="pos-actions">
-
-                                        <input type="hidden" name="gestion" value="commande">
-                                        <input type="hidden" name="action" value="ajout_panier">
-                                        <input type="hidden" name="f_reference" value="4061">
-                                        <input type="hidden" name="f_designation" value="BOULE DE GLACE NOIRE">
-
-
-                                        <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
-
+                                    <td>
+                                        <input type="text" name="quantite" value="" size="5">
                                     </td>
-                                    </form>
+
+                                    <td class="pos-actions"
+                                    <input type="hidden" name="gestion" value="produit">
+                                    <input type="hidden" name="action" value="ajouter_panier">
+                                    <input id="pImage" type="image" name="btn_ajouter_panier"
+                                           src='public/images/icones/a16.png'>
+                                    </td>
+
                                 </tr>
+                                </form>
+
                             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -213,8 +216,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                     </div>
                     <div class="card-body card-block">
-                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=commande"'></div>
-                        <div class="col-md-6 "> </div>
+                        <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
+                                                     onclick='location.href = "index.php?"'></div>
+                        <div class="col-md-6 "></div>
                         <br>
                     </div>
 

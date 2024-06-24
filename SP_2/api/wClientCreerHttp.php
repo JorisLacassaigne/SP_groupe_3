@@ -6,9 +6,9 @@ try {
 
         // Définir les infos de cnx
         define('SERVEUR', 'localhost');
-        define('BASE', 'jlacassaigne_seraphinparysbase');
-        define('NOM', 'jorislacassaigne');
-        define('PASSE', 'Talwegfomec82.');
+        define('BASE', 'seraphinparysfilrouge_2');
+        define('NOM', 'root');
+        define('PASSE', '');
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 

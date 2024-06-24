@@ -7,7 +7,7 @@ try {
 
         // Définir les infos de cnx
         define('SERVEUR', 'localhost');
-        define('BASE', 'nom_seraphinparysbase');
+        define('BASE', 'seraphinparysfilrouge_2');
         define('NOM', 'root');
         define('PASSE', '');
 

@@ -1,8 +1,12 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +41,6 @@
 {include file='public/left.tpl'}
 
 <!-- FIN : Left Panel -->
-
 
 
 <!-- Right Panel -->
@@ -77,28 +80,32 @@
             <div class="row">
 
 
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header"><strong class="card-title">
 
-                                <form action='index.php' method='POST' >
-                                    <input type="hidden" name="gestion" value="panier">
+                                <form action='index.php' method='POST'>
+                                    <input type="hidden" name="gestion" value="produit">
                                     <input type="hidden" name="action" value="panier">
-                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"  src='public/images/icones/a16.png'></label>
+                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"
+                                                                    src='public/images/icones/a16.png'></label>
 
                                 </form>
 
                             </strong></div>
 
-                        <div class="card-body card-block" >
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Total HT (en €):</label></div>
-                            <div class="col col-md-7"><input class='form-control' type='text' name='f_totalPanier' value='1564' size='3' readonly>
+                        <div class="card-body card-block">
+                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Total HT (en
+                                    €):</label></div>
+                            <div class="col col-md-7"><input class='form-control' type='text' name='f_totalPanier'
+                                                             value='1564' size='3' readonly>
                             </div>
 
                             <div class="form-group"><br></div>
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Quantité d'article(s) dans le panier : </label></div>
-                            <div class="col col-md-7"> <input class='form-control' type='text' name='f_quantitePanier' value='50' size='8' readonly>
+                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Quantité
+                                    d'article(s) dans le panier : </label></div>
+                            <div class="col col-md-7"><input class='form-control' type='text' name='f_quantitePanier'
+                                                             value='50' size='8' readonly>
                                 <!--<input class='form-control' type='text' name='f_date_commande' value='' readonly> -->
                             </div>
 
@@ -109,9 +116,6 @@
                 </div>
 
 
-
-
-
                 <div class="col-md-12">
                     <!-- Liste lignes de commande -->
 
@@ -120,39 +124,43 @@
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                             <form method="POST" action="index.php">
-                            <tr>
+                                <tr>
 
-                                <th>Référence</th>
-                                <th>Désignation</th>
-                                <th>Stock</th>
-                                <th>Prix HT</th>
-                                <th>Prix Vente</th>
-                                <th>Quantité</th>
-                                <th class="pos-actions"></th>
+                                    <th>Référence</th>
+                                    <th>Désignation</th>
+                                    <th>Stock</th>
+                                    <th>Prix HT</th>
+                                    <th>Prix Vente</th>
+                                    <th>Quantité</th>
+                                    <th class="pos-actions"></th>
 
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody>
                             {foreach from=$listeProduits item=produit}
-
                                 <tr>
                                     <td>{$produit->getReference()}</td>
-                                    <td><a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}</td>
+                                    <td>
+                                        <a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}
+                                    </td>
                                     <td>{$produit->getStock()}</td>
                                     <td>{$produit->getPrixUnitaireHT()} €</td>
                                     <td>
-                                        <input type="text" value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" size="5">€
+                                        <input type="text" name="prix_vente"
+                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}"
+                                               size="5">€
                                     </td>
                                     <td>
                                         <input type="text" name="quantite" value="" size="5">
                                     </td>
 
                                     <td class="pos-actions"
-                                        <input type="hidden" name="gestion" value="produit">
-                                        <input type="hidden" name="action" value="ajouter_panier">
-                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
-                                        <input id="pImage" type="image" name="btn_ajouter_panier" src='public/images/icones/a16.png'>
+                                    <input type="hidden" name="gestion" value="produit">
+                                    <input type="hidden" name="action" value="ajouter_panier">
+{*                                    <input type="hidden" name="reference" value="{$produit->getReference()}">*}
+{*                                    <input type="hidden" name="designation" value="{$produit->getDesignation()}">*}
+                                    <input id="pImage" type="image" name="btn_ajouter_panier"
+                                           src='public/images/icones/a16.png'>
                                     </td>
 
                                 </tr>
@@ -165,8 +173,9 @@
 
                     </div>
                     <div class="card-body card-block">
-                        <div class="col-md-6"> <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?"'></div>
-                        <div class="col-md-6 "> </div>
+                        <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
+                                                     onclick='location.href = "index.php?"'></div>
+                        <div class="col-md-6 "></div>
                         <br>
                     </div>
 
