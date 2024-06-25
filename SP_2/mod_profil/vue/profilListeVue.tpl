@@ -85,7 +85,7 @@
                     <div {if ProfilTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
                         {ProfilTable::getMessageErreur()}
                     </div>
-                    <div {if ProfilTable::getMessageSucces() neq ''} class="alert-success" role="alert" {/if}>
+                    <div {if ProfilTable::getMessageSucces() neq ''} class="alert alert-success" role="alert" {/if}>
                         {ProfilTable::getMessageSucces()}
                     </div>
 
@@ -183,36 +183,37 @@
                                             vendeur : </strong>{$profil->getLogin()}</label>
 
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="motdepasse"><strong>Nouveau mot de
-                                            passe :</strong></label>
-                                    <input type="password" name="motdepasse" class="form-control"
-                                           value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="confirmation"><strong>Confirmer mot de
-                                            passe :</strong></label>
-                                    <input type="password" name="confirmation" class="form-control"
-                                           value="">
-                                </div>
+{*                                <form method="post" action="index.php?gestion=profil&action=valider">*}
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="motdepasse"><strong>Nouveau mot de
+                                                passe :</strong></label>
+                                        <input type="password" name="motdepasse" class="form-control"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="confirmation"><strong>Confirmer mot de
+                                                passe :</strong></label>
+                                        <input type="password" name="confirmation" class="form-control"
+                                               value="">
+                                    </div>
 
-                                <div class="pos-actions">
+                                    <div class="pos-actions">
 
-                                    <input class="btn btn-submit float-right" type="submit" name="valider"
-                                           value="Changer">
-
-                                </div>
+                                        <input class="btn btn-submit float-right" type="submit" name="valider"
+                                               value="Changer">
+{*                                </form>*}
                             </div>
                         </div>
-
-                    </form>
                 </div>
+
+                </form>
             </div>
         </div>
-
-
     </div>
-    <!- .animated -->
+
+
+</div>
+<!- .animated -->
 
 </div>
 <!-- .content -->

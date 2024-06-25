@@ -1,5 +1,7 @@
 <?php
-class ProfilController{
+
+class ProfilController
+{
     private $parametre = []; // $_REQUEST
     private $oVue; // objet
     private $oModele; // objet
@@ -22,7 +24,6 @@ class ProfilController{
     }
 
 
-
     public function modifier()
     {
         $controleProfil = new ProfilTable($this->parametre);
@@ -42,19 +43,20 @@ class ProfilController{
 
     public function valider()
     {
-
         $controleProfil = new ProfilTable($this->parametre);
 
-        if ($controleProfil->getAutorisationBD() == false) {
+        if ($controleProfil->getAutorisationBD() === false) {
 
             $this->oVue->genererAffichageFiche($controleProfil);
 
         } else {
 
-            $this->oModele->editMotdepasse($controleProfil);
+            $motdepasse = $this->oModele->editMotdepasse($controleProfil);
 
-            $this->lister();
+            $this->oVue->genererAffichageFiche($motdepasse);
+
+//            var_dump($motdepasse);
+//            die();
         }
     }
-
 }

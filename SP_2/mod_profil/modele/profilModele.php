@@ -47,7 +47,8 @@ class ProfilModele extends Modele
         }
     }
 
-    public function stv01(profilTable $enCours){
+    public function stv01(profilTable $enCours)
+    {
         $sql = 'SELECT SUM(totalHT) as stv01 FROM `commande` WHERE codev=?';
         $idRequete = $this->executeRequete($sql, [
             $_SESSION['codev'],
@@ -62,12 +63,12 @@ class ProfilModele extends Modele
         }
     }
 
-    public function editMotdepasse()
+    public function editMotdepasse($enCours)
     {
 
         $sql = 'SELECT motdepasse FROM vendeur WHERE codev = ?';
         $idRequete = $this->executeRequete($sql, [
-            $this->parametre['codev'],
+            $enCours->getCodev(),
         ]);
 
         $leProfil = new ProfilTable($idRequete->fetch(PDO::FETCH_ASSOC));
