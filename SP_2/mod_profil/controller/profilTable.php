@@ -11,7 +11,7 @@ class ProfilTable
     private $telephone;
     private $totalVentes;
     private $login;
-    private $mnewotdepasse;
+    private $motdepasse;
     private $confirmation;
     private $autorisationBD = true;
     private static $messageErreur = "";
@@ -326,5 +326,6 @@ class ProfilTable
     {
         $this->stv01 = $stv01;
     }
+
 
 }

@@ -55,8 +55,6 @@ class ProfilController
 
             $this->oVue->genererAffichageFiche($motdepasse);
 
-//            var_dump($motdepasse);
-//            die();
         }
     }
 }

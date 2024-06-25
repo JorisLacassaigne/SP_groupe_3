@@ -75,4 +75,23 @@ class ProfilModele extends Modele
 
         return $leProfil;
     }
+
+
+//    public function editMotdepasse($codev, $nouveauMotDePasse)
+//    {
+//        // Préparer la requête SQL UPDATE
+//        $sql = 'UPDATE vendeur SET motdepasse = ? WHERE codev = ?';
+//        $requete = $this->executeRequete($sql, [$nouveauMotDePasse, $codev]);
+//
+//        // Vérifier que la requête a été exécutée avec succès
+//        if ($requete) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+
+
+
 }
