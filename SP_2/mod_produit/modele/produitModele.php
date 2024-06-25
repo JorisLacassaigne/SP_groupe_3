@@ -57,6 +57,7 @@ class ProduitModele extends Modele
                 array_push($_SESSION['panier'], $unProduit);
                 $listeProduits[] = new ProduitTable($unProduit);
             }
+
             return $listeProduits;
 
         } else {

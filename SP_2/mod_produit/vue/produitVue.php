@@ -42,6 +42,7 @@ class ProduitVue
     }
 
 
+
     public function genererAffichageListeTousLesProduits($tousLesProduits)
     {
         $this->chargementPrincipal();

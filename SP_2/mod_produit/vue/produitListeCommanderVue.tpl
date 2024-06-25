@@ -155,12 +155,12 @@
                                     </td>
 
                                     <td class="pos-actions"
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="ajouter_panier">
-{*                                    <input type="hidden" name="reference" value="{$produit->getReference()}">*}
-{*                                    <input type="hidden" name="designation" value="{$produit->getDesignation()}">*}
-                                    <input id="pImage" type="image" name="btn_ajouter_panier"
-                                           src='public/images/icones/a16.png'>
+                                        <input type="hidden" name="gestion" value="produit">
+                                        <input type="hidden" name="action" value="ajouter_panier">
+                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
+                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
+                                        <input id="pImage" type="image" name="btn_ajouter_panier"
+                                               src='public/images/icones/a16.png'>
                                     </td>
 
                                 </tr>
