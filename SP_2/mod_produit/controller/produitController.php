@@ -40,7 +40,7 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouter_panier()
+    public function ajouter_panier($reference, $quantite)
     {
         $reference = $this->parametre['reference'];
         $quantite = $this->parametre['quantite'];

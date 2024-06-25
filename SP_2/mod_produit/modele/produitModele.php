@@ -43,7 +43,7 @@ class ProduitModele extends Modele
     }
 
 
-    public function addPanier()
+    public function addPanier(ProduitTable $reference, $quantite)
     {
         $sql = 'SELECT * FROM produit where reference = ?';
 
@@ -57,7 +57,7 @@ class ProduitModele extends Modele
                 array_push($_SESSION['panier'], $unProduit);
                 $listeProduits[] = new ProduitTable($unProduit);
             }
-
+//            var_dump($listeProduits);
             return $listeProduits;
 
         } else {

@@ -82,62 +82,72 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header"><strong class="card-title">
+                        <div class="card-header">
 
-                                <form action='index.php' method='POST'>
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="panier">
-                                    <label> Voir le panier : <input id="aImage" type="image" name="btn_voir_panier"
-                                                                    src='public/images/icones/a16.png'></label>
+                            <form action='index.php' method='POST'>
+                                <input type="hidden" name="gestion" value="produit">
+                                <input type="hidden" name="action" value="panier">
+                                <label><strong class="card-title">Voir le panier : </strong>
+                                    <input id="aImage"
+                                           type="image"
+                                           name="btn_voir_panier"
+                                           src='public/images/icones/a16.png'></label>
+                                {*                                <a href="http://localhost:63342/SP_groupe_3/SP_2/index.php?gestion=panier"></a>*}
+                            </form>
 
-                                </form>
-
-                            </strong></div>
-
-                        <div class="card-body card-block">
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Total HT (en
-                                    €):</label></div>
-                            <div class="col col-md-7"><input class='form-control' type='text' name='f_totalPanier'
-                                                             value='1564' size='3' readonly>
-                            </div>
-
-                            <div class="form-group"><br></div>
-                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Quantité
-                                    d'article(s) dans le panier : </label></div>
-                            <div class="col col-md-7"><input class='form-control' type='text' name='f_quantitePanier'
-                                                             value='50' size='8' readonly>
-                                <!--<input class='form-control' type='text' name='f_date_commande' value='' readonly> -->
-                            </div>
 
                         </div>
-
                     </div>
-                    <!-- FIN PANIER -->
+                    <div class="card-body card-block">
+                        <div class="col col-md-5">
+                            <label for="text-input" class=" form-control-label">Total HT (en €):</label>
+                        </div>
+                        <div class="col col-md-7">
+                            <input class='form-control' type='text' name='f_totalPanier'
+                                   value='1564' size='3' readonly>
+                        </div>
+                        <div class="form-group">
+                            <br>
+                        </div>
+                        <div class="col col-md-5">
+                            <label for="text-input" class=" form-control-label">Quantité
+                                d'article(s) dans le panier : </label>
+                        </div>
+                        <div class="col col-md-7">
+                            <input class='form-control' type='text' name='f_quantitePanier'
+                                   value='50' size='8' readonly>
+                            <!--<input class='form-control' type='text' name='f_date_commande' value='' readonly> -->
+                        </div>
+                    </div>
+
                 </div>
+                <!-- FIN PANIER -->
+            </div>
 
 
-                <div class="col-md-12">
-                    <!-- Liste lignes de commande -->
+            <div class="col-md-12">
+                <!-- Liste lignes de commande -->
 
-                    <div class="card-body">
-                        <!--<table  class="table table-striped table-bordered">-->
-                        <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                            <thead>
-                            <form method="POST" action="index.php">
-                                <tr>
+                <div class="card-body">
+                    <!--<table  class="table table-striped table-bordered">-->
+                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                        <thead>
+                        <form method="POST" action="index.php">
+                            <tr>
 
-                                    <th>Référence</th>
-                                    <th>Désignation</th>
-                                    <th>Stock</th>
-                                    <th>Prix HT</th>
-                                    <th>Prix Vente</th>
-                                    <th>Quantité</th>
-                                    <th class="pos-actions"></th>
+                                <th>Référence</th>
+                                <th>Désignation</th>
+                                <th>Stock</th>
+                                <th>Prix HT</th>
+                                <th>Prix Vente</th>
+                                <th>Quantité</th>
+                                <th></th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {foreach from=$listeProduits item=produit}
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {foreach from=$listeProduits item=produit}
+                            <form>
                                 <tr>
                                     <td>{$produit->getReference()}</td>
                                     <td>
@@ -146,72 +156,71 @@
                                     <td>{$produit->getStock()}</td>
                                     <td>{$produit->getPrixUnitaireHT()} €</td>
                                     <td>
-                                        <input type="text" name="prix_vente"
-                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}"
+                                        <input type="number" name="prix_vente"
+                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
                                                size="5">€
                                     </td>
                                     <td>
-                                        <input type="text" name="quantite" value="" size="5">
+                                        <input type="number" name="quantite" value="" min="0" size="5">
                                     </td>
 
-                                    <td class="pos-actions"
-                                        <input type="hidden" name="gestion" value="produit">
-                                        <input type="hidden" name="action" value="ajouter_panier">
-                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
-                                        <input id="pImage" type="image" name="btn_ajouter_panier"
-                                               src='public/images/icones/a16.png'>
+                                    <td class="pos-actions">
+                                    <input type="hidden" name="gestion" value="produit">
+                                    <input type="hidden" name="action" value="ajouter_panier">
+                                    <input type="hidden" name="reference" value="{$produit->getReference()}">
+                                    <input type="hidden" name="designation" value="{$produit->getDesignation()}">
+                                    <input id="pImage" type="image" name="ajouter_panier"
+                                           src='public/images/icones/a16.png'>
                                     </td>
 
                                 </tr>
-                                </form>
+                            </form>
+                        {/foreach}
+                        </tbody>
+                    </table>
 
-                            {/foreach}
-                            </tbody>
-                        </table>
-
-
-                    </div>
-                    <div class="card-body card-block">
-                        <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
-                                                     onclick='location.href = "index.php?"'></div>
-                        <div class="col-md-6 "></div>
-                        <br>
-                    </div>
 
                 </div>
+                <div class="card-body card-block">
+                    <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
+                                                 onclick='location.href = "index.php?"'></div>
+                    <div class="col-md-6 "></div>
+                    <br>
+                </div>
+
+            </div>
 
 
-            </div><!-- .content -->
+        </div><!-- .content -->
 
 
-        </div><!-- /#right-panel -->
+    </div><!-- /#right-panel -->
 
-        <!-- Right Panel -->
-        <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-        <script src="public/assets/js/plugins.js"></script>
-        <script src="public/assets/js/main.js"></script>
-
-
-        <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-        <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-        <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-        <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-        <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-        <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-        <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+    <!-- Right Panel -->
+    <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="public/assets/js/plugins.js"></script>
+    <script src="public/assets/js/main.js"></script>
 
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#bootstrap-data-table-export').DataTable();
-            });
-        </script>
+    <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#bootstrap-data-table-export').DataTable();
+        });
+    </script>
 
 </body>
 </html>
