@@ -54,10 +54,10 @@ class ProduitModele extends Modele
         if ($idRequete->rowCount() > 0) {
             // Création du tableau d'objets
             while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-                array_push($_SESSION['panier'], $unProduit);
+                array_push($_SESSION['panier'], $unProduit, $quantite);
                 $listeProduits[] = new ProduitTable($unProduit);
             }
-//            var_dump($listeProduits);
+            var_dump($listeProduits);
             return $listeProduits;
 
         } else {

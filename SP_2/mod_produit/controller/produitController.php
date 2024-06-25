@@ -42,6 +42,7 @@ class ProduitController
 
     public function ajouter_panier($reference, $quantite)
     {
+
         $reference = $this->parametre['reference'];
         $quantite = $this->parametre['quantite'];
 
