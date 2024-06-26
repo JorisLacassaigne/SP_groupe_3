@@ -64,7 +64,8 @@ class Produit
 
                     $produitReference = $this->parametre['reference'];
                     $produitQuantite = $this->parametre['quantite'];
-                    $this->oController->ajouter_panier($produitReference, $produitQuantite);
+                    $produitPrixVente = $this->parametre['$prix_vente'];
+                    $this->oController->ajouter_panier($produitReference, $produitQuantite, $produitPrixVente);
                     break;
             }
         } else {

@@ -66,7 +66,7 @@ class ProduitModele extends Modele
     }
 
 
-    public function ajouter_panier($reference, $quantite)
+    public function ajouter_panier($reference, $quantite, $prix_vente)
     {
         // Récupérer les données du produit à partir de la base de données
         $produit = $this->getProduitParReference($reference);
@@ -77,16 +77,17 @@ class ProduitModele extends Modele
                 $_SESSION['panier'][$reference]['quantite'] = 0;
             }
             $_SESSION['panier'][$reference]['quantite'] += $quantite;
+            $_SESSION['panier'][$reference]['prix_vente'] = $prix_vente;
         } else {
             $_SESSION['panier'][$reference] = array(
                 'reference' => $reference,
                 'designation' => $produit->getDesignation(),
                 'prix' => $produit->getPrixUnitaireHT(),
-                'quantite' => $quantite
+                'quantite' => $quantite,
+                'prix_vente' => $prix_vente
             );
+            var_dump($reference);
+            var_dump($quantite);
         }
-        var_dump($reference);
-        var_dump($quantite);
     }
-
 }

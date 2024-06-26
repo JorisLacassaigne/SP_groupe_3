@@ -92,7 +92,7 @@
                                            type="image"
                                            name="btn_voir_panier"
                                            src='public/images/icones/a16.png'></label>
-                                {*                                <a href="http://localhost:63342/SP_groupe_3/SP_2/index.php?gestion=panier"></a>*}
+                               <a href="http://localhost:63342/SP_groupe_3/SP_2/index.php?gestion=panier"></a>
                             </form>
 
 

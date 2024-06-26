@@ -40,9 +40,9 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouter_panier($reference, $quantite)
+    public function ajouter_panier($reference, $quantite, $prixvente)
     {
-        $this->oModele->ajouter_panier($reference, $quantite);
+        $this->oModele->ajouter_panier($reference, $quantite, $prixvente);
 
         header('Location: index.php?gestion=produit&action=lister_produits');
     }
