@@ -64,7 +64,6 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=panier">Panier</a></li>
                         <li class="active">Panier</li>
                     </ol>
                 </div>
@@ -109,16 +108,20 @@
                                     <td>
                                         <div class="formulaire">
                                             <label class="formulaire" for="quantite"></label>
-                                            <input type="text" name="quantite" class="formulaire"
-                                                   value="{$produit['quantite']}">
+                                            <input type="hidden" name="produits[<?= $produit['reference'] ?>][quantite]" value="<?= $produit['quantite'] ?>">
+                                            <input type="number" name="quantite" class="formulaire" min="0"
+                                                   value="<?php echo isset($produit['quantite']) ? $produit['quantite'] : ''; ?>">
+
                                         </div>
                                     </td>
-                                    <td>{$produit['prixUnitaireHT']}</td>
+                                    <td>{$produit['prix']}</td>
                                     <td>
                                         <div class="formulaire">
                                             <label class="formulaire" for="prixVente"></label>
-                                            <input type="text" name="prixVente" class="formulaire"
-                                                   value="Prix de vente">
+                                            <input type="hidden" name="produits[<?= $produit['reference'] ?>][prixVente]" value="<?= $produit['prixVente'] ?>">
+                                            <input type="number" name="prixVente" class="formulaire" min="0"
+                                                   value="<?php echo isset($produit['prixVente']) ? $produit['prixVente'] : ''; ?>">
+
                                         </div>
                                     </td>
                                     <td>Total</td>
@@ -127,7 +130,6 @@
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="panier">
                                             <input type="hidden" name="action" value="form_modifier">
-                                            {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
                                             <input type="image" name="btn_modifier"
                                                    src="public/images/icones/m32.png">
                                         </form>
@@ -136,7 +138,6 @@
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="panier">
                                             <input type="hidden" name="action" value="form_supprimer">
-                                            {*                                                <input type="hidden" name="codec" value="{$panier->getCodec()}">*}
                                             <input type="image" name="btn_supprimer"
                                                    src="public/images/icones/s32.png">
                                         </form>
@@ -158,7 +159,7 @@
                 <div class="card-body card-block">
 
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour à la commande"
-                                                 onclick="location.href='index.php?accueil'">
+                                                 onclick="location.href='index.php?gestion=produit&action=lister_produits'">
                     </div>
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
                                                  onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">

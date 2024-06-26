@@ -57,6 +57,7 @@ class PanierModele extends Modele
         $enCours->setStat03($row['stat03']);
     }
 
+
     public function nomPrenomClient(PanierTable $enCours)
     {
         $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';

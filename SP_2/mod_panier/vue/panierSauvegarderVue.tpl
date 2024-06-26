@@ -100,7 +100,7 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
-                                                                 value='2024-06-21' readonly>
+                                                                 value='2024-06-27' readonly>
                                         <br></div>
 
 
@@ -143,7 +143,7 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             livraison :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='f_date_livraison' value='2024-06-28'>
+                                                                 name='f_date_livraison' value='2024-07-04'>
                                         <br>
                                     </div>
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-21 16:46:51
+/* Smarty version 4.3.2, created on 2024-06-26 10:52:09
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6675ae7b60a485_05125584',
+  'unifunc' => 'content_667bf2d9711a71_85201246',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '98769b13595183f34c0580d66e382ee011189135' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierFicheVue.tpl',
-      1 => 1718988354,
+      1 => 1719399129,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6675ae7b60a485_05125584 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667bf2d9711a71_85201246 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -93,7 +93,6 @@ function content_6675ae7b60a485_05125584 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=panier">Panier</a></li>
                         <li class="active">Panier</li>
                     </ol>
                 </div>
@@ -146,18 +145,33 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                     <td>
                                         <div class="formulaire">
                                             <label class="formulaire" for="quantite"></label>
-                                            <input type="text" name="quantite" class="formulaire"
-                                                   value="<?php echo $_smarty_tpl->tpl_vars['produit']->value['quantite'];?>
+                                            <input type="hidden" name="produits[<?php echo '<?'; ?>
+= $produit['reference'] <?php echo '?>'; ?>
+][quantite]" value="<?php echo '<?'; ?>
+= $produit['quantite'] <?php echo '?>'; ?>
 ">
+                                            <input type="number" name="quantite" class="formulaire" min="0"
+                                                   value="<?php echo '<?php'; ?>
+ echo isset($produit['quantite']) ? $produit['quantite'] : ''; <?php echo '?>'; ?>
+">
+
                                         </div>
                                     </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value['prixUnitaireHT'];?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['produit']->value['prix'];?>
 </td>
                                     <td>
                                         <div class="formulaire">
                                             <label class="formulaire" for="prixVente"></label>
-                                            <input type="text" name="prixVente" class="formulaire"
-                                                   value="Prix de vente">
+                                            <input type="hidden" name="produits[<?php echo '<?'; ?>
+= $produit['reference'] <?php echo '?>'; ?>
+][prixVente]" value="<?php echo '<?'; ?>
+= $produit['prixVente'] <?php echo '?>'; ?>
+">
+                                            <input type="number" name="prixVente" class="formulaire" min="0"
+                                                   value="<?php echo '<?php'; ?>
+ echo isset($produit['prixVente']) ? $produit['prixVente'] : ''; <?php echo '?>'; ?>
+">
+
                                         </div>
                                     </td>
                                     <td>Total</td>
@@ -165,7 +179,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="panier">
                                             <input type="hidden" name="action" value="form_modifier">
-                                                                                        <input type="image" name="btn_modifier"
+                                            <input type="image" name="btn_modifier"
                                                    src="public/images/icones/m32.png">
                                         </form>
                                     </td>
@@ -173,7 +187,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="panier">
                                             <input type="hidden" name="action" value="form_supprimer">
-                                                                                        <input type="image" name="btn_supprimer"
+                                            <input type="image" name="btn_supprimer"
                                                    src="public/images/icones/s32.png">
                                         </form>
                                     </td>
@@ -199,7 +213,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="card-body card-block">
 
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour à la commande"
-                                                 onclick="location.href='index.php?accueil'">
+                                                 onclick="location.href='index.php?gestion=produit&action=lister_produits'">
                     </div>
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
                                                  onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">

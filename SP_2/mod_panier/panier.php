@@ -31,7 +31,7 @@ class Panier
 
             }
         } else {
-
+//var_dump($_SESSION['panier']);
             $this->oController->lister();
         }
     }
