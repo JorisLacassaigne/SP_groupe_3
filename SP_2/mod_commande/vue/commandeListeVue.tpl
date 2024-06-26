@@ -128,13 +128,17 @@
                                         </form>
                                     </td>
                                     <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
-                                            <input type="image" name="btn_modifier"
-                                                   src="public/images/icones/s32.png">
-                                        </form>
+                                        {if $commande["commande"]->getEtat() !=0}
+                                            Validé
+                                        {else}
+                                            <form method="POST" action="index.php">
+                                                <input type="hidden" name="gestion" value="commande">
+                                                <input type="hidden" name="action" value="form_modifier">
+                                                <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
+                                                <input type="image" name="btn_modifier" src="public/images/icones/s32.png">
+                                            </form>
+                                        {/if}
+
                                     </td>
                                 </tr>
                                 {/foreach}

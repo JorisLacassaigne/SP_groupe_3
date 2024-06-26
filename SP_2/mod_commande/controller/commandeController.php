@@ -43,15 +43,15 @@ class CommandeController
 //
 //    }
 
-//    public function form_modifier()
-//    {
-//
-//        $commandes = $this->oModele->getUneCommande();
+    public function form_modifier()
+    {
+
+        $commandes = $this->oModele->getUneCommande();
 //        $this->oModele->stat01($commandes);
-//
-//        $this->oVue->genererAffichageFiche($commandes);
-//
-//    }
+
+        $this->oVue->genererAffichageFiche($commandes);
+
+    }
 
 //    public function form_supprimer()
 //    {
