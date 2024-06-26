@@ -34,15 +34,6 @@ class CommandeController
         $this->oVue->genererAffichageFiche($uneCommande);
     }
 
-
-
-//    public function form_ajouter()
-//    {
-//        $uneCommande = $this->oModele->getProduitCommande();
-//        $this->oVue->genererAffichageFiche($uneCommande);
-//
-//    }
-
     public function form_modifier()
     {
 
@@ -52,6 +43,15 @@ class CommandeController
         $this->oVue->genererAffichageFiche($commandes);
 
     }
+
+//    public function form_ajouter()
+//    {
+//        $uneCommande = $this->oModele->getProduitCommande();
+//        $this->oVue->genererAffichageFiche($uneCommande);
+//
+//    }
+
+
 
 //    public function form_supprimer()
 //    {

@@ -82,21 +82,15 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
-
-                            <form action='index.php' method='POST'>
-                                <input type="hidden" name="gestion" value="produit">
-                                <input type="hidden" name="action" value="panier">
-                                <label><strong class="card-title">Voir le panier : </strong>
-                                    <input id="aImage"
-                                           type="image"
-                                           name="btn_voir_panier"
-                                           src='public/images/icones/a16.png'></label>
-                               <a href="http://localhost:63342/SP_groupe_3/SP_2/index.php?gestion=panier"></a>
-                            </form>
+                        <div class="card-header"><strong class="card-title">
 
 
-                        </div>
+                                    <label><a href="index.php?gestion=panier">Voir Panier</a>
+                                    </label>
+
+
+
+                            </strong></div>
                     </div>
                     <div class="card-body card-block">
                         <div class="col col-md-5">
@@ -114,8 +108,8 @@
                                 d'article(s) dans le panier : </label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_quantitePanier'
-                                   value='50' size='8' readonly>
+                            <input class='form-control' type='text' name='quantitePanier'
+                                   value='' size='8' readonly>
                             <!--<input class='form-control' type='text' name='f_date_commande' value='' readonly> -->
                         </div>
                     </div>
