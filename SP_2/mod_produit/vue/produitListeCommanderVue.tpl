@@ -127,60 +127,51 @@
 
             <div class="col-md-12">
                 <!-- Liste lignes de commande -->
-
                 <div class="card-body">
-                    <!--<table  class="table table-striped table-bordered">-->
                     <table id="bootstrap-data-table" class="table table-striped table-bordered">
                         <thead>
-                        <form method="POST" action="index.php">
-                            <tr>
-
-                                <th>Référence</th>
-                                <th>Désignation</th>
-                                <th>Stock</th>
-                                <th>Prix HT</th>
-                                <th>Prix Vente</th>
-                                <th>Quantité</th>
-                                <th class="pos-actions"></th>
-
-                            </tr>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Désignation</th>
+                            <th>Stock</th>
+                            <th>Prix HT</th>
+                            <th>Prix Vente</th>
+                            <th>Quantité</th>
+                            <th>Ajouter au panier</th>
+                        </tr>
                         </thead>
                         <tbody>
                         {foreach from=$listeProduits item=produit}
                             <tr>
-                            <form>
-                                    <td>{$produit->getReference()}</td>
-                                    <td>
-                                        <a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}
-                                    </td>
-                                    <td>{$produit->getStock()}</td>
-                                    <td>{$produit->getPrixUnitaireHT()} €</td>
-                                    <td>
-                                        <input type="number" name="prix_vente"
-                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
-                                               size="5">€
-                                    </td>
-                                    <td>
-                                        <input type="number" name="quantite" value="" min="0" size="5">
-                                    </td>
-                                    <td class="pos-actions">
-
+                                <td>{$produit->getReference()}</td>
+                                <td>
+                                    <a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}
+                                </td>
+                                <td>{$produit->getStock()}</td>
+                                <td>{$produit->getPrixUnitaireHT()} €</td>
+                                <td>
+                                    <input type="number" name="prix_vente"
+                                           value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
+                                           size="5">€
+                                </td>
+                                <td>
+                                    <input type="number" name="quantite" value="" min="0" size="5">
+                                </td>
+                                <td class="pos-actions">
+                                    <form action="index.php" method="post">
                                         <input type="hidden" name="gestion" value="produit">
-                                        <input type="hidden" name="action" value="ajout_panier">
+                                        <input type="hidden" name="action" value="ajouter_panier">
                                         <input type="hidden" name="reference" value="{$produit->getReference()}">
                                         <input type="hidden" name="designation" value="{$produit->getDesignation()}">
-
-
-                                        <input id="pImage" type="image" name="ajoute_panier"
-                                               src='public/images/icones/a16.png'>
-                                    </td>
-                            </form>
+                                        <button type="submit" name="ajouter_panier" value="Ajouter au panier">
+                                            <img src="public/images/icones/a16.png" alt="Ajouter au panier">
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         {/foreach}
                         </tbody>
                     </table>
-
-
                 </div>
                 <div class="card-body card-block">
                     <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
@@ -188,40 +179,40 @@
                     <div class="col-md-6 "></div>
                     <br>
                 </div>
-
             </div>
+        </div>
 
 
-        </div><!-- .content -->
+    </div><!-- .content -->
 
 
-    </div><!-- /#right-panel -->
+</div><!-- /#right-panel -->
 
-    <!-- Right Panel -->
-    <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="public/assets/js/plugins.js"></script>
-    <script src="public/assets/js/main.js"></script>
-
-
-    <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+<!-- Right Panel -->
+<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="public/assets/js/plugins.js"></script>
+<script src="public/assets/js/main.js"></script>
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#bootstrap-data-table-export').DataTable();
-        });
-    </script>
+<script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#bootstrap-data-table-export').DataTable();
+    });
+</script>
 
 </body>
 </html>

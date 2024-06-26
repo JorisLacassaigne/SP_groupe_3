@@ -109,6 +109,15 @@ class ProduitVue
 
                 break;
 
+            case 'ajouter_panier':
+                $reference = $this->parametre['reference'];
+
+                $quantite = $this->parametre['quantite'];
+
+                $this->oModele->ajouter_panier($reference, $quantite);
+
+                break;
+
         }
 
         $this->tpl->display('mod_produit/vue/produitFicheVue.tpl');
