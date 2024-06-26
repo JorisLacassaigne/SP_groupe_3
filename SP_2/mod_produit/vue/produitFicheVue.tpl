@@ -155,18 +155,17 @@
                 </div>
 
             </div>
-            {*            <!-- .animated -->*}
-            {*            <div class="col-md-6">*}
-            {*                <div class="card">*}
-            {*                    <div class="card-header"><strong>Statistiques</strong></div>*}
-            {*                    <div class="card-body">*}
-            {*                        <div class="form-group"><strong>CA réalisé : </strong>{$unClient->getStat01()} €</div>*}
-            {*                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong>VALEUR</div>*}
-            {*                        <div class="form-group"><strong>Ses 5 meilleurs achats : </strong>VALEUR</div>*}
-            {*                    </div>*}
-            {*                </div>*}
-            {*            </div>*}
-            {*        </div><!-- .content -->*}
+                        <!-- .animated -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header"><strong>Statistiques</strong></div>
+                                <div class="card-body">
+                                    <div class="form-group"><strong>Prix au Kilogramme : </strong>VALEUR</div>
+                                    <div class="form-group"><strong>Classement : </strong>VALEUR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .content -->
 
 
         </div><!-- /#right-panel -->

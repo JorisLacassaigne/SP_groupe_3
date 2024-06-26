@@ -41,6 +41,18 @@ class ProduitVue
         $this->tpl->display('mod_produit/vue/produitListeVue.tpl');
     }
 
+
+
+    public function genererAffichageListeTousLesProduits($tousLesProduits)
+    {
+        $this->chargementPrincipal();
+
+        $this->tpl->assign('titrePage', 'Liste des Produits');
+
+        $this->tpl->assign('listeProduits', $tousLesProduits);
+
+        $this->tpl->display('mod_produit/vue/produitListeCommanderVue.tpl');    }
+
     public function genererAffichageFiche($produit)
     {
         $this->chargementPrincipal();
@@ -94,6 +106,15 @@ class ProduitVue
                 $this->tpl->assign('unProduit', $produit);
 
                 $this->tpl->assign('readonly', 'disabled');
+
+                break;
+
+            case 'ajouter_panier':
+                $reference = $this->parametre['reference'];
+
+                $quantite = $this->parametre['quantite'];
+
+                $this->oModele->ajouter_panier($reference, $quantite);
 
                 break;
 

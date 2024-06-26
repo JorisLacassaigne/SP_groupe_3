@@ -13,7 +13,7 @@ class Autoloader
     private static function autoload($maClasse)
     {
         // $maClasse contient le nom de la classe appelée :
-        // Accueil, AccueilControleur, AccueilVue, ClientControleur; ClientModele, ...
+        // Accueil, AccueilController, AccueilVue, ClientController; ClientModele, ...
         // Transformation avec le nom de la classe en minuscule (première lettre)
         $maClasse = lcfirst($maClasse);
 
@@ -21,32 +21,32 @@ class Autoloader
         // pouvant être appelées
         $repertoires = [
             'mod_accueil/',
-            'mod_accueil/controleur/',
+            'mod_accueil/controller/',
             'mod_accueil/modele/',
             'mod_accueil/vue/',
             'mod_service/',
-            'mod_service/controleur/',
+            'mod_service/controller/',
             'mod_service/modele/',
             'mod_service/vue/',
             'mod_authentification/',
-            'mod_authentification/controleur/',
+            'mod_authentification/controller/',
             'mod_authentification/modele/',
             'mod_authentification/vue/',
             'mod_produit/',
-            'mod_produit/controleur/',
+            'mod_produit/controller/',
             'mod_produit/modele/',
             'mod_produit/vue/',
             'mod_recette/',
-            'mod_recette/controleur/',
+            'mod_recette/controller/',
             'mod_recette/modele/',
             'mod_recette/recettes_a_telecharger/',
             'mod_recette/vue/',
             'mod_salon/',
-            'mod_salon/controleur/',
+            'mod_salon/controller/',
             'mod_salon/modele/',
             'mod_salon/vue/',
             'mod_client/',
-            'mod_client/controleur/',
+            'mod_client/controller/',
             'mod_client/modele/',
             'mod_client/vue/',
             'mod_commande/',
@@ -58,15 +58,19 @@ class Autoloader
             'mod_vendeur/modele/',
             'mod_vendeur/vue/',
             'mod_profil/',
-            'mod_profil/controleur/',
+            'mod_profil/controller/',
             'mod_profil/modele/',
             'mod_profil/vue/',
+            'mod_panier/',
+            'mod_panier/controller/',
+            'mod_panier/modele/',
+            'mod_panier/vue/',
         ];
 
 
         foreach ($repertoires as $repertoire) {
             // vérification si fichier attendu existe
-            // accueil.php, accueilControleur.php, serviceControleur.php
+            // accueil.php, accueilController.php, serviceController.php
             // serviceModele.php
             if (file_exists($repertoire . $maClasse . '.php')) {
                 require_once($repertoire . $maClasse . '.php');

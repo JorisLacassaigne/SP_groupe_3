@@ -16,6 +16,7 @@ class CommandeTable{
     private static $messageErreur = "";
     private static $messageSucces = "";
     private $stat01;
+    private $stat02;
 
     /**
      * @param array $data
@@ -59,7 +60,6 @@ class CommandeTable{
     {
         $this->numero = $numero;
     }
-
 
     /**
      * @return mixed
@@ -190,11 +190,27 @@ class CommandeTable{
     }
 
     /**
+     * @return mixed
+     */
+    public function getStat02()
+    {
+        return $this->stat02;
+    }
+
+    /**
      * @param mixed $stat01
      */
     public function setStat01($stat01): void
     {
         $this->stat01 = $stat01;
+    }
+
+    /**
+     * @param mixed $stat02
+     */
+    public function setStat02($stat02): void
+    {
+        $this->stat02 = $stat02;
     }
 
     public function getAutorisationBD(): bool

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-19 16:51:00
-  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_client\vue\clientFicheVue.tpl' */
+/* Smarty version 4.3.2, created on 2024-06-21 09:30:43
+  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66730c742471a7_51694913',
+  'unifunc' => 'content_66754843578810_59482189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '94f653e4a9f85e31582ecc17bba51b2543293cc2' => 
+    '59257f049b255b959deb0df5cc3d033863efd1e0' => 
     array (
-      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1718815845,
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitFicheVue.tpl',
+      1 => 1718962239,
       2 => 'file',
     ),
   ),
@@ -22,14 +22,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66730c742471a7_51694913 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66754843578810_59482189 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_3\\SP_2\\include\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,9 +65,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
 
 </head>
 <body>
-
-
 <!-- Left Panel -->
+
 
 <?php $_smarty_tpl->_subTemplateRender('file:public/left.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -97,7 +100,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=client">Clients</a></li>
+                        <li><a href="index.php?gestion=produit">Produits</a></li>
                         <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </li>
                     </ol>
@@ -119,73 +122,70 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
 
                     </div>
 
+                    <div <?php if (ClientTable::getMessageSucces() != '') {?> class="alert alert-danger" role="alert" <?php }?>>
+                        <?php echo ClientTable::getMessageSucces();?>
+
+                    </div>
+
                     <div class="card">
                         <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </strong></div>
                         <form action="index.php" method="POST">
 
                             <!-- PLACER LE FORMULAIRE EN CONSULTATION -->
-
-                            <input type="hidden" name="gestion" value="client">
+                            <input type="hidden" name="gestion" value="produit">
                             <input type="hidden" name="action" value=<?php echo $_smarty_tpl->tpl_vars['action']->value;?>
 >
 
                             <div class="card-body card-block">
                                 <?php if ($_smarty_tpl->tpl_vars['action']->value != 'ajouter') {?>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="codec">Code client : </label>
-                                        <input type="text" name="codec" class="form-control" readonly
-                                               value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
+                                        <label class="form-control-label" for="reference">Code produit : </label>
+                                        <input type="text" name="reference" class="form-control" readonly
+                                               value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
 ">
                                     </div>
                                 <?php }?>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nom">Nom : </label>
-                                    <input type="text" name="nom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="designation">Désignation : </label>
+                                    <input type="text" name="designation" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getNom();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDesignation();?>
 ">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="prenom">Prénom : </label>
-                                    <input type="text" name="prenom" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="quantite">Quantite : </label>
+                                    <input type="text" name="$quantite" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getPrenom();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getQuantite();?>
 ">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="adresse">Adresse : </label>
-                                    <input type="text" name="adresse" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="descriptif">Déscriptif : </label>
+                                    <input type="text" name="descriptif" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getAdresse();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDescriptif();?>
 ">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="cp">Code postal : </label>
-                                    <input type="text" name="cp" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="prixUnitaireHT">Prix unitaire HT : </label>
+                                    <input type="text" name="prix_unitaire_HT" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCp();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPrixUnitaireHT();?>
 ">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="ville">Ville : </label>
-                                    <input type="text" name="ville" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="stock">Stock : </label>
+                                    <input type="text" name="stock" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getVille();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getStock();?>
 ">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="telephone">Téléphone : </label>
-                                    <input type="text" name="telephone" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+                                    <label class="form-control-label" for="poidsPiece">Poids pièce : </label>
+                                    <input type="text" name="poids_piece" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
 
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getTelephone();?>
-">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="email">Email : </label>
-                                    <input type="text" name="email" class="form-control" <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
-
-                                           value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getEmail();?>
+                                           value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPoidsPiece();?>
 ">
                                 </div>
 
@@ -194,7 +194,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                             <div class="card-body card-block">
 
                                 <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour"
-                                                             onclick="location.href='index.php?gestion=client'">
+                                                             onclick="location.href='index.php?gestion=produit'">
                                 </div>
                                 <div class="col-md-6">
                                     <?php if ($_smarty_tpl->tpl_vars['action']->value != "consulter") {?>
@@ -208,80 +208,77 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\laragon\\www\\SP_groupe_
                 </div>
 
             </div>
-            <!-- .animated -->
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header"><strong>Statistiques</strong></div>
-                    <div class="card-body">
-                        <div class="form-group"><strong>CA réalisé : </strong><?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat01();?>
- €</div>
-                        <div class="form-group"><strong>Pourcentage du CA réalisé : </strong><?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat02();?>
- %</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .content -->
+                        <!-- .animated -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header"><strong>Statistiques</strong></div>
+                                <div class="card-body">
+                                    <div class="form-group"><strong>Prix au Kilogramme : </strong>VALEUR</div>
+                                    <div class="form-group"><strong>Classement : </strong>VALEUR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .content -->
 
 
-    </div><!-- /#right-panel -->
+        </div><!-- /#right-panel -->
 
-    <!-- Right Panel -->
-    <?php echo '<script'; ?>
+        <!-- Right Panel -->
+        <?php echo '<script'; ?>
  src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/plugins.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/main.js"><?php echo '</script'; ?>
 >
 
 
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/datatables.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/dataTables.buttons.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/jszip.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/pdfmake.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/vfs_fonts.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.html5.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.print.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/buttons.colVis.min.js"><?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
 >
 
 
-    <?php echo '<script'; ?>
+        <?php echo '<script'; ?>
  type="text/javascript">
-        $(document).ready(function () {
-            $('#bootstrap-data-table-export').DataTable();
-        });
-    <?php echo '</script'; ?>
+            $(document).ready(function () {
+                $('#bootstrap-data-table-export').DataTable();
+            });
+        <?php echo '</script'; ?>
 >
 
 </body>

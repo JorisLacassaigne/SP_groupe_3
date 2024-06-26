@@ -54,13 +54,15 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-bag"></i>Passer une commande</a>
+                    <a href="index.php?gestion=produit&action=lister_produits"></i>Passer une commande</a>
                 </li>
                 <li class=" dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
                 </li>
+{*                <li class=" dropdown">*}
+{*                    <a href="index.php?gestion=panier">Panier (temporaire)</a>*}
+{*                </li>*}
 
                 {*                    <li class="dropdown">*}
                 {*                        <a href="#A VOUS D'ECRIRE LE LIEN" > <i class="menu-icon fa fa-th"></i>Mon profil</a>*}

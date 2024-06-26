@@ -10,32 +10,8 @@ class ProduitModele extends Modele
         $this->parametre = $parametre;
     }
 
-    public function getListeProduit()
+    public function getProduitParReference()
     {
-
-        $sql = 'SELECT * FROM produit';
-
-        $idRequete = $this->executeRequete($sql);
-
-        if ($idRequete->rowCount() > 0) {
-            // Création du tableau d'objets
-            while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-
-                $listeProduits[] = new ProduitTable($unProduit);
-            }
-
-            return $listeProduits;
-
-        } else {
-
-            return null;
-        }
-    }
-
-    public function getUnProduit()
-    {
-
-
         $sql = 'SELECT * FROM produit WHERE reference = ?';
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['reference'],
@@ -46,54 +22,72 @@ class ProduitModele extends Modele
         return $leProduit;
     }
 
-    public function addProduit(ProduitTable $unProduit)
+    public function getDesignationParReference($reference)
     {
+        $sql = 'SELECT designation FROM produit WHERE reference = ?';
+        $idRequete = $this->executeRequete($sql, [$reference]);
 
-        $sql = 'INSERT INTO produit(designation, quantite, descriptif, prixUnitaireHT, stock, poidsPiece) VALUES (?,?,?,?,?,?)';
-        $idRequete = $this->executeRequete($sql, [
-            $unProduit->getDesignation(),
-            $unProduit->getQuantite(),
-            $unProduit->getDescriptif(),
-            $unProduit->getPrixUnitaireHT(),
-            $unProduit->getStock(),
-            $unProduit->getPoidsPiece(),
-        ]);
-        if ($idRequete) {
-            ProduitTable::setMessageSucces("Ajout effectué avec succès.");
-        }
+        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        return $row['designation'];
     }
 
 
-    public function editProduit(ProduitTable $unProduit)
+    public function getListeProduit()
     {
 
-        $sql = 'UPDATE produit SET designation = ?, quantite = ?, descriptif = ?, prixUnitaireHT = ?, stock = ?, poidsPiece = ? WHERE reference = ?';
-        $idRequete = $this->executeRequete($sql, [
-            $unProduit->getDesignation(),
-            $unProduit->getQuantite(),
-            $unProduit->getDescriptif(),
-            $unProduit->getPrixUnitaireHT(),
-            $unProduit->getStock(),
-            $unProduit->getPoidsPiece(),
-            $unProduit->getReference(),
-        ]);
-        if ($idRequete) {
-            ProduitTable::setMessageSucces("Modification effectuée avec succès.");
+        $sql = 'SELECT * FROM produit';
+
+        $idRequete = $this->executeRequete($sql);
+
+        if ($idRequete->rowCount() > 0) {
+            // Création du tableau d'objets
+            while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
+                $listeProduits[] = new ProduitTable($unProduit);
+            }
+            return $listeProduits;
+
+        } else {
+
+            return null;
         }
     }
 
-    public function deleteProduit()
+    public function getUnProduit()
     {
-
-        $sql = 'DELETE FROM produit WHERE reference = ?';
-
+        $sql = 'SELECT * FROM produit WHERE reference = ?';
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['reference'],
         ]);
-        if ($idRequete) {
-            ClientTable::setMessageSucces("Suppression effectuée avec succès.");
-        }
+
+        $leProduit = new ProduitTable($idRequete->fetch(PDO::FETCH_ASSOC));
+
+        return $leProduit;
     }
 
 
+    public function ajouter_panier($reference, $quantite, $prix_vente)
+    {
+        // Récupérer les données du produit à partir de la base de données
+        $produit = $this->getProduitParReference($reference);
+
+        // Ajouter le produit au panier
+        if (isset($_SESSION['panier'][$reference])) {
+            if (!isset($_SESSION['panier'][$reference]['quantite'])) {
+                $_SESSION['panier'][$reference]['quantite'] = 0;
+            }
+            $_SESSION['panier'][$reference]['quantite'] += $quantite;
+            $_SESSION['panier'][$reference]['prix_vente'] = $prix_vente;
+        } else {
+            $_SESSION['panier'][$reference] = array(
+                'reference' => $reference,
+                'designation' => $produit->getDesignation(),
+                'prix' => $produit->getPrixUnitaireHT(),
+                'quantite' => $quantite,
+                'prix_vente' => $prix_vente
+            );
+            var_dump($reference);
+            var_dump($quantite);
+        }
+    }
 }

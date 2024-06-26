@@ -4,7 +4,7 @@ class Authentification
 
     private $parametre = []; // Un tableau associatif contenant le tableau $_REQUEST
 
-    private $oControleur; // Objet instance du controleur
+    private $oController; // Objet instance du controller
 
 
     public function __construct($parametre)
@@ -12,8 +12,8 @@ class Authentification
         // Initialisation de la propriété $parametre ($_REQUEST)
         $this->parametre = $parametre;
 
-        // Création d'une instance (objet) de type AccueilControleur
-        $this->oControleur = new AuthentificationControleur($this->parametre);
+        // Création d'une instance (objet) de type AccueilController
+        $this->oController = new AuthentificationController($this->parametre);
 
     }
 
@@ -26,19 +26,19 @@ class Authentification
 
                 case 'authentifier':
 
-                    $this->oControleur->authentifier();
+                    $this->oController->authentifier();
                     break;
 
                 case 'deconnecter' :
 
-                    $this->oControleur->deconnecter();
+                    $this->oController->deconnecter();
                     break;
 
             }
 
         }else{
 
-            $this->oControleur->form_authentifier();
+            $this->oController->form_authentifier();
         }
     }
 }

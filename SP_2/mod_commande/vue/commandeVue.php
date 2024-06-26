@@ -48,7 +48,7 @@ class CommandeVue
     }
 
 
-    public function genererAffichageFiche($commandes)
+    public function genererAffichageFiche($uneCommande)
     {
 
         $this->chargementPrincipal();
@@ -61,7 +61,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Consultation');
 
-                $this->tpl->assign('uneCommande', $commandes);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', 'disabled');
 
@@ -73,9 +73,9 @@ class CommandeVue
 
                 $this->tpl->assign('action', 'ajouter');
 
-                $this->tpl->assign('titrePage', 'Fiche Commande : Création');
+                $this->tpl->assign('titrePage', 'Fiche Commande : Nouvelle');
 
-                $this->tpl->assign('uneCommande', $commandes);
+                $this->tpl->assign('listeProduits', $uneCommande);
 
                 $this->tpl->assign('readonly', '');
 
@@ -89,7 +89,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Modification');
 
-                $this->tpl->assign('uneCommande', $commandes);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', '');
                 break;
@@ -102,7 +102,7 @@ class CommandeVue
 
                 $this->tpl->assign('titrePage', 'Fiche Commande : Suppression');
 
-                $this->tpl->assign('uneCommande', $commandes);
+                $this->tpl->assign('uneCommande', $uneCommande);
 
                 $this->tpl->assign('readonly', 'disabled');
 

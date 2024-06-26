@@ -1,6 +1,6 @@
 <?php
 
-class ClientTable
+class   ClientTable
 {
     private $codec;
     private $nom;
@@ -18,6 +18,7 @@ class ClientTable
     private static $messageSucces = "";
 
     private $stat01;
+    private $stat02;
 
     public function hydrater(array $data)
     {
@@ -241,11 +242,27 @@ class ClientTable
     }
 
     /**
+     * @return mixed
+     */
+    public function getStat02()
+    {
+        return $this->stat02;
+    }
+
+    /**
      * @param mixed $stat01
      */
     public function setStat01($stat01): void
     {
         $this->stat01 = $stat01;
+    }
+
+    /**
+     * @param mixed $stat02
+     */
+    public function setStat02($stat02): void
+    {
+        $this->stat02 = $stat02;
     }
 
     

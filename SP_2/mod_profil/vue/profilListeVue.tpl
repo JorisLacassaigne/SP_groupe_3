@@ -78,14 +78,14 @@
     <div class="content mt-3">
         <div class="animated fadeIn">
 
-            <div class="row">
+            <div>
 
                 <div class="col-md-6">
 
                     <div {if ProfilTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
                         {ProfilTable::getMessageErreur()}
                     </div>
-                    <div {if ProfilTable::getMessageSucces() neq ''} class="alert-success" role="alert" {/if}>
+                    <div {if ProfilTable::getMessageSucces() neq ''} class="alert alert-success" role="alert" {/if}>
                         {ProfilTable::getMessageSucces()}
                     </div>
 
@@ -96,50 +96,53 @@
 
                             </strong>
                         </div>
+
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <form method="POST" action="index.php">
                                     <input type="hidden" name="gestion" value="profil">
+                                    <input type="hidden" name="login" value={$profil->getLogin()}>
+                                    <input type="hidden" name="motdepasse" value={$profil->getMotdepasse()}>
                                     <input type="hidden" name="action" value="modifier">
                                     <input type="hidden" name="codev" value="{$profil->getCodev()}">
 
                                     <div class="card-body card-block">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="nom"><strong>Code
+                                            <label class="form-control-label" for="codev"><strong>Code
                                                     vendeur : </strong>{$profil->getCodev()}</label>
-
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="prenom" value={$profil->getPrenom()}>
+                                            <label class="form-control-label"
+                                                   for="prenom"><strong>Prénom : </strong>{$profil->getPrenom()}
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="nom" value={$profil->getNom()}>
+                                            <label class="form-control-label"
+                                                   for="nom"><strong>Nom : </strong>{$profil->getNom()}</label>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="prenom"><strong>Prénom </strong></label>
-                                            {$profil->getPrenom()}
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-control-label"
-                                                   for="nom"><strong>Nom </strong></label>
-                                            {$profil->getNom()}
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-control-label"
-                                                   for="adresse"><strong>Adresse </strong></label>
+                                                   for="adresse"><strong>Adresse :</strong></label>
                                             <input type="text" name="adresse" class="form-control"
                                                    value="{$profil->getAdresse()}">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label" for="cp"><strong>Code
-                                                    postal </strong></label>
+                                                    postal :</strong></label>
                                             <input type="text" name="cp" class="form-control"
                                                    value="{$profil->getCp()}">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="ville"><strong>Ville </strong></label>
+                                                   for="ville"><strong>Ville :</strong></label>
                                             <input type="text" name="ville" class="form-control"
                                                    value="{$profil->getVille()}">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-control-label"
-                                                   for="telephone"><strong>Téléphone </strong></label>
+                                                   for="telephone"><strong>Téléphone :</strong></label>
                                             <input type="tel" name="telephone" class="form-control"
                                                    value="{$profil->getTelephone()}">
                                         </div>
@@ -150,9 +153,8 @@
                                                    name="btn_modifier"
                                                    value="Modifier">
                                         </div>
+                                    </div>
                                 </form>
-
-
                             </table>
                         </div>
 
@@ -160,54 +162,58 @@
                 </div>
 
             </div>
-            <div class="col-6">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header"><strong>Statistiques</strong></div>
                     <div class="card-body">
-                        <div class="form-group"><strong>Total des ventes : </strong>OUI</div>
+                        <div class="form-group"><strong>Total des ventes : </strong>{$profil->getstv01()} €</div>
                     </div>
                 </div>
-                <form method="POST" action="index.php">
-                    <input type="hidden" name="gestion" value="profil">
-                    <input type="hidden" name="action" value="valider">
-                    <input type="hidden" name="codev" value="{$profil->getCodev()}">
-                    <div class="card">
-                        <div class="card-header"><strong>Changer de mot de passe</strong></div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-control-label" for="login"><strong>Code
-                                        vendeur : </strong></label> {$profil->getLogin()}
+                <div>
+                    <form method="POST" action="index.php">
+                        <input type="hidden" name="gestion" value="profil">
+                        <input type="hidden" name="action" value="valider">
+                        <input type="hidden" name="codev" value="{$profil->getCodev()}">
+                        <div class="card">
+                            <div class="card-header"><strong>Changer de mot de passe</strong></div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="hidden" name="login" value={$profil->getLogin()}>
+                                    <label class="form-control-label" for="login"><strong>Login
+                                            vendeur : </strong>{$profil->getLogin()}</label>
 
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label" for="motdepasse"><strong>Nouveau mot de
-                                        passe </strong></label>
-                                <input type="password" name="motdepasse" class="form-control"
-                                       value="">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label" for="confirmation"><strong>Confirmer mot de
-                                        passe </strong></label>
-                                <input type="password" name="confirmation" class="form-control"
-                                       value="">
-                            </div>
+                                </div>
+{*                                <form method="post" action="index.php?gestion=profil&action=valider">*}
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="motdepasse"><strong>Nouveau mot de
+                                                passe :</strong></label>
+                                        <input type="password" name="motdepasse" class="form-control"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="confirmation"><strong>Confirmer mot de
+                                                passe :</strong></label>
+                                        <input type="password" name="confirmation" class="form-control"
+                                               value="">
+                                    </div>
 
-                            <div class="pos-actions">
+                                    <div class="pos-actions">
 
-                                <input class="btn btn-submit float-right" type="submit" name="valider"
-                                       value="Changer">
-
+                                        <input class="btn btn-submit float-right" type="submit" name="valider"
+                                               value="Changer">
+{*                                </form>*}
                             </div>
                         </div>
-                    </div>
+                </div>
 
                 </form>
             </div>
         </div>
-
-
     </div>
-    <!- .animated -->
+
+
+</div>
+<!- .animated -->
 
 </div>
 <!-- .content -->

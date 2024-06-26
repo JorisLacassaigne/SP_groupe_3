@@ -4,13 +4,13 @@ class Vendeur{
 
     private $parametre = []; // Tableau = $_REQUEST
 
-    private $oControleur; // objet
+    private $oController; // objet
 
     public function __construct($parametre){
 
         $this->parametre = $parametre;
 
-        $this->oControleur = new VendeurControleur($this->parametre);
+        $this->oController = new VendeurController($this->parametre);
     }
 
     public function choixAction(){
@@ -26,37 +26,37 @@ class Vendeur{
 
                 case 'form_consulter':
 
-                    $this->oControleur->form_consulter();
+                    $this->oController->form_consulter();
                     break;
 
                 case 'form_ajouter':
 
-                    $this->oControleur->form_ajouter();
+                    $this->oController->form_ajouter();
                     break;
 
                 case 'form_modifier':
 
-                    $this->oControleur->form_modifier();
+                    $this->oController->form_modifier();
                     break;
 
                 case 'form_supprimer':
 
-                    $this->oControleur->form_supprimer();
+                    $this->oController->form_supprimer();
                     break;
 
                 case 'ajouter':
 
-                    $this->oControleur->ajouter();
+                    $this->oController->ajouter();
                     break;
 
                 case 'modifier':
 
-                    $this->oControleur->modifier();
+                    $this->oController->modifier();
                     break;
 
                 case 'supprimer':
 
-                    $this->oControleur->supprimer();
+                    $this->oController->supprimer();
                     break;
 
 
@@ -66,7 +66,7 @@ class Vendeur{
 
         }else{
 
-            $this->oControleur->lister();
+            $this->oController->lister();
         }
 
 

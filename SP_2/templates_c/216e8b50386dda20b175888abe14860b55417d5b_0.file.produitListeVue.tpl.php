@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-18 13:45:05
+/* Smarty version 4.3.2, created on 2024-06-19 16:51:10
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66718f6164cb98_38007546',
+  'unifunc' => 'content_66730c7e4d2263_74031736',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66718f6164cb98_38007546 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66730c7e4d2263_74031736 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

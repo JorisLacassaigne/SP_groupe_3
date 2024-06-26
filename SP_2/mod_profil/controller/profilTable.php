@@ -16,6 +16,7 @@ class ProfilTable
     private $autorisationBD = true;
     private static $messageErreur = "";
     private static $messageSucces = "";
+    private $stv01;
 
 
     public function hydrater(array $data)
@@ -235,9 +236,10 @@ class ProfilTable
             self::setMessageErreur("Le mot de passe est obligatoire");
             $this->setAutorisationBD(false);
             $this->motdepasse = "";
-        }
 
-        $this->motdepasse = $motdepasse;
+        } else {
+            $this->motdepasse = $motdepasse;
+        }
     }
 
     /**
@@ -254,23 +256,27 @@ class ProfilTable
     public function setConfirmation($confirmation): void
     {
         if (empty($confirmation) || ctype_space($confirmation)) {
-            self::setMessageErreur("Le mot de passe est obligatoire");
+            self::setMessageErreur("Le mot de passe est obligatoire.");
             $this->setAutorisationBD(false);
             $this->confirmation = "";
+            $this->motdepasse = "";
 
         } elseif ($this->motdepasse != $this->confirmation) {
 
-            self::setMessageErreur("Vos mots de passe sont différents");
+            self::setMessageErreur("Vos mots de passe sont différents.");
             $this->setAutorisationBD(false);
             $this->motdepasse = "";
             $this->confirmation = "";
 
+            var_dump($this->confirmation);
+            var_dump($this->motdepasse);
+
         } else {
 
-            self::setMessageSucces("Votre mot de passe a été modifié");
-            var_dump($confirmation);
-            die();
+            self::setMessageSucces("Votre mot de passe a été modifié.");
+            $this->setAutorisationBD(true);
         }
+
 
     }
 
@@ -302,7 +308,24 @@ class ProfilTable
 
     public static function setMessageSucces(string $messageSucces): void
     {
-        self::$messageSucces = $messageSucces;
+        self::$messageSucces = self::$messageSucces . $messageSucces . '<br>';
     }
+
+    /**
+     * @return mixed
+     */
+    public function getstv01()
+    {
+        return $this->stv01;
+    }
+
+    /**
+     * @param mixed $stv01
+     */
+    public function setstv01($stv01): void
+    {
+        $this->stv01 = $stv01;
+    }
+
 
 }
