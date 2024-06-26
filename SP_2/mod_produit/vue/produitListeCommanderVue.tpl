@@ -141,14 +141,14 @@
                                 <th>Prix HT</th>
                                 <th>Prix Vente</th>
                                 <th>Quantité</th>
-                                <th></th>
+                                <th class="pos-actions"></th>
 
                             </tr>
                         </thead>
                         <tbody>
                         {foreach from=$listeProduits item=produit}
+                            <tr>
                             <form>
-                                <tr>
                                     <td>{$produit->getReference()}</td>
                                     <td>
                                         <a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}
@@ -163,18 +163,19 @@
                                     <td>
                                         <input type="number" name="quantite" value="" min="0" size="5">
                                     </td>
-
                                     <td class="pos-actions">
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="ajouter_panier">
-                                    <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                    <input type="hidden" name="designation" value="{$produit->getDesignation()}">
-                                    <input id="pImage" type="image" name="ajouter_panier"
-                                           src='public/images/icones/a16.png'>
-                                    </td>
 
-                                </tr>
+                                        <input type="hidden" name="gestion" value="produit">
+                                        <input type="hidden" name="action" value="ajout_panier">
+                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
+                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
+
+
+                                        <input id="pImage" type="image" name="ajoute_panier"
+                                               src='public/images/icones/a16.png'>
+                                    </td>
                             </form>
+                            </tr>
                         {/foreach}
                         </tbody>
                     </table>

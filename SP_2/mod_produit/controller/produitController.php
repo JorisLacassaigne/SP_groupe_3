@@ -40,23 +40,24 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouter_panier($reference, $quantite)
+    public function ajout_panier($reference, $quantite)
     {
+        // produitController.php
 
+// Supposez que $reference et $quantite sont obtenus depuis vos paramètres POST ou GET
         $reference = $this->parametre['reference'];
         $quantite = $this->parametre['quantite'];
 
-        $produits = $this->oModele->addPanier($reference, $quantite);
+// Création d'un objet ProduitTable avec les données nécessaires
+        $produitTable = new ProduitTable();
+        $produitTable->setReference($reference);
+        $produitTable->setQuantite($quantite);
 
-        if ($produits !== null) {
-            // Rediriger l'utilisateur vers la page de confirmation ou de panier
-            header('Location: index.php?gestion=panier&action=confirmation');
-        } else {
-            // Gérer l'erreur si le produit n'a pas pu être ajouté au panier
-            echo "Erreur : le produit n'a pas pu être ajouté au panier.";
-        }
+// Appel de la méthode addPanier avec l'objet ProduitTable
+        $produitTable = new ProduitModele($produitTable);
+        $produitTable = $this->oModele->addPanier($reference,$quantite);
+
     }
-
 
 
 }

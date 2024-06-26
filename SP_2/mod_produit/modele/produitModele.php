@@ -43,7 +43,7 @@ class ProduitModele extends Modele
     }
 
 
-    public function addPanier(ProduitTable $reference, $quantite)
+    /*public function addPanier(ProduitTable $reference, $quantite)
     {
         $sql = 'SELECT * FROM produit where reference = ?';
 
@@ -65,5 +65,38 @@ class ProduitModele extends Modele
             return null;
         }
 
+    }*/
+
+    public function addPanier(ProduitTable $produitTable, $quantite)
+    {
+        // Récupération de la référence du produit à partir de l'objet ProduitTable
+        $reference = $produitTable->getReference();
+
+        // Requête SQL pour récupérer le produit par sa référence
+        $sql = 'SELECT * FROM produit WHERE reference = ?';
+        $idRequete = $this->executeRequete($sql, [$reference]);
+        $reference = $produitTable->getReference();
+        $quantite = $produitTable->getQuantite();
+        // Vérification si le produit existe dans la base de données
+        if ($idRequete->rowCount() > 0) {
+            // Ajout du produit au panier dans $_SESSION['panier']
+            // Note : Vous devez adapter cette partie en fonction de la structure attendue dans $_SESSION['panier']
+
+            // Exemple : Supposons que $_SESSION['panier'] est un tableau d'objets ProduitTable
+            // Vous pouvez ajouter directement l'objet $produitTable au panier avec sa quantité
+            $produitTable->setQuantite($quantite);
+            $_SESSION['panier'][] = $produitTable;
+
+            // Vous pouvez également retourner un tableau de ProduitTable si nécessaire
+            $listeProduits = [];
+            while ($unProduit = $idRequete->fetch(PDO::FETCH_ASSOC)) {
+                $listeProduits[] = new ProduitTable($unProduit);
+            }
+            return $listeProduits;
+        } else {
+            // Retourner null si le produit n'a pas été trouvé
+            return null;
+        }
     }
+
 }

@@ -28,6 +28,7 @@ class Panier
 
                     $this->oController->sauvegarder();
                     break;
+
             }
         } else {
 

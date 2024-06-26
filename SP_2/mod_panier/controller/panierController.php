@@ -42,4 +42,17 @@ class PanierController
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

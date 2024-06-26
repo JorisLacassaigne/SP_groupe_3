@@ -69,6 +69,8 @@ class Commande
                     $this->oController->supprimer();
                     break;
 
+
+
             }
 
         } else {

@@ -113,8 +113,11 @@
                                 <tr>
                                     <td>{$commande["commande"]->getNumero()}</td>
                                     <td>{$commande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}</td>
-                                    <td>{$commande["client"]->getNom()} {$commande["client"]->getPrenom()}</td>
-                                    <td>{$commande["commande"]->getTotalHT()}</td>
+                                    <td>
+                                        <a href="index.php?gestion=client&action=form_consulter&codec={$commande["client"]->getCodec()}">
+                                   {$commande["client"]->getNom()} {$commande["client"]->getPrenom()}
+                                    </td>
+                                    <td>{number_format($commande["commande"]->getTotalHT(), 2, ',', ' ')} €</td>
                                     <td class="pos-actions">
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
@@ -128,7 +131,7 @@
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
                                             <input type="hidden" name="action" value="form_modifier">
-                                            <input type="hidden" name="numero" value="10178">
+                                            <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
                                             <input type="image" name="btn_modifier"
                                                    src="public/images/icones/s32.png">
                                         </form>
