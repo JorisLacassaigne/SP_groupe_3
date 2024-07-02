@@ -173,7 +173,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                         <td class=pos-actions>
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="client">
-                                                <input type="hidden" name="action" value="form_consulter">
+                                                <input type="hidden" name="action" value="formConsulter">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
 ">
                                                 <input type="image" name="btn_consulter"

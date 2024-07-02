@@ -21,7 +21,7 @@ class VendeurController{
         $this->oVue->genererAffichageListe($vendeurs);
     }
 
-    public function form_consulter(){
+    public function formConsulter(){
 
         $vendeur = $this->oModele->getUnVendeur();
         $this->oModele->stat01($vendeur);

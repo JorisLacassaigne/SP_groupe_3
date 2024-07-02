@@ -20,7 +20,7 @@ class Commande
     public function choixAction(){
 
         // Structure switch : ajouter, modifier, supprimer (Pour une orientation en écriture BD)
-        // form_ajouter, form_modifier, form_consulter,...
+        // form_ajouter, form_modifier, formConsulter,...
         // Par défaut, si aucune action précisée alors  => lister()
 
         // Si variable (clé) action existe alors structure switch
@@ -29,9 +29,9 @@ class Commande
 
             switch ($this->parametre['action']){
 
-                case 'form_consulter':
+                case 'formConsulter':
 
-                    $this->oController->form_consulter();
+                    $this->oController->formConsulter();
                     break;
 
                 case 'form_ajouter':

@@ -114,14 +114,14 @@
                                     <td>{$commande["commande"]->getNumero()}</td>
                                     <td>{$commande["vendeur"]->getPrenom()} {$commande["vendeur"]->getNom()}</td>
                                     <td>
-                                        <a href="index.php?gestion=client&action=form_consulter&codec={$commande["client"]->getCodec()}">
+                                        <a href="index.php?gestion=client&action=formConsulter&codec={$commande["client"]->getCodec()}">
                                    {$commande["client"]->getNom()} {$commande["client"]->getPrenom()}
                                     </td>
                                     <td>{number_format($commande["commande"]->getTotalHT(), 2, ',', ' ')} €</td>
                                     <td class="pos-actions">
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_consulter">
+                                            <input type="hidden" name="action" value="formConsulter">
                                             <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
                                             <input type="image" name="btn_consulter"
                                                    src="public/images/icones/p16.png">

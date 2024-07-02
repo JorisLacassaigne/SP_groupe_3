@@ -22,9 +22,9 @@ class Client
         if (isset($this->parametre['action'])) {
             switch ($this->parametre['action']) {
 
-                case 'form_consulter':
+                case 'formConsulter':
 
-                    $this->oController->form_consulter();
+                    $this->oController->formConsulter();
                     break;
 
                 case 'form_ajouter':

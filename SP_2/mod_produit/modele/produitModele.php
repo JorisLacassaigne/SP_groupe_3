@@ -66,28 +66,34 @@ class ProduitModele extends Modele
     }
 
 
-    public function ajouter_panier($reference, $quantite, $prix_vente)
+    public function ajouterPanier($reference, $quantitePanier, $prixVente)
     {
-        // Récupérer les données du produit à partir de la base de données
-        $produit = $this->getProduitParReference($reference);
+        // Vérifier que la référence du produit n'est pas nulle
+        if ($reference !== null) {
+            // Récupérer les données du produit à partir de la base de données
+            $produit = $this->getProduitParReference($reference);
 
-        // Ajouter le produit au panier
-        if (isset($_SESSION['panier'][$reference])) {
-            if (!isset($_SESSION['panier'][$reference]['quantite'])) {
-                $_SESSION['panier'][$reference]['quantite'] = 0;
+            // Vérifier que la quantité et le prix de vente ne sont pas nulles
+            if ($quantitePanier !== null && $prixVente !== null) {
+                // Ajouter le produit au panier
+                if (isset($_SESSION['panier'][$reference])) {
+                    // Mettre à jour la quantité et le prix de vente
+                    $_SESSION['panier'][$reference]['quantitePanier'] = $quantitePanier;
+                    $_SESSION['panier'][$reference]['prixVente'] = $prixVente;
+                } else {
+                    // Ajouter le produit au panier
+                    $_SESSION['panier'][$reference] = array(
+                        'reference' => $reference,
+                        'designation' => $produit->getDesignation(),
+                        'prix' => $produit->getPrixUnitaireHT(),
+                        'quantitePanier' => $produit->getQuantitePanier(),
+                        'prixVente' => $produit->getPrixVente(),
+                    );
+                }
             }
-            $_SESSION['panier'][$reference]['quantite'] += $quantite;
-            $_SESSION['panier'][$reference]['prix_vente'] = $prix_vente;
-        } else {
-            $_SESSION['panier'][$reference] = array(
-                'reference' => $reference,
-                'designation' => $produit->getDesignation(),
-                'prix' => $produit->getPrixUnitaireHT(),
-                'quantite' => $quantite,
-                'prix_vente' => $prix_vente
-            );
-            var_dump($reference);
-            var_dump($quantite);
         }
+
+        // Afficher les valeurs de $quantitePanier et $prixVente pour vérification
+//        var_dump($_SESSION['panier']);
     }
 }

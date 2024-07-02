@@ -26,25 +26,39 @@ class ProduitController
         $this->oVue->genererAffichageListe($produits);
     }
 
-    public function lister_produits()
+    public function listerProduits()
     {
         $tousLesProduits = $this->oModele->getListeProduit();
 
         $this->oVue->genererAffichageListeTousLesProduits($tousLesProduits);
     }
 
-    public function form_consulter()
+    public function formConsulter()
     {
         $produit = $this->oModele->getUnProduit();
 
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouter_panier($reference, $quantite, $prixvente)
+    public function ajouterPanier($reference, $quantitePanier, $prixVente)
     {
-        $this->oModele->ajouter_panier($reference, $quantite, $prixvente);
+        // Vérifier que $quantitePanier et $prixVente ne sont pas nulles avant de les ajouter à la session
+        if ($quantitePanier !== null && $prixVente !== null) {
+            var_dump($quantitePanier);
+            var_dump($prixVente);
+            $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente);
 
-        header('Location: index.php?gestion=produit&action=lister_produits');
+            // Ajouter les valeurs de $quantitePanier et $prixVente à la session
+            $_SESSION['panier'][$reference]['quantitePanier'] = $quantitePanier;
+            $_SESSION['panier'][$reference]['prixVente'] = $prixVente;
+        }
+
+//        echo '<pre>';
+//        print_r($_SESSION);
+//        echo '</pre>';
+//        exit;
+
+        header('Location: index.php?gestion=produit&action=listerProduits');
     }
 
 

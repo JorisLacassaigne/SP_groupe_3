@@ -10,6 +10,9 @@ class ProduitTable
     private $stock;
     private $poidsPiece;
 
+    private $prixVente;
+    private $quantitePanier;
+
     private static $messageErreur = "";
     private static $messageSucces = "";
     private $autorisationBD = true;
@@ -88,6 +91,24 @@ class ProduitTable
         return $this->poidsPiece;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPrixVente()
+    {
+        return $this->prixVente;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantitePanier()
+    {
+        return $this->quantitePanier;
+    }
+
+
+
     public static function getMessageErreur(): string
     {
         return self::$messageErreur;
@@ -153,6 +174,23 @@ class ProduitTable
     {
         $this->poidsPiece = $poidsPiece;
     }
+
+    /**
+     * @param mixed $prixVente
+     */
+    public function setPrixVente($prixVente): void
+    {
+        $this->prixVente = $prixVente;
+    }
+
+    /**
+     * @param mixed $quantitePanier
+     */
+    public function setQuantitePanier($quantitePanier): void
+    {
+        $this->quantitePanier = $quantitePanier;
+    }
+
 
     public static function setMessageErreur(string $messageErreur): void
     {

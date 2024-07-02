@@ -213,7 +213,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="card-body card-block">
 
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour à la commande"
-                                                 onclick="location.href='index.php?gestion=produit&action=lister_produits'">
+                                                 onclick="location.href='index.php?gestion=produit&action=listerProduits'">
                     </div>
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
                                                  onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">

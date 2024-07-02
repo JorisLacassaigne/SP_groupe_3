@@ -235,7 +235,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <td><?php echo $_smarty_tpl->tpl_vars['panier']->value->getReference();?>
 </td>
                                     <td>
-                                        <a href="index.php?gestion=produit&action=form_consulter&pop=1&f_reference=1004"><?php echo $_smarty_tpl->tpl_vars['panier']->value->getDesignation();?>
+                                        <a href="index.php?gestion=produit&action=formConsulter&pop=1&f_reference=1004"><?php echo $_smarty_tpl->tpl_vars['panier']->value->getDesignation();?>
 </a>
                                     </td>
                                     <td>Quantité</td>

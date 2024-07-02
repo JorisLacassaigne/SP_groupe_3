@@ -67,7 +67,7 @@ class PanierTable{
     /**
      * @return mixed
      */
-    public function getPrixVente()
+    public function getprixVente()
     {
         return $this->prixVente;
     }
@@ -123,7 +123,7 @@ class PanierTable{
     /**
      * @param mixed $prixVente
      */
-    public function setPrixVente($prixVente): void
+    public function setprixVente($prixVente): void
     {
         $this->prixVente = $prixVente;
     }

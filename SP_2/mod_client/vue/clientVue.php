@@ -44,7 +44,7 @@ class ClientVue
         $this->chargementPrincipal();
 
         switch ($this->parametre['action']) {
-            case 'form_consulter':
+            case 'formConsulter':
                 $this->tpl->assign('action', 'consulter');
 
                 $this->tpl->assign('titrePage', 'Fiche client : Consultation');

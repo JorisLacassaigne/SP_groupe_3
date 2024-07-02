@@ -27,7 +27,7 @@ class CommandeController
         $this->oVue->genererAffichageListe($commandes);
     }
 
-    public function form_consulter()
+    public function formConsulter()
     {
 
         $uneCommande = $this->oModele->getUneCommande();

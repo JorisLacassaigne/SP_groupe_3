@@ -25,7 +25,7 @@ class ClientController
         $this->oVue->genererAffichageListe($clients);
     }
 
-    public function form_consulter()
+    public function formConsulter()
     {
         $client = $this->oModele->getUnClient();
 

@@ -54,7 +54,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="index.php?gestion=produit&action=lister_produits"></i>Passer une commande</a>
+                    <a href="index.php?gestion=produit&action=listerProduits"></i>Passer une commande</a>
                 </li>
                 <li class=" dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"

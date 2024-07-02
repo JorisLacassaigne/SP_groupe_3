@@ -191,7 +191,7 @@
                                     <td>1</td>
                                     <td>{$panier->getReference()}</td>
                                     <td>
-                                        <a href="index.php?gestion=produit&action=form_consulter&pop=1&f_reference=1004">{$panier->getDesignation()}</a>
+                                        <a href="index.php?gestion=produit&action=formConsulter&pop=1&f_reference=1004">{$panier->getDesignation()}</a>
                                     </td>
                                     <td>Quantité</td>
                                     <td>Total</td>

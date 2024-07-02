@@ -185,7 +185,7 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                     <td class="pos-actions">
                                         <form method="POST" action="index.php">
                                             <input type="hidden" name="gestion" value="commande">
-                                            <input type="hidden" name="action" value="form_consulter">
+                                            <input type="hidden" name="action" value="formConsulter">
                                             <input type="hidden" name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value["commande"]->getNumero();?>
 ">
                                             <input type="image" name="btn_consulter"

@@ -20,14 +20,14 @@ class Produit
         if (isset($this->parametre['action'])) {
             switch ($this->parametre['action']) {
 
-                case 'form_consulter':
+                case 'formConsulter':
 
-                    $this->oController->form_consulter();
+                    $this->oController->formConsulter();
                     break;
 
-                case 'lister_produits':
+                case 'listerProduits':
 
-                    $this->oController->lister_produits();
+                    $this->oController->listerProduits();
                     break;
 
                 case 'form_ajouter':
@@ -60,12 +60,12 @@ class Produit
                     $this->oController->supprimer();
                     break;
 
-                case 'ajouter_panier' :
+                case 'ajouterPanier' :
 
                     $produitReference = $this->parametre['reference'];
-                    $produitQuantite = $this->parametre['quantite'];
-                    $produitPrixVente = $this->parametre['$prix_vente'];
-                    $this->oController->ajouter_panier($produitReference, $produitQuantite, $produitPrixVente);
+                    $quantitePanier = $this->parametre['quantitePanier'];
+                    $prixVente = $this->parametre['prixVente'];
+                    $this->oController->ajouterPanier($produitReference, $quantitePanier, $prixVente);
                     break;
             }
         } else {

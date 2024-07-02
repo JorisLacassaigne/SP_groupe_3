@@ -49,7 +49,7 @@ class VendeurVue
 
         switch($this->parametre['action']){
 
-            case 'form_consulter' :
+            case 'formConsulter' :
 
                 $this->tpl->assign('action', 'consulter');
 

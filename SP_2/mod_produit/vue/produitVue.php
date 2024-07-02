@@ -57,7 +57,7 @@ class ProduitVue
     {
         $this->chargementPrincipal();
         switch ($this->parametre['action']) {
-            case 'form_consulter':
+            case 'formConsulter':
                 $this->tpl->assign('action', 'consulter');
 
                 $this->tpl->assign('titrePage', 'Fiche produit : Consultation');
@@ -109,13 +109,11 @@ class ProduitVue
 
                 break;
 
-            case 'ajouter_panier':
-                $reference = $this->parametre['reference'];
-
-                $quantite = $this->parametre['quantite'];
-
-                $this->oModele->ajouter_panier($reference, $quantite);
-
+            case 'ajouterPanier':
+                $reference = $_POST['reference'];
+                $quantitePanier = $_POST['quantitePanier'];
+                $prixVente = $_POST['prixVente'];
+                $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente);
                 break;
 
         }

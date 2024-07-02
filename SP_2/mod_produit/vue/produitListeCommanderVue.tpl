@@ -85,9 +85,8 @@
                         <div class="card-header"><strong class="card-title">
 
 
-                                    <label><a href="index.php?gestion=panier">Voir Panier</a>
-                                    </label>
-
+                                <label><a href="index.php?gestion=panier">Voir Panier</a>
+                                </label>
 
 
                             </strong></div>
@@ -139,28 +138,28 @@
                             <tr>
                                 <td>{$produit->getReference()}</td>
                                 <td>
-                                    <a href="index.php?gestion=produit&action=form_consulter&reference={$produit->getReference()}">{$produit->getDesignation()}
+                                    <a href="index.php?gestion=produit&action=formConsulter&reference={$produit->getReference()}">{$produit->getDesignation()}
                                 </td>
                                 <td>{$produit->getStock()}</td>
                                 <td>{$produit->getPrixUnitaireHT()} €</td>
-                                <td>
-                                    <input type="number" name="prix_vente"
-                                           value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
-                                           size="5">€
-                                </td>
-                                <td>
-                                    <input type="number" name="quantite" value="" min="0" size="5">
-                                </td>
-                                <td class="pos-actions">
-                                    <form action="index.php" method="post">
+                                <form action="index.php" method="post">
+                                    <td>
+                                        <input type="text" name="prixVente"
+                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
+                                               size="5">€
+                                    </td>
+                                    <td>
+                                        <input type="number" name="quantitePanier" value="" min="0" size="5">
+                                    </td>
+                                    <td class="pos-actions">
                                         <input type="hidden" name="gestion" value="produit">
-                                        <input type="hidden" name="action" value="ajouter_panier">
+                                        <input type="hidden" name="action" value="ajouterPanier">
                                         <input type="hidden" name="reference" value="{$produit->getReference()}">
                                         <input type="hidden" name="designation" value="{$produit->getDesignation()}">
-                                        <button type="submit" name="ajouter_panier" value="Ajouter au panier">
+                                        <button type="submit" name="ajouterPanier" value="Ajouter au panier">
                                             <img src="public/images/icones/a16.png" alt="Ajouter au panier">
                                         </button>
-                                    </form>
+                                </form>
                                 </td>
                             </tr>
                         {/foreach}

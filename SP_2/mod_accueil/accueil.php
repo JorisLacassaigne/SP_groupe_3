@@ -18,7 +18,7 @@ class Accueil{
 
     public function choixAction(){
         // Structure switch : ajouter, modifier, supprimer (Pour une orientation en écriture BD)
-        // form_ajouter, form_modifier, form_consulter,...
+        // form_ajouter, form_modifier, formConsulter,...
         // Par défaut, si aucune action précisée alors  => lister()
         $this->oController->lister();
 

@@ -129,7 +129,7 @@
                                         <td class=pos-actions>
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="produit">
-                                                <input type="hidden" name="action" value="form_consulter">
+                                                <input type="hidden" name="action" value="formConsulter">
                                                 <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input type="image" name="btn_consulter"
                                                        src="public/images/icones/p32.png">
