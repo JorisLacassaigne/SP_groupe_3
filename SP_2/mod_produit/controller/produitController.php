@@ -40,24 +40,25 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier)
+    public function ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier, $sommeTotalProduit)
     {
         // Vérifier que $quantitePanier et $prixVente ne sont pas nulles avant de les ajouter à la session
         if ($quantitePanier !== null && $prixVente !== null) {
 //            var_dump($quantitePanier);
 //            var_dump($prixVente);
-            $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier);
+            $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente);
 
             // Ajouter les valeurs de $quantitePanier et $prixVente à la session
             $_SESSION['panier'][$reference]['quantitePanier'] = $quantitePanier;
             $_SESSION['panier'][$reference]['prixVente'] = $prixVente;
             $_SESSION['$sommeTotalPanier'] = $sommeTotalPanier;
+            $_SESSION['$sommeTotalProduit'] = $sommeTotalProduit;
         }
 
-//        echo '<pre>';
-//        print_r($_SESSION);
-//        echo '</pre>';
-//        exit;
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+        exit;
 
         header('Location: index.php?gestion=produit&action=listerProduits');
     }

@@ -13,6 +13,7 @@ class ProduitTable
     private $prixVente;
     private $quantitePanier;
     private $sommeTotalPanier;
+    private $sommeTotalProduit;
 
     private static $messageErreur = "";
     private static $messageSucces = "";
@@ -119,6 +120,14 @@ class ProduitTable
     /**
      * @return mixed
      */
+    public function getSommeTotalProduit()
+    {
+        return $this->sommeTotalProduit;
+    }
+
+    /**
+     * @return mixed
+     */
 
 
 
@@ -213,6 +222,14 @@ class ProduitTable
     public function setSommeTotalPanier($sommeTotalPanier): void
     {
         $this->sommeTotalPanier = $sommeTotalPanier;
+    }
+
+    /**
+     * @param mixed $sommeTotalProduit
+     */
+    public function setSommeTotalProduit($sommeTotalProduit): void
+    {
+        $this->sommeTotalProduit = $sommeTotalProduit;
     }
 
     /**

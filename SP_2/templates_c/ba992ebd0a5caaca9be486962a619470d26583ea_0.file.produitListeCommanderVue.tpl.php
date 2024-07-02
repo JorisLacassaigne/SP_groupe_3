@@ -1,4 +1,29 @@
-<!doctype html>
+<?php
+/* Smarty version 4.3.2, created on 2024-07-02 14:40:38
+  from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.2',
+  'unifunc' => 'content_66841166740529_45140917',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ba992ebd0a5caaca9be486962a619470d26583ea' => 
+    array (
+      0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
+      1 => 1719931238,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:public/left.tpl' => 1,
+    'file:public/header.tpl' => 1,
+  ),
+),false)) {
+function content_66841166740529_45140917 (Smarty_Internal_Template $_smarty_tpl) {
+?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>
@@ -10,8 +35,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$titrePage}</title>
-    <meta name="description" content="{$titrePage}">
+    <title><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+</title>
+    <meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -30,7 +57,9 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <!-- <?php echo '<script'; ?>
+ type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"><?php echo '</script'; ?>
+> -->
 
 </head>
 <body>
@@ -38,7 +67,8 @@
 
 <!-- Left Panel -->
 
-{include file='public/left.tpl'}
+<?php $_smarty_tpl->_subTemplateRender('file:public/left.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <!-- FIN : Left Panel -->
 
@@ -49,7 +79,8 @@
 
     <!--Header -->
 
-    {include file='public/header.tpl'}
+    <?php $_smarty_tpl->_subTemplateRender('file:public/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
     <!-- FIN : header -->
 
@@ -57,7 +88,8 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>{$titrePrincipal}</h1>
+                    <h1><?php echo $_smarty_tpl->tpl_vars['titrePrincipal']->value;?>
+</h1>
                 </div>
             </div>
         </div>
@@ -96,7 +128,11 @@
                             <label for="text-input" class=" form-control-label">Total HT (en €):</label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3' readonly>
+                            <input class='form-control' type='text' name='f_totalPanier' value="<?php ob_start();
+echo $_SESSION['sommeTotalPanier'];
+$_prefixVariable1 = ob_get_clean();
+echo sprintf('%.2f',$_prefixVariable1);?>
+" size='3' readonly>
                         </div>
 
                         <div class="form-group">
@@ -107,7 +143,8 @@
                                 d'article(s) dans le panier : </label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="{$smarty.session.sommeTotalProduit}" size='3' readonly>
+                            <input class='form-control' type='text' name='f_totalPanier' value="<?php echo $_SESSION['sommeTotalProduit'];?>
+" size='3' readonly>
                         </div>
                     </div>
 
@@ -132,18 +169,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {foreach from=$listeProduits item=produit}
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeProduits']->value, 'produit');
+$_smarty_tpl->tpl_vars['produit']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
+$_smarty_tpl->tpl_vars['produit']->do_else = false;
+?>
                             <tr>
-                                <td>{$produit->getReference()}</td>
+                                <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+</td>
                                 <td>
-                                    <a href="index.php?gestion=produit&action=formConsulter&reference={$produit->getReference()}">{$produit->getDesignation()}
+                                    <a href="index.php?gestion=produit&action=formConsulter&reference=<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+"><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
+
                                 </td>
-                                <td>{$produit->getStock()}</td>
-                                <td>{$produit->getPrixUnitaireHT()} €</td>
+                                <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getStock();?>
+</td>
+                                <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT();?>
+ €</td>
                                 <form action="index.php" method="post">
                                     <td>
                                         <input type="text" name="prixVente"
-                                               value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
+                                               value="<?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT()*1.357);?>
+" min="0"
                                                size="5">€
                                     </td>
                                     <td>
@@ -152,15 +200,19 @@
                                     <td class="pos-actions">
                                         <input type="hidden" name="gestion" value="produit">
                                         <input type="hidden" name="action" value="ajouterPanier">
-                                        <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                        <input type="hidden" name="designation" value="{$produit->getDesignation()}">
+                                        <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+">
+                                        <input type="hidden" name="designation" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
+">
                                         <button type="submit" name="ajouterPanier" value="Ajouter au panier">
                                             <img src="public/images/icones/a16.png" alt="Ajouter au panier">
                                         </button>
                                 </form>
                                 </td>
                             </tr>
-                        {/foreach}
+                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </tbody>
                     </table>
                 </div>
@@ -180,30 +232,64 @@
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="public/assets/js/plugins.js"></script>
-<script src="public/assets/js/main.js"></script>
+<?php echo '<script'; ?>
+ src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/plugins.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/main.js"><?php echo '</script'; ?>
+>
 
 
-<script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-<script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-<script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-<script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-<script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-<script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-<script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-<script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/datatables.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/dataTables.buttons.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/jszip.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/pdfmake.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/vfs_fonts.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.html5.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.print.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/buttons.colVis.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
+>
 
 
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript">
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable();
     });
-</script>
+<?php echo '</script'; ?>
+>
 
 </body>
 </html>
+<?php }
+}

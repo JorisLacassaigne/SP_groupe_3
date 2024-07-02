@@ -79,6 +79,9 @@ class ProduitModele extends Modele
                 $sommeTotalPanier = isset($_SESSION['sommeTotalPanier']) ? $_SESSION['sommeTotalPanier'] : 0;
                 $sommeTotalPanier += $quantitePanier * $prixVente;
 
+                $sommeTotalProduit = isset($_SESSION['sommeTotalProduit']) ? $_SESSION['sommeTotalProduit'] : 0;
+                $sommeTotalProduit += $quantitePanier;
+
                 // Ajouter le produit au panier
                 if (isset($_SESSION['panier'][$reference])) {
                     // Mettre à jour la quantité et le prix de vente
@@ -95,10 +98,12 @@ class ProduitModele extends Modele
                     );
                 }
 
+                // Mettre à jour la somme totale des produits dans la session
+                $_SESSION['sommeTotalProduit'] = $sommeTotalProduit;
                 // Mettre à jour la somme totale du panier dans la session
                 $_SESSION['sommeTotalPanier'] = $sommeTotalPanier;
             }
         }
-    }
 
+    }
 }

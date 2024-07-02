@@ -28,6 +28,7 @@ class AuthentificationModele extends modele{
             $_SESSION['codev']= $authExistant['codev'];
             $_SESSION['panier']= [];
             $_SESSION['sommeTotalPanier']= 0;
+            $_SESSION['sommeTotalProduit']= 0;
             return true;
 
         }
