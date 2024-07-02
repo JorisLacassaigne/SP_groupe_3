@@ -55,10 +55,10 @@ class ProduitController
             $_SESSION['$sommeTotalProduit'] = $sommeTotalProduit;
         }
 
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
-        exit;
+//        echo '<pre>';
+//        print_r($_SESSION);
+//        echo '</pre>';
+//        exit;
 
         header('Location: index.php?gestion=produit&action=listerProduits');
     }
