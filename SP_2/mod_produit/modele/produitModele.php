@@ -75,6 +75,10 @@ class ProduitModele extends Modele
 
             // Vérifier que la quantité et le prix de vente ne sont pas nulles
             if ($quantitePanier !== null && $prixVente !== null) {
+                // Calculer la nouvelle somme totale du panier
+                $sommeTotalPanier = isset($_SESSION['sommeTotalPanier']) ? $_SESSION['sommeTotalPanier'] : 0;
+                $sommeTotalPanier += $quantitePanier * $prixVente;
+
                 // Ajouter le produit au panier
                 if (isset($_SESSION['panier'][$reference])) {
                     // Mettre à jour la quantité et le prix de vente
@@ -86,14 +90,15 @@ class ProduitModele extends Modele
                         'reference' => $reference,
                         'designation' => $produit->getDesignation(),
                         'prix' => $produit->getPrixUnitaireHT(),
-                        'quantitePanier' => $produit->getQuantitePanier(),
-                        'prixVente' => $produit->getPrixVente(),
+                        'quantitePanier' => $quantitePanier,
+                        'prixVente' => $prixVente,
                     );
                 }
+
+                // Mettre à jour la somme totale du panier dans la session
+                $_SESSION['sommeTotalPanier'] = $sommeTotalPanier;
             }
         }
-
-        // Afficher les valeurs de $quantitePanier et $prixVente pour vérification
-//        var_dump($_SESSION['panier']);
     }
+
 }

@@ -23,7 +23,7 @@ class PanierController
         $this->oModele->statMontantCommande($panier);
         $this->oModele->statTVA($panier);
         $this->oModele->statMarge($panier);
-
+//
 //        var_dump($panier);
 
         $this->oVue->genererAffichageListe($panier);

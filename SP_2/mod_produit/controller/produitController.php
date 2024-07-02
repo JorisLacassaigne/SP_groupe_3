@@ -40,17 +40,18 @@ class ProduitController
         $this->oVue->genererAffichageFiche($produit);
     }
 
-    public function ajouterPanier($reference, $quantitePanier, $prixVente)
+    public function ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier)
     {
         // Vérifier que $quantitePanier et $prixVente ne sont pas nulles avant de les ajouter à la session
         if ($quantitePanier !== null && $prixVente !== null) {
-            var_dump($quantitePanier);
-            var_dump($prixVente);
-            $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente);
+//            var_dump($quantitePanier);
+//            var_dump($prixVente);
+            $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier);
 
             // Ajouter les valeurs de $quantitePanier et $prixVente à la session
             $_SESSION['panier'][$reference]['quantitePanier'] = $quantitePanier;
             $_SESSION['panier'][$reference]['prixVente'] = $prixVente;
+            $_SESSION['$sommeTotalPanier'] = $sommeTotalPanier;
         }
 
 //        echo '<pre>';

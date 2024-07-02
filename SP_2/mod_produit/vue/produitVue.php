@@ -113,7 +113,8 @@ class ProduitVue
                 $reference = $_POST['reference'];
                 $quantitePanier = $_POST['quantitePanier'];
                 $prixVente = $_POST['prixVente'];
-                $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente);
+                $sommeTotalPanier = $_POST['sommeTotalPanier'];
+                $this->oModele->ajouterPanier($reference, $quantitePanier, $prixVente, $sommeTotalPanier);
                 break;
 
         }

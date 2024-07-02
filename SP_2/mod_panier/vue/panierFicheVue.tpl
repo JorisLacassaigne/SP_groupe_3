@@ -100,58 +100,82 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {foreach from=$panier item=$produit}
-                                <tr>
-                                    <td>1</td>
-                                    <td>{$produit['reference']}</td>
-                                    <td>{$produit['designation']}</td>
-                                    <td>
-                                        <div class="formulaire">
-                                            <label class="formulaire" for="quantite"></label>
-                                            <input type="hidden" name="produits[<?= $produit['reference'] ?>][quantite]" value="<?= $produit['quantite'] ?>">
-                                            <input type="number" name="quantite" class="formulaire" min="0"
-                                                   value="<?php echo isset($produit['quantite']) ? $produit['quantite'] : ''; ?>">
+                            <form>
+                                {foreach from=$panier item=$produit}
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            {$produit['reference']}
+                                        </td>
+                                        <td>
+                                            {$produit['designation']}
+                                        </td>
+                                        <td>
+                                            <div class="formulaire">
+                                                <label class="formulaire" for="quantitePanier"></label>
+                                                <input type="hidden" name="quantitePanier">
+                                                <input type="text" name="quantitePanier" class="formulaire" min="0"
+                                                       size="5"
+                                                       value="{$produit['quantitePanier']}">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {$produit['prix']}
+                                        </td>
+                                        <td>
+                                            <div class="formulaire">
+                                                <label class="formulaire" for="prixVente"></label>
+                                                <input type="hidden" name="prixVente">
+                                                <input type="text" name="prixVente" class="formulaire" min="0" size="5"
+                                                       value="{$produit['prixVente']}">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <label class="formulaire" for="totalLigne"></label>
+                                            <input type="hidden" name="totalLigne">
+                                            <input type="text" name="totalLigne" class="formulaire" readonly size="5"
+                                                   value="{sprintf('%.2f', $produit['quantitePanier'] * $produit['prixVente'])}">
+                                            €
+                                        </td>
 
-                                        </div>
-                                    </td>
-                                    <td>{$produit['prix']}</td>
-                                    <td>
-                                        <div class="formulaire">
-                                            <label class="formulaire" for="prixVente"></label>
-                                            <input type="hidden" name="produits[<?= $produit['reference'] ?>][prixVente]" value="<?= $produit['prixVente'] ?>">
-                                            <input type="number" name="prixVente" class="formulaire" min="0"
-                                                   value="<?php echo isset($produit['prixVente']) ? $produit['prixVente'] : ''; ?>">
-
-                                        </div>
-                                    </td>
-                                    <td>Total</td>
-                                    {**}
-                                    <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="panier">
-                                            <input type="hidden" name="action" value="form_modifier">
-                                            <input type="image" name="btn_modifier"
-                                                   src="public/images/icones/m32.png">
-                                        </form>
-                                    </td>
-                                    <td class="pos-actions">
-                                        <form method="POST" action="index.php">
-                                            <input type="hidden" name="gestion" value="panier">
-                                            <input type="hidden" name="action" value="form_supprimer">
-                                            <input type="image" name="btn_supprimer"
-                                                   src="public/images/icones/s32.png">
-                                        </form>
-                                    </td>
-                                </tr>
-                            {/foreach}
+                                        <td class="pos-actions">
+                                            <form method="POST" action="index.php">
+                                                <input type="hidden" name="gestion" value="panier">
+                                                <input type="hidden" name="action" value="form_modifier">
+                                                <input type="image" name="btn_modifier"
+                                                       src="public/images/icones/m32.png">
+                                            </form>
+                                        </td>
+                                        <td class="pos-actions">
+                                            <form method="POST" action="index.php">
+                                                <input type="hidden" name="gestion" value="panier">
+                                                <input type="hidden" name="action" value="form_supprimer">
+                                                <input type="image" name="btn_supprimer"
+                                                       src="public/images/icones/s32.png">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {/foreach}
                             </tbody>
                             <tfoot>
                             <tr>
-                                <td colspan="3">Montant de la commande : <strong>{$produit->getStat01()} €</strong></td>
-                                <td colspan="3">Total TVA : <strong>{$produit->getStat02()} €</strong></td>
-                                <td colspan="3">Marge brute : <strong>{$produit->getStat03()} €</strong></td>
+                                <td name="montantCommande" colspan="3">Montant de la commande :
+                                        <input type='text' name='montantCommande' value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3' readonly> €
+                                </td>
+                                <td name="TVA" colspan="3">TVA :
+                                    <input type="text" name="montantCommande"
+                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}"  size='3' readonly> €
+                                </td>
+                                <td name="MargeTotale" colspan="3"> Marge totale :
+                                    <input type="text" name="MargeTotale" readonly
+                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 * 1.357)}"  size='3' readonly> €
+                                </td>
+
                             </tr>
                             </tfoot>
+                            </form>
                         </table>
                     </div>
                 </div>
@@ -169,34 +193,36 @@
             </div>
             <!- .animated -->
         </div>
-        <!-- .content -->
+    </div>
+</div>
+<!-- .content -->
 
 
-        <!-- Right Panel -->
-        <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-        <script src="public/assets/js/plugins.js"></script>
-        <script src="public/assets/js/main.js"></script>
+<!-- Right Panel -->
+<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="public/assets/js/plugins.js"></script>
+<script src="public/assets/js/main.js"></script>
 
 
-        <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
-        <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-        <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-        <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
-        <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
-        <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
-        <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-        <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+<script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="public/assets/js/lib/data-table/datatables-init.js"></script>
 
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#bootstrap-data-table-export').DataTable();
-            });
-        </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#bootstrap-data-table-export').DataTable();
+    });
+</script>
 
 </body>
 </html>

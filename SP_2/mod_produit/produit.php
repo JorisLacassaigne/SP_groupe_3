@@ -65,7 +65,8 @@ class Produit
                     $produitReference = $this->parametre['reference'];
                     $quantitePanier = $this->parametre['quantitePanier'];
                     $prixVente = $this->parametre['prixVente'];
-                    $this->oController->ajouterPanier($produitReference, $quantitePanier, $prixVente);
+                    $sommeTotalPanier = $this->parametre['sommeTotalPanier'] + $this->parametre['quantitePanier'] * $this->parametre['prixVente'];
+                    $this->oController->ajouterPanier($produitReference, $quantitePanier, $prixVente, $sommeTotalPanier);
                     break;
             }
         } else {

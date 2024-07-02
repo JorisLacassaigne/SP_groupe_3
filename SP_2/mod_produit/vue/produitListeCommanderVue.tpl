@@ -96,9 +96,9 @@
                             <label for="text-input" class=" form-control-label">Total HT (en €):</label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier'
-                                   value='1564' size='3' readonly>
+                            <input class='form-control' type='text' name='f_totalPanier' value="{$smarty.session.sommeTotalPanier}" size='3' readonly>
                         </div>
+
                         <div class="form-group">
                             <br>
                         </div>

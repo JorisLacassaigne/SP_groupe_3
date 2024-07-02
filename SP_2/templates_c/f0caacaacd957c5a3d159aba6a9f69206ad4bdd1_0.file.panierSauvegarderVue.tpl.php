@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-26 10:45:38
+/* Smarty version 4.3.2, created on 2024-07-02 12:16:43
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierSauvegarderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_667bf152492639_27542311',
+  'unifunc' => 'content_6683efab84a8a3_06425075',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0caacaacd957c5a3d159aba6a9f69206ad4bdd1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierSauvegarderVue.tpl',
-      1 => 1719398738,
+      1 => 1719920508,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_667bf152492639_27542311 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6683efab84a8a3_06425075 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

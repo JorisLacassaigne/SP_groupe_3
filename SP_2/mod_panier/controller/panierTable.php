@@ -7,6 +7,7 @@ class PanierTable{
     private $prixHT;
     private $prixVente;
     private $total;
+    private $totalLigne;
 
     private $stat01;
     private $stat02;
@@ -81,6 +82,16 @@ class PanierTable{
     }
 
     /**
+     * @return mixed
+     */
+    public function getTotalLigne()
+    {
+        return $this->totalLigne;
+    }
+
+
+
+    /**
      * @param mixed $ligne
      */
     public function setLigne($ligne): void
@@ -135,6 +146,15 @@ class PanierTable{
     {
         $this->total = $total;
     }
+
+    /**
+     * @param mixed $totalLigne
+     */
+    public function setTotalLigne($totalLigne): void
+    {
+        $this->totalLigne = $totalLigne;
+    }
+
 
     /**
      * @return mixed
