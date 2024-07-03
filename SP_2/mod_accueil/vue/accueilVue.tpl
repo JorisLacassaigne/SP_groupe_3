@@ -56,6 +56,7 @@
 <!--- Travail Christine---->
 
     <h1> EN CONSTRUCTION</h1>
+    <p>(Mais vraies stats)</p>
 
 {*    <div class="content mt-3">*}
 
@@ -72,69 +73,68 @@
 
 {*        <br>*}
 
-{*        <div class="animated fadeIn">*}
-{*            <div class="row">*}
+        <div class="animated fadeIn">
+            <div class="row">
 
-{*                <div class="col-xl-3 col-lg-6">*}
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Chiffre d'affaire de l'entreprise</div>
+                                    <div class="stat-digit">{sprintf('%.2f',{$tabBord->getStat04()})} €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-{*                    <div class="card">*}
-{*                        <div class="card-body">*}
-{*                            <div class="stat-widget-one">*}
-{*                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>*}
-{*                                <div class="stat-content dib">*}
-{*                                    <div class="stat-text">Chiffre d'affaires global pour l'année 2017</div>*}
-{*                                    <div class="stat-digit">1807.73 €</div>*}
-
-{*                                </div>*}
-{*                            </div>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
-
-{*                <div class="col-xl-3 col-lg-6">*}
-{*                    <div class="card">*}
-{*                        <div class="card-body">*}
-{*                            <div class="stat-widget-one">*}
-{*                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>*}
-{*                                <div class="stat-content dib">*}
-{*                                    <div class="stat-text">Chiffre d'affaires global pour l'année 2018</div>*}
-{*                                    <div class="stat-digit">6893.48 €</div>*}
-{*                                </div>*}
-{*                            </div>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Votre chiffre d'affaire</div>
+                                        <div class="stat-digit">{sprintf('%.2f',{$tabBord->getStat01()})} €</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-{*                <div class="col-xl-3 col-lg-6">*}
-{*                    <div class="card">*}
-{*                        <div class="card-body">*}
-{*                            <div class="stat-widget-one">*}
-{*                                <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>*}
-{*                                <div class="stat-content dib">*}
-{*                                    <div class="stat-text">Nombre de Clients total en 2018</div>*}
-{*                                    <div class="stat-digit">18</div>*}
-{*                                </div>*}
-{*                            </div>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
+
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Nombre de Clients total</div>
+                                    <div class="stat-digit">{$tabBord->getStat02()}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-{*                <div class="col-xl-3 col-lg-6">*}
-{*                    <div class="card">*}
-{*                        <div class="card-body">*}
-{*                            <div class="stat-widget-one">*}
-{*                                <div class="stat-icon dib"><i class="ti-link text-danger border-danger"></i></div>*}
-{*                                <div class="stat-content dib">*}
-{*                                    <div class="stat-text">Moyenne de produits par commande</div>*}
-{*                                    <div class="stat-digit">2.15 produits</div>*}
-{*                                </div>*}
-{*                            </div>*}
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
-{*            </div>*}
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <div class="stat-icon dib"><i class="ti-link text-danger border-danger"></i></div>
+                                <div class="stat-content dib">
+                                    <div class="stat-text">Total de produit vendus</div>
+                                    <div class="stat-digit">{$tabBord->getStat03()}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 {*            <div class="row">*}
 {*                <div class="col-lg-6">*}
