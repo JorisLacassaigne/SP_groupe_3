@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-02 14:25:30
+/* Smarty version 4.3.2, created on 2024-07-03 09:43:47
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66840dda765b65_14158730',
+  'unifunc' => 'content_66851d535880c4_49212728',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '98769b13595183f34c0580d66e382ee011189135' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierFicheVue.tpl',
-      1 => 1719930330,
+      1 => 1719999827,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66840dda765b65_14158730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66851d535880c4_49212728 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -118,7 +118,6 @@ function content_66840dda765b65_14158730 (Smarty_Internal_Template $_smarty_tpl)
                             <!-- PLACER LA LISTE DES CLIENTS -->
                             <thead>
                             <tr>
-                                <th>N° Ligne</th>
                                 <th>Référence</th>
                                 <th>Désignation</th>
                                 <th>Quantité</th>
@@ -138,9 +137,6 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value
 $_smarty_tpl->tpl_vars['produit']->do_else = false;
 ?>
                                     <tr>
-                                        <td>
-                                            1
-                                        </td>
                                         <td>
                                             <?php echo $_smarty_tpl->tpl_vars['produit']->value['reference'];?>
 
@@ -195,21 +191,23 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="image" name="btn_supprimer"
                                                        src="public/images/icones/s32.png">
-                                            </form>
                                         </td>
                                     </tr>
                                 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                            </form>
                             </tbody>
                             <tfoot>
                             <tr>
                                 <td name="montantCommande" colspan="3">Montant de la commande :
-                                        <input type='text' name='montantCommande' value="<?php ob_start();
+                                    <input type='text' name='montantCommande'
+                                           value="<?php ob_start();
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable1 = ob_get_clean();
 echo sprintf('%.2f',$_prefixVariable1);?>
-" size='3' readonly> €
+" size='3'
+                                           readonly> €
                                 </td>
                                 <td name="TVA" colspan="3">TVA :
                                     <input type="text" name="montantCommande"
@@ -217,7 +215,8 @@ echo sprintf('%.2f',$_prefixVariable1);?>
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable2 = ob_get_clean();
 echo sprintf('%.2f',$_prefixVariable2/5);?>
-"  size='3' readonly> €
+" size='3'
+                                           readonly> €
                                 </td>
                                 <td name="MargeTotale" colspan="3"> Marge totale :
                                     <input type="text" name="MargeTotale" readonly
@@ -225,7 +224,8 @@ echo sprintf('%.2f',$_prefixVariable2/5);?>
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable3 = ob_get_clean();
 echo sprintf('%.2f',$_prefixVariable3/5*1.357);?>
-"  size='3' readonly> €
+"
+                                           size='3' readonly> €
                                 </td>
 
                             </tr>

@@ -96,7 +96,8 @@
                             <label for="text-input" class=" form-control-label">Total HT (en €):</label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3' readonly>
+                            <input class='form-control' type='text' name='f_totalPanier'
+                                   value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3' readonly>
                         </div>
 
                         <div class="form-group">
@@ -107,7 +108,8 @@
                                 d'article(s) dans le panier : </label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="{$smarty.session.sommeTotalProduit}" size='3' readonly>
+                            <input class='form-control' type='text' name='f_totalPanier'
+                                   value="{$smarty.session.sommeTotalProduit}" size='3' readonly>
                         </div>
                     </div>
 
@@ -157,8 +159,8 @@
                                         <button type="submit" name="ajouterPanier" value="Ajouter au panier">
                                             <img src="public/images/icones/a16.png" alt="Ajouter au panier">
                                         </button>
+                                    </td>
                                 </form>
-                                </td>
                             </tr>
                         {/foreach}
                         </tbody>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-02 12:16:43
+/* Smarty version 4.3.2, created on 2024-07-03 11:22:55
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierSauvegarderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6683efab84a8a3_06425075',
+  'unifunc' => 'content_6685348f020b77_36346050',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0caacaacd957c5a3d159aba6a9f69206ad4bdd1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierSauvegarderVue.tpl',
-      1 => 1719920508,
+      1 => 1720005774,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6683efab84a8a3_06425075 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6685348f020b77_36346050 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -112,13 +112,7 @@ function content_6683efab84a8a3_06425075 (Smarty_Internal_Template $_smarty_tpl)
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                    <input type="hidden" name="codev" value="<?php echo $_smarty_tpl->tpl_vars['panier']->value->getCodev();?>
-">
-                    <input type="hidden" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['panier']->value->getPrenom();?>
-">
-                    <input type="hidden" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['panier']->value->getnom();?>
-">
-
+                                                            
 
                     <div class="col-md-12">
 
@@ -132,7 +126,7 @@ function content_6683efab84a8a3_06425075 (Smarty_Internal_Template $_smarty_tpl)
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
-                                                                 value='2024-06-27' readonly>
+                                                                 value='AAAAAAAAAAAAA' >
                                         <br></div>
 
 
@@ -184,14 +178,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             livraison :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='f_date_livraison' value='2024-07-04'>
+                                                                 name='f_date_livraison' value='AAAAAAAAAAAAAAAA'>
                                         <br>
                                     </div>
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
                                             (en €) :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text'
-                                                                 name='f_montantCommande' value='<?php echo $_smarty_tpl->tpl_vars['panier']->value->getStat01();?>
+                                                                 name='f_montantCommande'
+                                                                 value='<?php ob_start();
+echo $_SESSION['sommeTotalPanier'];
+$_prefixVariable1 = ob_get_clean();
+ob_start();
+echo $_SESSION['sommeTotalPanier'];
+$_prefixVariable2 = ob_get_clean();
+echo sprintf('%.2f',$_prefixVariable1-$_prefixVariable2/5);?>
 '
                                                                  size='3'
                                                                  readonly>
@@ -200,8 +201,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
                                             :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text' name='f_tva'
-                                                                 value='<?php echo $_smarty_tpl->tpl_vars['panier']->value->getStat02();?>
-' size='3' readonly>
+                                                                 value='<?php ob_start();
+echo $_SESSION['sommeTotalPanier'];
+$_prefixVariable3 = ob_get_clean();
+echo sprintf('%.2f',$_prefixVariable3/5);?>
+'
+                                                                 size='3' readonly>
                                     </div>
 
                                 </div>
@@ -220,29 +225,40 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>N° Ligne</th>
                                     <th>Référence</th>
                                     <th>Désignation</th>
                                     <th>Quantité</th>
                                     <th>prix</th>
-
-
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['panier']->value->getReference();?>
-</td>
-                                    <td>
-                                        <a href="index.php?gestion=produit&action=formConsulter&pop=1&f_reference=1004"><?php echo $_smarty_tpl->tpl_vars['panier']->value->getDesignation();?>
-</a>
-                                    </td>
-                                    <td>Quantité</td>
-                                    <td>Total</td>
+                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['panier']->value, 'produit');
+$_smarty_tpl->tpl_vars['produit']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
+$_smarty_tpl->tpl_vars['produit']->do_else = false;
+?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $_smarty_tpl->tpl_vars['produit']->value['reference'];?>
 
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <?php echo $_smarty_tpl->tpl_vars['produit']->value['designation'];?>
 
+                                        </td>
+                                        <td>
+                                            <?php echo $_smarty_tpl->tpl_vars['produit']->value['quantitePanier'];?>
+
+                                        </td>
+                                        <td>
+                                            <?php echo $_smarty_tpl->tpl_vars['produit']->value['prixVente'];?>
+
+                                        </td>
+                                    </tr>
+                                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </tbody>
                             </table>
 

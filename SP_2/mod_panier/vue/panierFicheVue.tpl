@@ -88,7 +88,6 @@
                             <!-- PLACER LA LISTE DES CLIENTS -->
                             <thead>
                             <tr>
-                                <th>N° Ligne</th>
                                 <th>Référence</th>
                                 <th>Désignation</th>
                                 <th>Quantité</th>
@@ -103,9 +102,6 @@
                             <form>
                                 {foreach from=$panier item=$produit}
                                     <tr>
-                                        <td>
-                                            1
-                                        </td>
                                         <td>
                                             {$produit['reference']}
                                         </td>
@@ -154,23 +150,27 @@
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="image" name="btn_supprimer"
                                                        src="public/images/icones/s32.png">
-                                            </form>
                                         </td>
                                     </tr>
                                 {/foreach}
+                            </form>
                             </tbody>
                             <tfoot>
                             <tr>
                                 <td name="montantCommande" colspan="3">Montant de la commande :
-                                        <input type='text' name='montantCommande' value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3' readonly> €
+                                    <input type='text' name='montantCommande'
+                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3'
+                                           readonly> €
                                 </td>
                                 <td name="TVA" colspan="3">TVA :
                                     <input type="text" name="montantCommande"
-                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}"  size='3' readonly> €
+                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}" size='3'
+                                           readonly> €
                                 </td>
                                 <td name="MargeTotale" colspan="3"> Marge totale :
                                     <input type="text" name="MargeTotale" readonly
-                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 * 1.357)}"  size='3' readonly> €
+                                           value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 * 1.357)}"
+                                           size='3' readonly> €
                                 </td>
 
                             </tr>

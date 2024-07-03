@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-02 14:40:38
+/* Smarty version 4.3.2, created on 2024-07-03 08:32:59
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66841166740529_45140917',
+  'unifunc' => 'content_66850cbbd4aaf0_23618757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba992ebd0a5caaca9be486962a619470d26583ea' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
-      1 => 1719931238,
+      1 => 1719995579,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66841166740529_45140917 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66850cbbd4aaf0_23618757 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -128,7 +128,8 @@ function content_66841166740529_45140917 (Smarty_Internal_Template $_smarty_tpl)
                             <label for="text-input" class=" form-control-label">Total HT (en €):</label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="<?php ob_start();
+                            <input class='form-control' type='text' name='f_totalPanier'
+                                   value="<?php ob_start();
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable1 = ob_get_clean();
 echo sprintf('%.2f',$_prefixVariable1);?>
@@ -143,7 +144,8 @@ echo sprintf('%.2f',$_prefixVariable1);?>
                                 d'article(s) dans le panier : </label>
                         </div>
                         <div class="col col-md-7">
-                            <input class='form-control' type='text' name='f_totalPanier' value="<?php echo $_SESSION['sommeTotalProduit'];?>
+                            <input class='form-control' type='text' name='f_totalPanier'
+                                   value="<?php echo $_SESSION['sommeTotalProduit'];?>
 " size='3' readonly>
                         </div>
                     </div>
@@ -207,8 +209,8 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                         <button type="submit" name="ajouterPanier" value="Ajouter au panier">
                                             <img src="public/images/icones/a16.png" alt="Ajouter au panier">
                                         </button>
+                                    </td>
                                 </form>
-                                </td>
                             </tr>
                         <?php
 }

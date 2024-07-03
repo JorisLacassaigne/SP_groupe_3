@@ -39,6 +39,8 @@ class PanierVue
 
         $this->tpl->assign('produit', $panier);
 
+        $this->tpl->assign('readonly', '');
+
         $this->tpl->display('mod_panier/vue/panierFicheVue.tpl');
 
     }
@@ -57,7 +59,9 @@ class PanierVue
 
                 $this->tpl->assign('titrePage', 'Fiche panier : Création');
 
-                $this->tpl->assign('panier', $panier);
+            $this->tpl->assign('panier', $_SESSION['panier']);
+
+                $this->tpl->assign('produit', $panier);
 
                 $this->tpl->assign('npc', $panier->getNpc());
 

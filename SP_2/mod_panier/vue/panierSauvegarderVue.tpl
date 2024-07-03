@@ -83,9 +83,9 @@
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                    <input type="hidden" name="codev" value="{$panier->getCodev()}">
-                    <input type="hidden" name="prenom" value="{$panier->getPrenom()}">
-                    <input type="hidden" name="nom" value="{$panier->getnom()}">
+                    {*                    <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
+                    {*                    <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
+                    {*                    <input type="hidden" name="nom" value="{$panier->getnom()}">*}
 
 
                     <div class="col-md-12">
@@ -100,7 +100,7 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
-                                                                 value='2024-06-27' readonly>
+                                                                 value='AAAAAAAAAAAAA' >
                                         <br></div>
 
 
@@ -143,14 +143,15 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             livraison :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='f_date_livraison' value='2024-07-04'>
+                                                                 name='f_date_livraison' value='AAAAAAAAAAAAAAAA'>
                                         <br>
                                     </div>
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
                                             (en €) :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text'
-                                                                 name='f_montantCommande' value='{$panier->getStat01()}'
+                                                                 name='f_montantCommande'
+                                                                 value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                  size='3'
                                                                  readonly>
                                         <br></div>
@@ -158,7 +159,8 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
                                             :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text' name='f_tva'
-                                                                 value='{$panier->getStat02()}' size='3' readonly>
+                                                                 value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
+                                                                 size='3' readonly>
                                     </div>
 
                                 </div>
@@ -177,27 +179,29 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>N° Ligne</th>
                                     <th>Référence</th>
                                     <th>Désignation</th>
                                     <th>Quantité</th>
                                     <th>prix</th>
-
-
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>{$panier->getReference()}</td>
-                                    <td>
-                                        <a href="index.php?gestion=produit&action=formConsulter&pop=1&f_reference=1004">{$panier->getDesignation()}</a>
-                                    </td>
-                                    <td>Quantité</td>
-                                    <td>Total</td>
-
-                                </tr>
-
+                                {foreach from=$panier item=$produit}
+                                    <tr>
+                                        <td>
+                                            {$produit['reference']}
+                                        </td>
+                                        <td>
+                                            {$produit['designation']}
+                                        </td>
+                                        <td>
+                                            {$produit['quantitePanier']}
+                                        </td>
+                                        <td>
+                                            {$produit['prixVente']}
+                                        </td>
+                                    </tr>
+                                {/foreach}
                                 </tbody>
                             </table>
 
