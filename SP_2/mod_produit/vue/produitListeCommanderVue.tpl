@@ -125,7 +125,7 @@
                         <thead>
                         <tr>
                             <th>Référence</th>
-                            <th>Désignation</th>
+                            <th>Désigna tion</th>
                             <th>Stock</th>
                             <th>Prix HT</th>
                             <th>Prix Vente</th>

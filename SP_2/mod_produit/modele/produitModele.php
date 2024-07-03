@@ -106,4 +106,6 @@ class ProduitModele extends Modele
         }
 
     }
+
+
 }

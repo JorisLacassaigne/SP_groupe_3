@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-03 08:32:59
+/* Smarty version 4.3.2, created on 2024-07-03 12:23:14
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66850cbbd4aaf0_23618757',
+  'unifunc' => 'content_668542b255b793_57713946',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba992ebd0a5caaca9be486962a619470d26583ea' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
-      1 => 1719995579,
+      1 => 1720009393,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66850cbbd4aaf0_23618757 (Smarty_Internal_Template $_smarty_tpl) {
+function content_668542b255b793_57713946 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -162,7 +162,7 @@ echo sprintf('%.2f',$_prefixVariable1);?>
                         <thead>
                         <tr>
                             <th>Référence</th>
-                            <th>Désignation</th>
+                            <th>Désigna tion</th>
                             <th>Stock</th>
                             <th>Prix HT</th>
                             <th>Prix Vente</th>
