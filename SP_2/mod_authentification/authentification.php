@@ -34,6 +34,9 @@ class Authentification
                     $this->oController->deconnecter();
                     break;
 
+                case 'viderPanier':
+                    $this->oController->viderPanier();
+                    break;
             }
 
         }else{

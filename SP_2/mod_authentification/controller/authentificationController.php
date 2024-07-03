@@ -44,4 +44,11 @@ class AuthentificationController {
         $_SESSION = [];
         header('Location:index.php');
     }
+    public function viderPanier(){
+
+        $_SESSION['panier']= [];
+        $_SESSION['sommeTotalPanier']= 0;
+        $_SESSION['sommeTotalProduit']= 0;
+        header('Location:index.php');
+    }
 }

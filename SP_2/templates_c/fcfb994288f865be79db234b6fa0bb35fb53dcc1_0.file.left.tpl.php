@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-06-26 13:48:22
+/* Smarty version 4.3.2, created on 2024-07-03 08:07:00
   from 'C:\laragon\www\SP_groupe_3\SP_2\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_667c1c26297120_64791282',
+  'unifunc' => 'content_668506a4b604e6_33077078',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fcfb994288f865be79db234b6fa0bb35fb53dcc1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\public\\left.tpl',
-      1 => 1719409697,
+      1 => 1719994019,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667c1c26297120_64791282 (Smarty_Internal_Template $_smarty_tpl) {
+function content_668506a4b604e6_33077078 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
 <aside id="left-panel" class="left-panel">
@@ -81,8 +81,7 @@ function content_667c1c26297120_64791282 (Smarty_Internal_Template $_smarty_tpl)
                     <a href="index.php?gestion=produit&action=listerProduits"></i>Passer une commande</a>
                 </li>
                 <li class=" dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
+                    <a href="index.php?gestion=authentification&action=viderPanier"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
                 </li>
 
                                                             </ul>

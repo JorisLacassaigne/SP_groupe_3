@@ -57,8 +57,7 @@
                     <a href="index.php?gestion=produit&action=listerProduits"></i>Passer une commande</a>
                 </li>
                 <li class=" dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
+                    <a href="index.php?gestion=authentification&action=viderPanier"> <i class="menu-icon ti-trash"></i>Vider le panier en cours</a>
                 </li>
 {*                <li class=" dropdown">*}
 {*                    <a href="index.php?gestion=panier">Panier (temporaire)</a>*}

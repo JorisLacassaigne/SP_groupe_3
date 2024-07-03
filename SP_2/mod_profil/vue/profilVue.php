@@ -20,6 +20,8 @@ class ProfilVue
 
         $this->tpl->assign('deconnexion', "Déconnexion");
 
+        $this->tpl->assign('viderPanier', "viderPanier");
+
         $this->tpl->assign('login', $_SESSION['prenomNom']);
     }
 
