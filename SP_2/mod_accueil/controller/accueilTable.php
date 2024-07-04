@@ -5,6 +5,7 @@ class AccueilTable
     private $stat02;
     private $stat03;
     private $stat04;
+    private $stat05;
 
 
 
@@ -67,6 +68,14 @@ class AccueilTable
         return $this->stat04;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getStat05()
+    {
+        return $this->stat05;
+    }
+
 
 
 
@@ -112,6 +121,15 @@ class AccueilTable
     {
         $this->stat04 = $stat04;
     }
+
+    /**
+     * @param mixed $stat05
+     */
+    public function setStat05($stat05)
+    {
+        $this->stat05 = $stat05;
+    }
+
 
 
 

@@ -112,7 +112,7 @@
                             <div class="stat-widget-one">
                                 <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                                 <div class="stat-content dib">
-                                    <div class="stat-text">Nombre de Clients total</div>
+                                    <div class="stat-text">Nombre total de clients</div>
                                     <div class="stat-digit">{$tabBord->getStat02()}</div>
                                 </div>
                             </div>
@@ -136,27 +136,21 @@
                 </div>
             </div>
 
-{*            <div class="row">*}
-{*                <div class="col-lg-6">*}
-{*                    <div class="card">*}
-{*                        <div class="card-body">*}
-{*                            <h4 class="mb-3">Le chiffre d'affaires des 8 meilleurs clients</h4>*}
-{*                            <iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px; margin: 0px;*}
-{*                            _100%; position: absolute; pointer-events: none; z-index:-1" tabindex="-1"></iframe>*}
 
-{*                            <div id="clientTab" style="visibility:hidden; height:2px;">["LEGROS Christian","MARIN Dominique","BOUCHE Carole","CANILLE Walter","COTOY Sylvie","MARTUSE"]</div>*}
-{*                            <div id="caTab" style="visibility:hidden; height:2px;">["33525.19","15651.10","5837.12","2135.16"]</div>*}
-{*                            <canvas id="barChart" style="display: block; width: 673px; height: 336px;" width="673" height="336">*}
-{*                                <iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px; margin: 0px;*}
-{*                            _100%; position: absolute; pointer-events: none; z-index:-1" tabindex="-1"></iframe>*}
-{*                            </canvas>*}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-3">Le chiffre d'affaires des 5 meilleurs clients</h4>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{*                        </div>*}
-{*                    </div>*}
-{*                </div>*}
-{*            </div>*}
 
-{*            <div class="col-lg-6 grid-margin stretch-card">*}
+
+            {*            <div class="col-lg-6 grid-margin stretch-card">*}
 {*                <div class="card">*}
 {*                    <div class="card-body">*}
 
@@ -188,11 +182,11 @@
 
 
 
-{*            <!-- /# card -->*}
-{*        </div>*}
+            <!-- /# card -->
+        </div>
 
 
-{*    </div> <!-- .content -->*}
+    </div> <!-- .content -->
 
 
     <!---- Travail Christine --->
@@ -415,6 +409,7 @@
 <script src="public/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
 <script src="public/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
 <script src="public/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+<script src="public/assets/js/statsAccueil.js"></script>
 <script>
     (function ($) {
         "use strict";

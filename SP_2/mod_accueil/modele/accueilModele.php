@@ -1,6 +1,7 @@
 <?php
 
-class AccueilModele extends Modele {
+class AccueilModele extends Modele
+{
 
     private $parametre = []; // $_REQUEST
 
@@ -43,6 +44,7 @@ class AccueilModele extends Modele {
             $enCours->setStat01(0);
         }
     }
+
     public function stat02(AccueilTable $enCours)
     {
         $sql = 'SELECT COUNT(codec) as stat02 FROM client;';
@@ -56,6 +58,7 @@ class AccueilModele extends Modele {
             $enCours->setStat02(0);
         }
     }
+
     public function stat03(AccueilTable $enCours)
     {
         $sql = 'SELECT COUNT(reference) as stat03 FROM produit;';
@@ -69,6 +72,7 @@ class AccueilModele extends Modele {
             $enCours->setStat03(0);
         }
     }
+
     public function stat04(AccueilTable $enCours)
     {
         $sql = 'SELECT SUM(totalHT) AS stat04 FROM commande';
@@ -81,5 +85,20 @@ class AccueilModele extends Modele {
         } else {
             $enCours->setStat04(0);
         }
+    }
+
+    public function stat05()
+    {
+        var_dump("stat05 called");
+        $query = "SELECT c.codec, SUM(c.totalHT) AS stat05, cl.nom, cl.prenom
+FROM commande AS c
+JOIN client AS cl ON c.codec = cl.codec
+GROUP BY c.codec, cl.nom, cl.prenom
+ORDER BY stat05 DESC
+LIMIT 5;";
+        $stmt = $this->parametre->prepare($query);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 }
