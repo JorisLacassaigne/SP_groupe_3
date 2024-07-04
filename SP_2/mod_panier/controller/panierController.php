@@ -58,3 +58,12 @@ class PanierController
     }
 
 }
+
+//numero			via ??? (auto_increment)
+//codev 			via $_SESSION['login']
+//codec 			via le npc
+//dateLivraison		via valeur A FAIRE
+//dateCommande		via valeur A FAIRE
+//totalHT			via valeur
+//totalTVA		via valeur
+//etat = 			false
