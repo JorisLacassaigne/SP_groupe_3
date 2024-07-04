@@ -20,6 +20,14 @@ class PanierTable{
     private $npc;
     private $npctab;
 
+    private $numero;
+    private $codec;
+    private $dateLivraison;
+    private $dateCommande;
+    private $totalHT;
+    private $totalTVA;
+    private $etat = false;
+
 
     private $autorisationBD = true;
     private static $messageErreur = "";
@@ -88,6 +96,60 @@ class PanierTable{
     {
         return $this->totalLigne;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodec()
+    {
+        return $this->codec;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateLivraison()
+    {
+        return $this->dateLivraison;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCommande()
+    {
+        return $this->dateCommande;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalHT()
+    {
+        return $this->totalHT;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalTVA()
+    {
+        return $this->totalTVA;
+    }
+
+    public function getEtat(): bool
+    {
+        return $this->etat;
+    }
+
 
 
 
@@ -282,6 +344,59 @@ class PanierTable{
     public function setNpctab($npctab): void
     {
         $this->npctab = $npctab;
+    }
+
+    /**
+     * @param mixed $numero
+     */
+    public function setNumero($numero): void
+    {
+        $this->numero = $numero;
+    }
+
+    /**
+     * @param mixed $codec
+     */
+    public function setCodec($codec): void
+    {
+        $this->codec = $codec;
+    }
+
+    /**
+     * @param mixed $dateLivraison
+     */
+    public function setDateLivraison($dateLivraison): void
+    {
+        $this->dateLivraison = $dateLivraison;
+    }
+
+    /**
+     * @param mixed $dateCommande
+     */
+    public function setDateCommande($dateCommande): void
+    {
+        $this->dateCommande = $dateCommande;
+    }
+
+    /**
+     * @param mixed $totalHT
+     */
+    public function setTotalHT($totalHT): void
+    {
+        $this->totalHT = $totalHT;
+    }
+
+    /**
+     * @param mixed $totalTVA
+     */
+    public function setTotalTVA($totalTVA): void
+    {
+        $this->totalTVA = $totalTVA;
+    }
+
+    public function setEtat(bool $etat): void
+    {
+        $this->etat = $etat;
     }
 
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-03 11:22:55
+/* Smarty version 4.3.2, created on 2024-07-04 14:50:25
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_panier\vue\panierSauvegarderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6685348f020b77_36346050',
+  'unifunc' => 'content_6686b6b13ce4d1_93647374',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f0caacaacd957c5a3d159aba6a9f69206ad4bdd1' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierSauvegarderVue.tpl',
-      1 => 1720005774,
+      1 => 1720104624,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6685348f020b77_36346050 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6686b6b13ce4d1_93647374 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -107,12 +107,17 @@ function content_6685348f020b77_36346050 (Smarty_Internal_Template $_smarty_tpl)
 
             <div class="row">
 
+                <div <?php if (PanierTable::getMessageErreur() != '') {?> class="alert alert-danger" role="alert" <?php }?>>
+                    <?php echo PanierTable::getMessageErreur();?>
+
+                </div>
 
                 <form class="pos-ajout" method="POST" action="index.php">
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                                                            
+
+
 
                     <div class="col-md-12">
 
@@ -125,7 +130,7 @@ function content_6685348f020b77_36346050 (Smarty_Internal_Template $_smarty_tpl)
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             commande :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
+                                    <div class="col-md-7"><input class='form-control' type='date' name='dateCommande'
                                                                  value='AAAAAAAAAAAAA' >
                                         <br></div>
 
@@ -150,7 +155,6 @@ $_smarty_tpl->tpl_vars['nom']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         </select>
-
 
                                         <br>
                                     </div>
@@ -178,14 +182,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             livraison :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='f_date_livraison' value='AAAAAAAAAAAAAAAA'>
+                                                                 name='dateLivraison' value='AAAAAAAAAAAAAAAA'>
                                         <br>
                                     </div>
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
                                             (en €) :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text'
-                                                                 name='f_montantCommande'
+                                                                 name='totalHT'
                                                                  value='<?php ob_start();
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable1 = ob_get_clean();
@@ -200,7 +204,7 @@ echo sprintf('%.2f',$_prefixVariable1-$_prefixVariable2/5);?>
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
                                             :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text' name='f_tva'
+                                    <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
                                                                  value='<?php ob_start();
 echo $_SESSION['sommeTotalPanier'];
 $_prefixVariable3 = ob_get_clean();

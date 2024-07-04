@@ -41,4 +41,20 @@ class PanierController
 
     }
 
+    public function ajouter()
+    {
+        $controleCommande = new PanierTable($this->parametre);
+
+        if ($controleCommande->getAutorisationBD() == false) {
+
+            $this->oVue->genererAffichageSauvegarde($controleCommande);
+
+        } else {
+
+            $this->oModele->addCommande($controleCommande);
+
+            $this->lister();
+        }
+    }
+
 }

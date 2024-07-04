@@ -78,14 +78,18 @@
 
             <div class="row">
 
+                <div {if PanierTable::getMessageErreur() neq ''} class="alert alert-danger" role="alert" {/if}>
+                    {PanierTable::getMessageErreur()}
+                </div>
 
                 <form class="pos-ajout" method="POST" action="index.php">
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                    {*                    <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
-                    {*                    <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
-                    {*                    <input type="hidden" name="nom" value="{$panier->getnom()}">*}
+
+{*                                        <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
+{*                                        <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
+{*                                        <input type="hidden" name="nom" value="{$panier->getnom()}">*}
 
 
                     <div class="col-md-12">
@@ -99,7 +103,7 @@
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             commande :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='date' name='f_date_commande'
+                                    <div class="col-md-7"><input class='form-control' type='date' name='dateCommande'
                                                                  value='AAAAAAAAAAAAA' >
                                         <br></div>
 
@@ -116,7 +120,6 @@
                                                         class="form-control option">{$nom}</option>
                                             {/foreach}
                                         </select>
-
 
                                         <br>
                                     </div>
@@ -143,14 +146,14 @@
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
                                             livraison :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='f_date_livraison' value='AAAAAAAAAAAAAAAA'>
+                                                                 name='dateLivraison' value='AAAAAAAAAAAAAAAA'>
                                         <br>
                                     </div>
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
                                             (en €) :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='text'
-                                                                 name='f_montantCommande'
+                                                                 name='totalHT'
                                                                  value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                  size='3'
                                                                  readonly>
@@ -158,7 +161,7 @@
 
                                     <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
                                             :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text' name='f_tva'
+                                    <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
                                                                  value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                  size='3' readonly>
                                     </div>

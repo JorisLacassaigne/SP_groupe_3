@@ -26,7 +26,7 @@ class Panier
                     break;
                 case 'sauvegarder' :
 
-                    $this->oController->sauvegarder();
+                    $this->oController->ajouter();
                     break;
 
             }

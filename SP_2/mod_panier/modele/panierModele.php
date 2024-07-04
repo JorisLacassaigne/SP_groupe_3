@@ -92,4 +92,22 @@ class PanierModele extends Modele
         return $enCours;
     }
 
+    public function addCommande(PanierTable $uneCommande)
+    {
+        $sql = 'INSERT INTO commande(numero, codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat) VALUES (?,?,?,?,?,?,?,?)';
+        $idRequete = $this->executeRequete($sql, [
+            $uneCommande->getNumero(),
+            $uneCommande->getCodev(),
+            $uneCommande->getCodec(),
+            $uneCommande->getDateLivraison(),
+            $uneCommande->getDateCommande(),
+            $uneCommande->getTotalHT(),
+            $uneCommande->getTotalTVA(),
+            $uneCommande->getEtat(),
+
+        ]);
+        if ($idRequete) {
+            ClientTable::setMessageSucces("Ajout effectué avec succès.");
+        }
+    }
 }
