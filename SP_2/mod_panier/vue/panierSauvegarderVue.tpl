@@ -86,10 +86,12 @@
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
+                    {$today = date("Y-m-d")}
+                    {$sevenDaysLater = date("Y-m-d", strtotime("+7 days"))}
 
-{*                                        <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
-{*                                        <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
-{*                                        <input type="hidden" name="nom" value="{$panier->getnom()}">*}
+                    {*                                        <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
+                    {*                                        <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
+                    {*                                        <input type="hidden" name="nom" value="{$panier->getnom()}">*}
 
 
                     <div class="col-md-12">
@@ -100,12 +102,11 @@
 
 
                                 <div class="card-body card-block">
-
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
+                                    <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='dateCommande'
-                                                                 value='AAAAAAAAAAAAA' >
-                                        <br></div>
+                                                                 readonly
+                                                                 value='{$today}'><br></div>
 
 
                                     <div class="col-md-5">
@@ -131,99 +132,96 @@
                                     <div class="col-md-7">
                                         {$login}
                                     </div>
-                                    <br>
-                                    <br>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-
                             <div class="card">
                                 <div class="card-header"><strong>État de la commande</strong></div>
                                 <div class="card-body card-block">
-
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Date de
-                                            livraison :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='date'
-                                                                 name='dateLivraison' value='AAAAAAAAAAAAAAAA'>
-                                        <br>
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
+                                                commande :</label></div>
+                                        <div class="col-md-7"><input class='form-control' type='date'
+                                                                     name='dateCommande' value='{$sevenDaysLater}'><br>
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">Total HT
-                                            (en €) :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text'
-                                                                 name='totalHT'
-                                                                 value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
-                                                                 size='3'
-                                                                 readonly>
-                                        <br></div>
-
-                                    <div class="col-md-5"><label for="text-input" class=" form-control-label">TVA (en €)
-                                            :</label></div>
-                                    <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
-                                                                 value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
-                                                                 size='3' readonly>
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="text-input" class="form-control-label">Total
+                                                HT (en €) :</label></div>
+                                        <div class="col-md-7"><input class='form-control' type='text' name='totalHT'
+                                                                     value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
+                                                                     size='3' readonly><br></div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="text-input" class="form-control-label">TVA (en
+                                                €) :</label></div>
+                                        <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
+                                                                     value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
+                                                                     size='3' readonly></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
 
-                    <div class="col-md-12">
-                        <!-- Liste lignes de commande -->
-                        <div class="card-body">
-
-
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>Référence</th>
-                                    <th>Désignation</th>
-                                    <th>Quantité</th>
-                                    <th>prix</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {foreach from=$panier item=$produit}
-                                    <tr>
-                                        <td>
-                                            {$produit['reference']}
-                                        </td>
-                                        <td>
-                                            {$produit['designation']}
-                                        </td>
-                                        <td>
-                                            {$produit['quantitePanier']}
-                                        </td>
-                                        <td>
-                                            {$produit['prixVente']}
-                                        </td>
-                                    </tr>
-                                {/foreach}
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                        <div class="card-body card-block">
-                            <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
-                                                         onclick='location.href = "index.php?gestion=panier"'></div>
-                            <div class="col-md-6 "><input type="submit" id="f_btn-action"
-                                                          class="btn btn-submit pos-btn-action" value="Valider"></div>
-                            <br>
-                        </div>
-
-                    </div>
-                </form>
             </div>
-        </div>
 
-    </div><!-- .content -->
+
+            <div class="col-md-12">
+                <!-- Liste lignes de commande -->
+                <div class="card-body">
+
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Désignation</th>
+                            <th>Quantité</th>
+                            <th>prix</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach from=$panier item=$produit}
+                            <tr>
+                                <td>
+                                    {$produit['reference']}
+                                </td>
+                                <td>
+                                    {$produit['designation']}
+                                </td>
+                                <td>
+                                    {$produit['quantitePanier']}
+                                </td>
+                                <td>
+                                    {$produit['prixVente']}
+                                </td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="card-body card-block">
+                    <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
+                                                 onclick='location.href = "index.php?gestion=panier"'></div>
+                    <div class="col-md-6 "><input type="submit" id="f_btn-action"
+                                                  class="btn btn-submit pos-btn-action" value="Valider"></div>
+                    <br>
+                </div>
+
+            </div>
+            </form>
+        </div>
+    </div>
+
+</div><!-- .content -->
 
 
 </div><!-- /#right-panel -->

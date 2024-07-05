@@ -144,7 +144,7 @@
                                 <td>{$produit->getPrixUnitaireHT()} €</td>
                                 <form action="index.php" method="post">
                                     <td>
-                                        <input type="text" name="prixVente"
+                                        <input type="number" name="prixVente"
                                                value="{sprintf('%.2f', $produit->getPrixUnitaireHT() * 1.357)}" min="0"
                                                size="5">€
                                     </td>

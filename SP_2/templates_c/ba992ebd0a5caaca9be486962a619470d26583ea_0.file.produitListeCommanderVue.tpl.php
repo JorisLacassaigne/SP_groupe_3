@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-07-03 12:23:14
+/* Smarty version 4.3.2, created on 2024-07-05 08:24:34
   from 'C:\laragon\www\SP_groupe_3\SP_2\mod_produit\vue\produitListeCommanderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_668542b255b793_57713946',
+  'unifunc' => 'content_6687adc2508b52_20274748',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba992ebd0a5caaca9be486962a619470d26583ea' => 
     array (
       0 => 'C:\\laragon\\www\\SP_groupe_3\\SP_2\\mod_produit\\vue\\produitListeCommanderVue.tpl',
-      1 => 1720009393,
+      1 => 1720167874,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_668542b255b793_57713946 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6687adc2508b52_20274748 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -191,7 +191,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
  €</td>
                                 <form action="index.php" method="post">
                                     <td>
-                                        <input type="text" name="prixVente"
+                                        <input type="number" name="prixVente"
                                                value="<?php echo sprintf('%.2f',$_smarty_tpl->tpl_vars['produit']->value->getPrixUnitaireHT()*1.357);?>
 " min="0"
                                                size="5">€

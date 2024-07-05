@@ -33,13 +33,14 @@ class PanierController
     {
         $panier = $this->oModele->getfichePanier();
 
-       $this->oModele->nomPrenomClient($panier);
+        $this->oModele->nomPrenomClient($panier);
+        $codec = $panier->getCodec();
 
-//        var_dump($panier->getNpc());
+        // ...
 
         $this->oVue->genererAffichageSauvegarde($panier);
-
     }
+
 
     public function ajouter()
     {
@@ -59,7 +60,6 @@ class PanierController
 
 }
 
-//numero			via ??? (auto_increment)
 //codev 			via $_SESSION['login']
 //codec 			via le npc
 //dateLivraison		via valeur A FAIRE

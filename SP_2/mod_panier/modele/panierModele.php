@@ -60,7 +60,7 @@ class PanierModele extends Modele
 
     public function nomPrenomClient(PanierTable $enCours)
     {
-        $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';
+        $sql = 'SELECT concat(codec, " - ", nom," ", prenom) AS npc FROM client';
 
         $idRequete = $this->executeRequete($sql);
 
@@ -68,44 +68,29 @@ class PanierModele extends Modele
         while ($npc = $idRequete->fetch(PDO::FETCH_ASSOC)) {
             $npctab[] = $npc['npc'];
         }
+        $codec = explode(" - ", $npctab[0])[0];
         $enCours->setNpc($npctab);
-//        var_dump($npctab);
+//        var_dump($codec);
 
-    }
-
-    public function nomPClient()
-    {
-        $sql = 'SELECT concat(nom," ", prenom) AS npc FROM client';
-
-        $idRequete = $this->executeRequete($sql);
-
-        $npctab = array();
-        while ($npc = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-            $npctab[] = $npc['npc'];
-        }
-//        var_dump($npctab);
-
-        $enCours=new ClientTable();
-        $enCours->setNom('nom');
-        $enCours->setPrenom('prenom');
-
-        return $enCours;
     }
 
     public function addCommande(PanierTable $uneCommande)
     {
-        $sql = 'INSERT INTO commande(numero, codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat) VALUES (?,?,?,?,?,?,?,?)';
+        $codec = $_POST['comboClient'];
+
+        $sql = "INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
+        VALUES (?, ?, ?, ?, ?, ?, 0)";
+
         $idRequete = $this->executeRequete($sql, [
-            $uneCommande->getNumero(),
-            $uneCommande->getCodev(),
+            $_SESSION['codev'],
+            $codec,
             $uneCommande->getCodec(),
             $uneCommande->getDateLivraison(),
             $uneCommande->getDateCommande(),
             $uneCommande->getTotalHT(),
-            $uneCommande->getTotalTVA(),
-            $uneCommande->getEtat(),
-
+            $uneCommande->getTotalTVA()
         ]);
+
         if ($idRequete) {
             ClientTable::setMessageSucces("Ajout effectué avec succès.");
         }
