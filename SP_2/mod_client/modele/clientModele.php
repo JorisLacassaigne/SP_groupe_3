@@ -53,11 +53,11 @@ class ClientModele extends Modele
         $sql = 'INSERT INTO client(nom, prenom, adresse, cp, ville, telephone, motdepasse, email) VALUES (?,?,?,?,?,?,?,?)';
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
+            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),
             $unClient->getTelephone(),
-            $unClient->getPrenom(),
             $unClient->getMotdepasse(),
             $unClient->getEmail(),
         ]);
@@ -70,17 +70,17 @@ class ClientModele extends Modele
     public function editClient(ClientTable $unClient)
     {
 
-        $sql = 'UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, premom = ?, motdepasse = ?, email = ? WHERE codec = ?';
+        $sql = 'UPDATE client SET nom = ?, prenom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, motdepasse = ?, email = ? WHERE codec = ?';
         $idRequete = $this->executeRequete($sql, [
             $unClient->getNom(),
+            $unClient->getPrenom(),
             $unClient->getAdresse(),
             $unClient->getCp(),
             $unClient->getVille(),
             $unClient->getTelephone(),
-            $unClient->getCodec(),
-            $unClient->getPrenom(),
             $unClient->getMotdepasse(),
             $unClient->getEmail(),
+            $unClient->getCodec(),
         ]);
         if ($idRequete) {
             ClientTable::setMessageSucces("Modification effectuée avec succès.");
