@@ -142,9 +142,9 @@
                                 <div class="card-body card-block">
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
-                                                commande :</label></div>
+                                                livraison :</label></div>
                                         <div class="col-md-7"><input class='form-control' type='date'
-                                                                     name='dateCommande' value='{$sevenDaysLater}'><br>
+                                                                     name='dateLivraison' value='{$sevenDaysLater}'><br>
                                         </div>
                                     </div>
 
@@ -183,7 +183,7 @@
                             <th>Référence</th>
                             <th>Désignation</th>
                             <th>Quantité</th>
-                            <th>prix</th>
+                            <th>Prix</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -199,12 +199,21 @@
                                     {$produit['quantitePanier']}
                                 </td>
                                 <td>
-                                    {$produit['prixVente']}
+                                    {$produit['quantitePanier']* $produit['prixVente']}
                                 </td>
                             </tr>
                         {/foreach}
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <td name="montantCommande" colspan="3">Montant de la commande :
+                                <input type='text' name='montantCommande'
+                                       value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3'
+                                       readonly> €
+                            </td>
+                        <tr>
                     </table>
+
 
 
                 </div>
@@ -212,7 +221,8 @@
                     <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
                                                  onclick='location.href = "index.php?gestion=panier"'></div>
                     <div class="col-md-6 "><input type="submit" id="f_btn-action"
-                                                  class="btn btn-submit pos-btn-action" value="Valider"></div>
+                                                  class="btn btn-submit pos-btn-action" value="Valider"
+                                                  onclick='location.href = "index.php?accueil"'></div>
                     <br>
                 </div>
 

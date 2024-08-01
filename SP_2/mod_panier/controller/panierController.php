@@ -36,7 +36,6 @@ class PanierController
         $this->oModele->nomPrenomClient($panier);
         $codec = $panier->getCodec();
 
-        // ...
 
         $this->oVue->genererAffichageSauvegarde($panier);
     }
@@ -52,12 +51,11 @@ class PanierController
 
         } else {
 
-            $this->oModele->addCommande($controleCommande);
+            $this->oModele->validerCommande($controleCommande);
 
             $this->lister();
         }
     }
-
 }
 
 //codev 			via $_SESSION['login']

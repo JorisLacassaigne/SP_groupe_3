@@ -107,7 +107,7 @@
                                 <!-- PLACER LA LISTE DES CLIENTS -->
                                 <thead>
                                 <tr>
-                                    <th>Code CLient</th>
+                                    <th>Code Client</th>
                                     <th>Nom</th>
                                     <th>Prenom</th>
                                     <th>Villes</th>

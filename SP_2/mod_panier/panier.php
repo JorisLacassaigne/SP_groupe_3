@@ -28,7 +28,6 @@ class Panier
 
                     $this->oController->ajouter();
                     break;
-
             }
         } else {
 //var_dump($_SESSION['panier']);
