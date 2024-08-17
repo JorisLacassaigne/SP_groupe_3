@@ -43,19 +43,20 @@ class PanierController
 
     public function ajouter()
     {
-        $controleCommande = new PanierTable($this->parametre);
+        $uneCommande = new PanierTable();
+        $uneCommande->setDateLivraison($_POST['dateLivraison']);
+        $uneCommande->setDateCommande($_POST['dateCommande']);
+        $uneCommande->setTotalHT($_POST['totalHT']);
+        $uneCommande->setTotalTVA($_POST['totalTVA']);
 
-        if ($controleCommande->getAutorisationBD() == false) {
-
-            $this->oVue->genererAffichageSauvegarde($controleCommande);
-
+        if ($uneCommande->getAutorisationBD() == false) {
+            $this->oVue->genererAffichageSauvegarde($uneCommande);
         } else {
-
-            $this->oModele->validerCommande($controleCommande);
-
+            $this->oModele->validerCommande($uneCommande);
             $this->lister();
         }
     }
+
 }
 
 //codev 			via $_SESSION['login']

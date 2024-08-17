@@ -86,8 +86,8 @@
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                    {$today = date("Y-m-d")}
-                    {$sevenDaysLater = date("Y-m-d", strtotime("+7 days"))}
+                    {$getDateCommande = date("Y-m-d")}
+                    {$getDateLivraison = date("Y-m-d", strtotime("+7 days"))}
 
                     {*                                        <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
                     {*                                        <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
@@ -106,7 +106,7 @@
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='dateCommande'
                                                                  readonly
-                                                                 value='{$today}'><br></div>
+                                                                 value='{$getDateCommande}'><br></div>
 
 
                                     <div class="col-md-5">
@@ -144,14 +144,14 @@
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
                                                 livraison :</label></div>
                                         <div class="col-md-7"><input class='form-control' type='date'
-                                                                     name='dateLivraison' value='{$sevenDaysLater}'><br>
+                                                                     name='dateLivraison' value='{$getDateLivraison}'><br>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Total
                                                 HT (en €) :</label></div>
-                                        <div class="col-md-7"><input class='form-control' type='text' name='totalHT'
+                                        <div class="col-md-7"><input class='form-control' type='number' name='totalHT'
                                                                      value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                      size='3' readonly><br></div>
                                     </div>
@@ -159,7 +159,7 @@
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">TVA (en
                                                 €) :</label></div>
-                                        <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
+                                        <div class="col-md-7"><input class='form-control' type='number' name='{$getTotalTVA}'
                                                                      value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                      size='3' readonly></div>
                                     </div>
@@ -207,7 +207,7 @@
                         <tfoot>
                         <tr>
                             <td name="montantCommande" colspan="3">Montant de la commande :
-                                <input type='text' name='montantCommande'
+                                <input type='number' name='montantCommande'
                                        value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3'
                                        readonly> €
                             </td>

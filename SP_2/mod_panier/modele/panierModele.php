@@ -81,8 +81,8 @@ class PanierModele extends Modele
 //        $codec = (int)$codec;
 //        var_dump($codec);
 
-        $sql = "INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
-            VALUES (?, 61, ?, ?, ?, ?, 0)";
+        $sql = 'INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
+            VALUES (?, 61, ?, ?, ?, ?, 0)';
 
         $idRequete = $this->executeRequete($sql, [
             $_SESSION['codev'],
@@ -92,9 +92,15 @@ class PanierModele extends Modele
             $uneCommande->getTotalHT(),
             $uneCommande->getTotalTVA()
         ]);
+        var_dump($uneCommande->getDateLivraison());
+        var_dump($uneCommande->getDateCommande());
+        var_dump($uneCommande->getTotalHT());
+        var_dump($uneCommande->getTotalTVA());
+
+        die();
 
         if ($idRequete) {
-            ClientTable::setMessageSucces("Ajout effectué avec succès.");
+            PanierTable::setMessageSucces("Ajout effectué avec succès.");
         }
     }
 
