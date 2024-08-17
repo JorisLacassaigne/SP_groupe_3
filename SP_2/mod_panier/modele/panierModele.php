@@ -92,12 +92,12 @@ class PanierModele extends Modele
             $uneCommande->getTotalHT(),
             $uneCommande->getTotalTVA()
         ]);
-        var_dump($uneCommande->getDateLivraison());
-        var_dump($uneCommande->getDateCommande());
-        var_dump($uneCommande->getTotalHT());
-        var_dump($uneCommande->getTotalTVA());
-
-        die();
+//        var_dump($uneCommande->getDateLivraison());
+//        var_dump($uneCommande->getDateCommande());
+//        var_dump($uneCommande->getTotalHT());
+//        var_dump($uneCommande->getTotalTVA());
+//
+//        die();
 
         if ($idRequete) {
             PanierTable::setMessageSucces("Ajout effectué avec succès.");

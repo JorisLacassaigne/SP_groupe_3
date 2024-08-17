@@ -159,7 +159,7 @@
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">TVA (en
                                                 €) :</label></div>
-                                        <div class="col-md-7"><input class='form-control' type='number' name='{$getTotalTVA}'
+                                        <div class="col-md-7"><input class='form-control' type='number' name='totalTVA'
                                                                      value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                      size='3' readonly></div>
                                     </div>
