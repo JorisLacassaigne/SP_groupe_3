@@ -49,14 +49,20 @@ class PanierController
         $uneCommande->setTotalHT($_POST['totalHT']);
         $uneCommande->setTotalTVA($_POST['totalTVA']);
 
+        $codec = $_POST['comboClient'];
+        $codec = explode(" - ", $codec)[0];
+        $codec = (int)$codec;
+        $uneCommande->setCodec($codec);
+//        var_dump($codec);
+//die();;
         if ($uneCommande->getAutorisationBD() == false) {
             $this->oVue->genererAffichageSauvegarde($uneCommande);
         } else {
             $this->oModele->validerCommande($uneCommande);
             $this->lister();
+            
         }
     }
-
 }
 
 //codev 			via $_SESSION['login']

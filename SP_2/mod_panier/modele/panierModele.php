@@ -76,17 +76,14 @@ class PanierModele extends Modele
 
     public function validerCommande(PanierTable $uneCommande)
     {
-//        $codec = $_POST['comboClient'];
-//        $codec = explode(" - ", $codec)[0];
-//        $codec = (int)$codec;
-//        var_dump($codec);
+        $codec = $uneCommande->getCodec();
 
         $sql = 'INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
-            VALUES (?, 61, ?, ?, ?, ?, 0)';
+            VALUES (?, ?, ?, ?, ?, ?, 0)';
 
         $idRequete = $this->executeRequete($sql, [
             $_SESSION['codev'],
-//            $codec,
+            $codec,
             $uneCommande->getDateLivraison(),
             $uneCommande->getDateCommande(),
             $uneCommande->getTotalHT(),
@@ -96,6 +93,7 @@ class PanierModele extends Modele
 //        var_dump($uneCommande->getDateCommande());
 //        var_dump($uneCommande->getTotalHT());
 //        var_dump($uneCommande->getTotalTVA());
+//        var_dump($uneCommande->getCodec());
 //
 //        die();
 

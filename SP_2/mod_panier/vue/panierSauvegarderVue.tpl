@@ -114,14 +114,14 @@
                                     </div>
                                     <div class="col-md-7">
                                         <select name="comboClient" class="form-control">
-                                            <option value=" - " class="form-control option" selected> --- Choisir ---
+                                            <option value="" class="form-control option" selected>--- Choisir ---
                                             </option>
                                             {foreach from=$npc item=$nom}
-                                                <option value="1"
+                                                <option value="{$nom}"
                                                         class="form-control option">{$nom}</option>
                                             {/foreach}
                                         </select>
-
+{*                                            <input type="submit" name="comboClient" value="{$uneCommande->getCodec()}">*}
                                         <br>
                                     </div>
 
@@ -144,7 +144,8 @@
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
                                                 livraison :</label></div>
                                         <div class="col-md-7"><input class='form-control' type='date'
-                                                                     name='dateLivraison' value='{$getDateLivraison}'><br>
+                                                                     name='dateLivraison'
+                                                                     value='{$getDateLivraison}'><br>
                                         </div>
                                     </div>
 
@@ -213,7 +214,6 @@
                             </td>
                         <tr>
                     </table>
-
 
 
                 </div>
