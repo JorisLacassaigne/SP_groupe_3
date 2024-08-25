@@ -13,20 +13,15 @@ try {
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-        $sql = "SELECT * FROM produit WHERE stock < 50";
+        $id = $_GET['reference'];
+
+        $sql = "Delete from produit where id=$id";
 
         $idRequete = $cnx->query($sql);
 
         if (!$idRequete){
             echo "Erreur : recupération de données impossible";
         }
-
-        while($row = $idRequete->fetch(PDO::FETCH_ASSOC)){
-
-            echo $row['reference'] . " ; " . $row['designation'] . " ; " . $row['quantite'] . " ; " . $row['descriptif'] . " ; " . $row['prixUnitaireHT'] . " ; " . $row['stock'];
-        }
-
-
 
     }else{
         echo "ACCES INTERDIT";
