@@ -60,7 +60,7 @@ class PanierController
         } else {
             $this->oModele->validerCommande($uneCommande);
             $this->lister();
-            
+
         }
     }
 }
