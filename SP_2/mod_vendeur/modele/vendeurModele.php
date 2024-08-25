@@ -101,7 +101,7 @@ Class VendeurModele extends Modele{
     }
 
     public function stat01(VendeurTable $enCours){
-        $sql ='SELECT SUM(total_ht) AS st01 FROM commande WHERE codev = ?';
+        $sql ='SELECT SUM(totalHT) AS st01 FROM commande WHERE codev = ?';
         $idRequete = $this->executeRequete($sql, [
             $this->parametre['codev'],
             ]);

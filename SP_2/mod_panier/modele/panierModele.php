@@ -74,25 +74,32 @@ class PanierModele extends Modele
 
     }
 
-    public function addCommande(PanierTable $uneCommande)
+    public function validerCommande(PanierTable $uneCommande)
     {
-        $codec = $_POST['comboClient'];
+        $codec = $uneCommande->getCodec();
 
-        $sql = "INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
-        VALUES (?, ?, ?, ?, ?, ?, 0)";
+        $sql = 'INSERT INTO commande (codev, codec, datelivraison, dateCommande, totalHT, totalTVA, etat)
+            VALUES (?, ?, ?, ?, ?, ?, 0)';
 
         $idRequete = $this->executeRequete($sql, [
             $_SESSION['codev'],
             $codec,
-            $uneCommande->getCodec(),
             $uneCommande->getDateLivraison(),
             $uneCommande->getDateCommande(),
             $uneCommande->getTotalHT(),
             $uneCommande->getTotalTVA()
         ]);
+//        var_dump($uneCommande->getDateLivraison());
+//        var_dump($uneCommande->getDateCommande());
+//        var_dump($uneCommande->getTotalHT());
+//        var_dump($uneCommande->getTotalTVA());
+//        var_dump($uneCommande->getCodec());
+//
+//        die();
 
         if ($idRequete) {
-            ClientTable::setMessageSucces("Ajout effectué avec succès.");
+            PanierTable::setMessageSucces("Ajout effectué avec succès.");
         }
     }
+
 }

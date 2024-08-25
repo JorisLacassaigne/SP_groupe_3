@@ -86,8 +86,8 @@
 
                     <input type="hidden" name="gestion" value="panier">
                     <input type="hidden" name="action" value="sauvegarder">
-                    {$today = date("Y-m-d")}
-                    {$sevenDaysLater = date("Y-m-d", strtotime("+7 days"))}
+                    {$getDateCommande = date("Y-m-d")}
+                    {$getDateLivraison = date("Y-m-d", strtotime("+7 days"))}
 
                     {*                                        <input type="hidden" name="codev" value="{$panier->getCodev()}">*}
                     {*                                        <input type="hidden" name="prenom" value="{$panier->getPrenom()}">*}
@@ -106,7 +106,7 @@
                                             commande :</label></div>
                                     <div class="col-md-7"><input class='form-control' type='date' name='dateCommande'
                                                                  readonly
-                                                                 value='{$today}'><br></div>
+                                                                 value='{$getDateCommande}'><br></div>
 
 
                                     <div class="col-md-5">
@@ -114,14 +114,14 @@
                                     </div>
                                     <div class="col-md-7">
                                         <select name="comboClient" class="form-control">
-                                            <option value=" - " class="form-control option" selected> --- Choisir ---
+                                            <option value="" class="form-control option" selected>--- Choisir ---
                                             </option>
                                             {foreach from=$npc item=$nom}
-                                                <option value="1"
+                                                <option value="{$nom}"
                                                         class="form-control option">{$nom}</option>
                                             {/foreach}
                                         </select>
-
+{*                                            <input type="submit" name="comboClient" value="{$uneCommande->getCodec()}">*}
                                         <br>
                                     </div>
 
@@ -142,16 +142,17 @@
                                 <div class="card-body card-block">
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Date de
-                                                commande :</label></div>
+                                                livraison :</label></div>
                                         <div class="col-md-7"><input class='form-control' type='date'
-                                                                     name='dateCommande' value='{$sevenDaysLater}'><br>
+                                                                     name='dateLivraison'
+                                                                     value='{$getDateLivraison}'><br>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">Total
                                                 HT (en €) :</label></div>
-                                        <div class="col-md-7"><input class='form-control' type='text' name='totalHT'
+                                        <div class="col-md-7"><input class='form-control' type='number' name='totalHT'
                                                                      value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} - {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                      size='3' readonly><br></div>
                                     </div>
@@ -159,7 +160,7 @@
                                     <div class="row">
                                         <div class="col-md-5"><label for="text-input" class="form-control-label">TVA (en
                                                 €) :</label></div>
-                                        <div class="col-md-7"><input class='form-control' type='text' name='PanierTable'
+                                        <div class="col-md-7"><input class='form-control' type='number' name='totalTVA'
                                                                      value='{sprintf('%.2f', {$smarty.session.sommeTotalPanier} / 5 )}'
                                                                      size='3' readonly></div>
                                     </div>
@@ -183,7 +184,7 @@
                             <th>Référence</th>
                             <th>Désignation</th>
                             <th>Quantité</th>
-                            <th>prix</th>
+                            <th>Prix</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -199,11 +200,19 @@
                                     {$produit['quantitePanier']}
                                 </td>
                                 <td>
-                                    {$produit['prixVente']}
+                                    {$produit['quantitePanier']* $produit['prixVente']}
                                 </td>
                             </tr>
                         {/foreach}
                         </tbody>
+                        <tfoot>
+                        <tr>
+                            <td name="montantCommande" colspan="3">Montant de la commande :
+                                <input type='number' name='montantCommande'
+                                       value="{sprintf('%.2f', {$smarty.session.sommeTotalPanier})}" size='3'
+                                       readonly> €
+                            </td>
+                        <tr>
                     </table>
 
 
@@ -212,7 +221,8 @@
                     <div class="col-md-6"><input type='button' class="btn btn-submit" value='Retour'
                                                  onclick='location.href = "index.php?gestion=panier"'></div>
                     <div class="col-md-6 "><input type="submit" id="f_btn-action"
-                                                  class="btn btn-submit pos-btn-action" value="Valider"></div>
+                                                  class="btn btn-submit pos-btn-action" value="Valider"
+                                                  onclick='location.href = "index.php?accueil"'></div>
                     <br>
                 </div>
 

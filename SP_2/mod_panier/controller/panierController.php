@@ -36,7 +36,6 @@ class PanierController
         $this->oModele->nomPrenomClient($panier);
         $codec = $panier->getCodec();
 
-        // ...
 
         $this->oVue->genererAffichageSauvegarde($panier);
     }
@@ -44,20 +43,26 @@ class PanierController
 
     public function ajouter()
     {
-        $controleCommande = new PanierTable($this->parametre);
+        $uneCommande = new PanierTable();
+        $uneCommande->setDateLivraison($_POST['dateLivraison']);
+        $uneCommande->setDateCommande($_POST['dateCommande']);
+        $uneCommande->setTotalHT($_POST['totalHT']);
+        $uneCommande->setTotalTVA($_POST['totalTVA']);
 
-        if ($controleCommande->getAutorisationBD() == false) {
-
-            $this->oVue->genererAffichageSauvegarde($controleCommande);
-
+        $codec = $_POST['comboClient'];
+        $codec = explode(" - ", $codec)[0];
+        $codec = (int)$codec;
+        $uneCommande->setCodec($codec);
+//        var_dump($codec);
+//die();;
+        if ($uneCommande->getAutorisationBD() == false) {
+            $this->oVue->genererAffichageSauvegarde($uneCommande);
         } else {
-
-            $this->oModele->addCommande($controleCommande);
-
+            $this->oModele->validerCommande($uneCommande);
             $this->lister();
+            
         }
     }
-
 }
 
 //codev 			via $_SESSION['login']

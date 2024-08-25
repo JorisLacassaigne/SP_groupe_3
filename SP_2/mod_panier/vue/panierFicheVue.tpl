@@ -185,7 +185,7 @@
                     <div class="col-md-6"><input type="button" class="btn btn-submit" value="Retour à la commande"
                                                  onclick="location.href='index.php?gestion=produit&action=listerProduits'">
                     </div>
-                    <div class="col-md-6"><input type="button" class="btn btn-submit" value="Sauvegarder"
+                    <div class="col-md-6"><input type="button" class="btn btn-submit pos-btn-action" value="Sauvegarder"
                                                  onclick="location.href='index.php?gestion=panier&action=panierSauvegarder'">
                     </div>
                 </div>
