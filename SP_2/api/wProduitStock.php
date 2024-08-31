@@ -4,7 +4,7 @@ try {
     if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'getProduits') {
         define('SERVEUR', 'localhost');
         define('BASE', 'seraphinparysfilrouge_');
-        define('NOM', 'root');
+        define('NOM', 'adminsp');
         define('PASSE', '');
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
