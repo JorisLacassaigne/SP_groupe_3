@@ -3,9 +3,10 @@
 try {
     if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'getProduits') {
         define('SERVEUR', 'localhost');
-        define('BASE', 'seraphinparysfilrouge_');
-        define('NOM', 'adminsp');
+        define('BASE', 'seraphinparysfilrouge_2');
+        define('NOM', 'root');
         define('PASSE', '');
+
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         $sql = "SELECT * FROM produit where quantite <= 50";
