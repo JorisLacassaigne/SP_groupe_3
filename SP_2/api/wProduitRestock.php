@@ -2,7 +2,7 @@
 try {
 
     // Interface de connexion avec Windev p
-    if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'azerty2QWERTY' ){
+    if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'putProduits' ){
 
         // Définir les infos de cnx
 

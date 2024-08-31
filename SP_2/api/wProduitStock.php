@@ -9,7 +9,7 @@ try {
 
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        $sql = "SELECT * FROM produit where quantite <= 50";
+        $sql = "SELECT * FROM produit where stock <= 50";
 
         $idRequete = $cnx->query($sql);
 
