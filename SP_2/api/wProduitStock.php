@@ -3,7 +3,7 @@
 try {
     if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'getProduits') {
         define('SERVEUR', 'localhost');
-        define('BASE', 'seraphinparysfilrouge_2');
+        define('BASE', 'seraphinparysfilrouge_');
         define('NOM', 'root');
         define('PASSE', '');
 
