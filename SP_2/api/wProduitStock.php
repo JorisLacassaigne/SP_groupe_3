@@ -21,7 +21,7 @@ try {
             echo $row['reference'] . ";" . $row['designation'] . ";" . $row['quantite'] . ";" . $row['descriptif'] . ";" . $row["prixUnitaireHT"] . ";" . $row["stock"] . ";" . $row["poidsPiece"] . " sep ";
         }
     } else {
-        echo "ACCES INTERDIT (texte vu par Lilian)";
+        echo "ACCES INTERDIT";
     }
 } catch (PDOException $e) {
     echo "Echec de connexion : " . $e->getMessage();
