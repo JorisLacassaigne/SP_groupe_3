@@ -2,7 +2,7 @@
 try {
 
     // Interface de connexion avec Windev p
-    if (isset($_POST['wDemande']) && $_POST['wDemande'] == 'putProduits' && $_POST['id'] ){
+    if ($_SERVER['REQUEST_METHOD'] === "POST"){
 
         // Définir les infos de cnx
 
