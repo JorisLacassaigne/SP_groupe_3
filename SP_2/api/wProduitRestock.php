@@ -2,7 +2,7 @@
 try {
 
     // Interface de connexion avec Windev p
-    if (isset($_GET['wDemande']) && $_GET['wDemande'] == 'putProduits' ){
+    if (isset($_POST['wDemande']) && $_POST['wDemande'] == 'putProduits' && $_POST['id'] ){
 
         // Définir les infos de cnx
 
@@ -13,9 +13,11 @@ try {
 
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-        $sql = "UPDATE produit SET stock = 120 WHERE reference = " . $_GET['id'];
-
-        $idRequete = $cnx->query($sql);
+        $sql = "UPDATE produit SET stock = ? WHERE reference = ?";
+        $stock = $_POST['stock'];
+        $id = $_POST['id'];
+        $idRequete = $cnx->prepare($sql);
+        $executed = $idRequete->execute([$stock,$id]);
 
         if (!$idRequete){
             echo "Erreur : recupération de données impossible";
