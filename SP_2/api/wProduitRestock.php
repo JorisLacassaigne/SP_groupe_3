@@ -14,9 +14,10 @@ try {
         $cnx = new PDO('mysql:host=' . SERVEUR . ';dbname=' . BASE, NOM, PASSE, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         $sql = "UPDATE produit SET stock = ? WHERE reference = ?";
+         $idRequete = $cnx->prepare($sql);
         $stock = $_POST['stock'];
         $id = $_POST['id'];
-        $idRequete = $cnx->prepare($sql);
+
         $executed = $idRequete->execute([$stock,$id]);
 
         if (!$idRequete){
