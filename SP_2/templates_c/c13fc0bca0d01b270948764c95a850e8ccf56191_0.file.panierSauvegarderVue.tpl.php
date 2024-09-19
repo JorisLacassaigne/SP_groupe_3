@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2024-08-17 13:25:53
+/* Smarty version 4.3.2, created on 2024-09-19 09:48:21
   from 'C:\Users\lilia\PhpstormProjects\SP_groupe_3\SP_2\mod_panier\vue\panierSauvegarderVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_66c0a4e1dc61c0_52032739',
+  'unifunc' => 'content_66ebf365690e87_48078454',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c13fc0bca0d01b270948764c95a850e8ccf56191' => 
     array (
       0 => 'C:\\Users\\lilia\\PhpstormProjects\\SP_groupe_3\\SP_2\\mod_panier\\vue\\panierSauvegarderVue.tpl',
-      1 => 1723901151,
+      1 => 1726739294,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_66c0a4e1dc61c0_52032739 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66ebf365690e87_48078454 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

@@ -36,6 +36,6 @@ class AccueilVue{
 
         $this->tpl->assign('tabBord', $tabBord);
 
-        $this->tpl->display('mod_accueil/vue/AccueilVue.tpl');
+        $this->tpl->display('mod_accueil/vue/accueilVue.tpl');
     }
 }
