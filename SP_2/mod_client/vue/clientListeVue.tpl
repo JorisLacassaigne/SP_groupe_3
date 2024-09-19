@@ -115,7 +115,7 @@
                                     <th>Consulter</th>
                                     <th>Modifier</th>
                                     <th>Supprimer</th>
-                                    <th>Commander</th>
+{*                                    <th>Commander</th>*}
 
                                 </tr>
                                 </thead>
@@ -154,15 +154,15 @@
                                                        src="public/images/icones/s32.png">
                                             </form>
                                         </td>
-                                        <td class="pos-actions">
-                                            <form method="POST" action="index.php">
-                                                <input type="hidden" name="gestion" value="client">
-                                                <input type="hidden" name="action" value="form_commander">
-                                                <input type="hidden" name="codec" value="{$client->getCodec()}">
-                                                <input type="image" name="btn_commander"
-                                                       src="public/images/icones/s32.png">
-                                            </form>
-                                        </td>
+{*                                        <td class="pos-actions">*}
+{*                                            <form method="POST" action="index.php">*}
+{*                                                <input type="hidden" name="gestion" value="client">*}
+{*                                                <input type="hidden" name="action" value="form_commander">*}
+{*                                                <input type="hidden" name="codec" value="{$client->getCodec()}">*}
+{*                                                <input type="image" name="btn_commander"*}
+{*                                                       src="public/images/icones/s32.png">*}
+{*                                            </form>*}
+{*                                        </td>*}
                                     </tr>
                                 {/foreach}
 

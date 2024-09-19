@@ -135,7 +135,7 @@
                                                 <input type="hidden" name="gestion" value="commande">
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="numero" value="{$commande["commande"]->getNumero()}">
-                                                <input type="image" name="btn_modifier" src="public/images/icones/s32.png">
+                                                <input type="image" name="btn_modifier" src="public/images/icones/m32.png">
                                             </form>
                                         {/if}
 
